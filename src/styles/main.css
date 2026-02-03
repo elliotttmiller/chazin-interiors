@@ -3,7 +3,8 @@
     --charcoal: #1A1A1A;
     --gold: #C5A059;
     --taupe: #F5F2ED;
-    --glass: rgba(253, 253, 253, 0.7);
+    /* softer translucent overlay for header/backdrops */
+    --glass: rgba(253, 253, 253, 0.6);
     --transition-smooth: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
     --tectonic-gap: 4rem;
 }
@@ -114,17 +115,19 @@ header {
     justify-content: space-between;
     align-items: center;
     transition: var(--transition-smooth);
-    background: rgba(255, 255, 255, 0.95);
+    /* slightly more translucent for a softer visual effect */
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
 }
 
 header.scrolled {
     padding: 1rem 5rem;
     background: var(--glass);
     backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    /* soften the scrolled state border and shadow */
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.035);
 }
 
 .logo {
