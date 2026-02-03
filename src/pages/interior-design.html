@@ -40,21 +40,23 @@
     <div id="cursor-follower" aria-hidden="true"></div>
 
     <header id="header" role="banner">
-        <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
-        <nav id="main-nav" aria-label="Main navigation">
-            <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/src/pages/interior-design.html" aria-current="page">Interior Design</a></li>
-                <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
-                <li><a href="/src/pages/showroom.html">The Showroom</a></li>
-            </ul>
-        </nav>
-        <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
-        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="site-header-inner">
+            <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
+            <nav id="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/src/pages/interior-design.html" aria-current="page">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
+                </ul>
+            </nav>
+            <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
 
     <!-- Mobile Navigation Overlay -->
@@ -89,26 +91,31 @@
                      fetchpriority="high">
             </div>
             <div class="hero-content">
-                <span class="mono" style="margin-bottom: 1rem; display: block;">Full-Service Design</span>
+                <span class="mono">Full-Service Design</span>
                 <h1 class="hero-title" id="hero-title">Interior Design That Speaks.</h1>
-                <p style="max-width: 500px; margin: 0 auto; font-size: 1.1rem; font-weight: 300;">From blueprint to finishing touches, we create residential spaces that balance function, beauty, and your unique lifestyle.</p>
+                <p>From blueprint to finishing touches, we create residential spaces that balance function, beauty, and your unique lifestyle.</p>
             </div>
-        <!-- footer moved to end of document -->
+        </section>
+
+        <!-- Portfolio Gallery -->
+        <section class="reveal gallery-section">
+            <div class="portfolio-masonry">
+                <figure class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6f3ea?auto=format&fit=crop&q=80&w=800" 
                          alt="Spa-like bathroom design" 
                          loading="lazy">
-                    <figcaption style="padding: 1.5rem; background: white;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Spa Bath Retreat</h3>
-                        <p style="color: #999; font-size: 0.9rem;">Primary bath renovation</p>
+                    <figcaption>
+                        <h3>Spa Bath Retreat</h3>
+                        <p>Primary bath renovation</p>
                     </figcaption>
                 </figure>
                 <figure class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=800" 
                          alt="Open concept living space" 
                          loading="lazy">
-                    <figcaption style="padding: 1.5rem; background: white;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Modern Farmhouse</h3>
-                        <p style="color: #999; font-size: 0.9rem;">Open-plan living redesign</p>
+                    <figcaption>
+                        <h3>Modern Farmhouse</h3>
+                        <p>Open-plan living redesign</p>
                     </figcaption>
                 </figure>
             </div>
@@ -116,9 +123,9 @@
 
         <!-- Testimonial -->
         <section style="background: var(--taupe); text-align: center;" class="reveal">
-            <blockquote style="max-width: 900px; margin: 0 auto;">
-                <p style="font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1.5; margin-bottom: 2rem; font-style: italic;">"Chazin didn't just redesign our home—they reimagined how we live in it. Every room feels intentional, serene, and unmistakably ours."</p>
-                <footer style="font-size: 0.9rem; color: #666;">
+            <blockquote class="testimonial">
+                <p>"Chazin didn't just redesign our home—they reimagined how we live in it. Every room feels intentional, serene, and unmistakably ours."</p>
+                <footer>
                     <span style="font-weight: 500; color: var(--charcoal);">— Sarah & Michael T.</span><br>
                     Lake Minnetonka Residence
                 </footer>
@@ -127,18 +134,18 @@
 
         <!-- CTA Section -->
         <section style="text-align: center;" class="reveal">
-            <span class="mono" style="color: var(--gold); margin-bottom: 2rem; display: block;">Ready to Begin?</span>
-            <h2 style="font-size: 4rem; margin-bottom: 2rem; line-height: 1.1;">Let's Create Your Dream Space.</h2>
+            <span class="mono" style="margin-bottom: 2rem; display: block;">Ready to Begin?</span>
+            <h2>Let's Create Your Dream Space.</h2>
             <p style="max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.1rem; color: #666;">Schedule a complimentary consultation to discuss your project, timeline, and vision.</p>
-            <a href="/index.html#contact" class="cta-pill magnetic" style="font-size: 1rem; padding: 1.2rem 3rem;">Book Consultation</a>
+            <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4rem; padding: 3rem 8rem;">
+        <div class="footer-grid">
             <!-- Brand & Social -->
             <div>
-                <div class="logo footer-logo" aria-label="Chazin Interiors" style="font-size: 1.1rem; line-height: 1.2; margin-bottom: 1.5rem;">CHAZIN INTERIORS</div>
+                <div class="logo footer-logo" aria-label="Chazin Interiors">CHAZIN INTERIORS</div>
                 <div style="display: flex; gap: 0.6rem; align-items: center;">
                     <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style="color: white; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -157,17 +164,17 @@
             
             <!-- Navigation -->
             <nav aria-label="Footer navigation">
-                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Explore</h4>
-                <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 2.5rem; flex-wrap: wrap;">
-                    <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
-                    <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
-                    <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
                 </ul>
             </nav>
             
             <!-- Location & Contact -->
             <div>
-                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Visit Us</h4>
+                <h4>Visit Us</h4>
                 <address style="font-style: normal; font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
                     <p style="margin: 0;">1250 Wayzata Blvd, E</p>
                     <p style="margin: 0 0 1rem 0;">Wayzata, MN 55391</p>
@@ -177,7 +184,7 @@
             
             <!-- Hours -->
             <div>
-                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Hours</h4>
+                <h4>Hours</h4>
                 <div style="font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
                     <p style="margin: 0;">Mon – Sat: 10am – 5pm</p>
                     <p style="margin: 0;">Sunday: Closed</p>
@@ -186,8 +193,8 @@
         </div>
         
         <!-- Footer Bottom: Copyright -->
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 8rem; text-align: center;">
-            <p style="font-size: 0.7rem; opacity: 0.5; margin: 0;">© 2026 Chazin Interiors. All rights reserved.</p>
+        <div class="footer-bottom">
+            <p>© 2026 Chazin Interiors. All rights reserved.</p>
         </div>
     </footer>
 

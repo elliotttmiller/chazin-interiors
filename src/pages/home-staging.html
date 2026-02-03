@@ -37,21 +37,23 @@
     <div id="cursor-follower" aria-hidden="true"></div>
 
     <header id="header" role="banner">
-        <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
-        <nav id="main-nav" aria-label="Main navigation">
-            <ul>
-                <li><a href="/index.html">Home</a></li>
-                <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
-                <li><a href="/src/pages/home-staging.html" aria-current="page">Home Staging</a></li>
-                <li><a href="/src/pages/showroom.html">The Showroom</a></li>
-            </ul>
-        </nav>
-        <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
-        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
+        <div class="site-header-inner">
+            <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
+            <nav id="main-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html" aria-current="page">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
+                </ul>
+            </nav>
+            <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
     </header>
 
     <!-- Mobile Navigation Overlay -->
@@ -78,21 +80,23 @@
 
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero" aria-label="Home Staging hero" style="position: relative; height: 100vh; background: #d4c5b0;">
-            <div class="hero-video-wrap" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1;">
+        <section class="hero" aria-label="Home Staging hero">
+            <div class="hero-video-wrap">
                 <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000" 
                      alt="Professionally staged living room for real estate sale" 
                      loading="eager" 
-                     fetchpriority="high"
-                     style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.9);">
+                     fetchpriority="high">
             </div>
-            <div class="hero-content" style="position: relative; z-index: 2;">
-                <span class="mono" style="margin-bottom: 1rem; display: block;">Real Estate Staging</span>
+            <div class="hero-content">
+                <span class="mono">Real Estate Staging</span>
                 <h1 class="hero-title" id="hero-title">Stage to Sell.</h1>
-                <p style="max-width: 500px; margin: 0 auto; font-size: 1.1rem; font-weight: 300;">Strategic staging that creates emotional connections, elevates perceived value, and sells properties faster.</p>
+                <p>Strategic staging that creates emotional connections, elevates perceived value, and sells properties faster.</p>
             </div>
-        <!-- footer moved to end of document -->
-                </article>
+        </section>
+
+        <!-- Services Section -->
+        <section class="reveal services-grid-section">
+            <div class="services-grid">
                 <article class="service-card" style="height: 500px;">
                     <img src="/src/assets/images/portfolio_2.png" 
                          class="service-img" 
@@ -170,9 +174,9 @@
 
         <!-- Testimonial -->
         <section style="background: var(--taupe); text-align: center;" class="reveal">
-            <blockquote style="max-width: 900px; margin: 0 auto;">
-                <p style="font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1.5; margin-bottom: 2rem; font-style: italic;">"We had the property listed for 6 months with no offers. Chazin staged it, and we had 3 offers within a week. The ROI was incredible."</p>
-                <footer style="font-size: 0.9rem; color: #666;">
+            <blockquote class="testimonial">
+                <p>"We had the property listed for 6 months with no offers. Chazin staged it, and we had 3 offers within a week. The ROI was incredible."</p>
+                <footer>
                     <span style="font-weight: 500; color: var(--charcoal);">— Jennifer L., Realtor</span><br>
                     Edina Realty
                 </footer>
@@ -181,18 +185,18 @@
 
         <!-- CTA Section -->
         <section style="text-align: center;" class="reveal">
-            <span class="mono" style="color: var(--gold); margin-bottom: 2rem; display: block;">For Homeowners & Realtors</span>
-            <h2 style="font-size: 4rem; margin-bottom: 2rem;">Let's Get Your Property Sold.</h2>
+            <span class="mono" style="margin-bottom: 2rem; display: block;">For Homeowners & Realtors</span>
+            <h2>Let's Get Your Property Sold.</h2>
             <p style="max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.1rem; color: #666;">Contact us for a complimentary staging consultation and proposal.</p>
-            <a href="/index.html#contact" class="cta-pill magnetic" style="font-size: 1rem; padding: 1.2rem 3rem;">Request Consultation</a>
+            <a href="/index.html#contact" class="cta-pill magnetic">Request Consultation</a>
         </section>
     </main>
 
     <footer role="contentinfo">
-        <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4rem; padding: 3rem 8rem;">
+        <div class="footer-grid">
             <!-- Brand & Social -->
             <div>
-                <div class="logo footer-logo" aria-label="Chazin Interiors" style="font-size: 1.1rem; line-height: 1.2; margin-bottom: 1.5rem;">CHAZIN INTERIORS</div>
+                <div class="logo footer-logo" aria-label="Chazin Interiors">CHAZIN INTERIORS</div>
                 <div style="display: flex; gap: 0.6rem; align-items: center;">
                     <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style="color: white; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -211,17 +215,17 @@
             
             <!-- Navigation -->
             <nav aria-label="Footer navigation">
-                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Explore</h4>
-                <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 2.5rem; flex-wrap: wrap;">
-                    <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
-                    <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
-                    <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
                 </ul>
             </nav>
             
             <!-- Location & Contact -->
             <div>
-                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Visit Us</h4>
+                <h4>Visit Us</h4>
                 <address style="font-style: normal; font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
                     <p style="margin: 0;">1250 Wayzata Blvd, E</p>
                     <p style="margin: 0 0 1rem 0;">Wayzata, MN 55391</p>
@@ -231,7 +235,7 @@
             
             <!-- Hours -->
             <div>
-                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Hours</h4>
+                <h4>Hours</h4>
                 <div style="font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
                     <p style="margin: 0;">Mon – Sat: 10am – 5pm</p>
                     <p style="margin: 0;">Sunday: Closed</p>
@@ -240,8 +244,8 @@
         </div>
         
         <!-- Footer Bottom: Copyright -->
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 8rem; text-align: center;">
-            <p style="font-size: 0.7rem; opacity: 0.5; margin: 0;">© 2026 Chazin Interiors. All rights reserved.</p>
+        <div class="footer-bottom">
+            <p>© 2026 Chazin Interiors. All rights reserved.</p>
         </div>
     </footer>
 

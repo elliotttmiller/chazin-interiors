@@ -2,6 +2,56 @@
 // Extracted from inline scripts in index.html for modularization and build tooling.
 
 document.addEventListener('DOMContentLoaded', () => {
+  // Mobile Menu Toggle
+  const menuToggle = document.querySelector('.mobile-menu-toggle');
+  const menuOverlay = document.querySelector('.mobile-nav-overlay');
+  const menuClose = document.querySelector('.mobile-nav-close');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+  
+  const openMobileMenu = () => {
+    if (menuOverlay) {
+      menuOverlay.classList.add('active');
+      if (menuToggle) {
+        menuToggle.classList.add('active');
+        menuToggle.setAttribute('aria-expanded', 'true');
+      }
+      document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
+  };
+  
+  const closeMobileMenu = () => {
+    if (menuOverlay) {
+      menuOverlay.classList.remove('active');
+      if (menuToggle) {
+        menuToggle.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      }
+      document.body.style.overflow = ''; // Restore scroll
+    }
+  };
+  
+  // Open menu
+  if (menuToggle) {
+    menuToggle.addEventListener('click', openMobileMenu);
+  }
+  
+  // Close menu
+  if (menuClose) {
+    menuClose.addEventListener('click', closeMobileMenu);
+  }
+  
+  // Close menu when clicking nav links
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+  
+  // Close menu on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menuOverlay && menuOverlay.classList.contains('active')) {
+      closeMobileMenu();
+    }
+  });
+  
   // Custom Cursor Logic with RequestAnimationFrame for smooth tracking
   const cursor = document.getElementById('cursor');
   const follower = document.getElementById('cursor-follower');
