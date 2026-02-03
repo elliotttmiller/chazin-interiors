@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design Journal | CHAZIN</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/src/styles/main.css">
+    
+    <meta name="description" content="CHAZIN's design journal featuring interior design insights, project stories, trend analysis, and design philosophy from Minneapolis and Wayzata.">
+    <meta name="keywords" content="design blog, interior design journal, Minneapolis design, luxury interiors, design trends">
+    
+    <meta property="og:title" content="Design Journal | CHAZIN">
+    <meta property="og:description" content="Stories, insights, and inspiration from our design studio.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.example/journal.html">
+    <meta property="og:image" content="https://yourdomain.example/og-image.jpg">
+    
+    <link rel="canonical" href="https://yourdomain.example/journal.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <svg class="grain-overlay" aria-hidden="true">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
+
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="cursor-follower" aria-hidden="true"></div>
+
+    <header id="header" role="banner">
+        <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
+                <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
+                <li><a href="/src/pages/showroom.html">The Showroom</a></li>
+                <li><a href="/src/pages/journal.html" aria-current="page">Journal</a></li>
+            </ul>
+        </nav>
+        <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" style="height: 60vh;" aria-label="Journal hero">
+            <div class="hero-video-wrap">
+                <img src="https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?auto=format&fit=crop&q=80&w=2000" 
+                     alt="Design journal workspace with sketches and materials" 
+                     loading="eager" 
+                     fetchpriority="high">
+            </div>
+            <div class="hero-content">
+                <span class="mono" style="margin-bottom: 1rem; display: block;">The CHAZIN Journal</span>
+                <h1 class="hero-title" id="hero-title" style="font-size: 5rem;">Stories & Insights.</h1>
+                <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-weight: 300;">Design philosophy, project diaries, and the ideas shaping our work.</p>
+            </div>
+        </section>
+
+        <!-- Category Filter -->
+        <section style="padding: 4rem 4rem 2rem 4rem; max-width: 1400px; margin: 0 auto;">
+            <nav aria-label="Post categories">
+                <ul style="list-style: none; display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                    <li><a href="#all" class="mono" style="color: var(--gold); border-bottom: 2px solid var(--gold); padding-bottom: 0.5rem; text-decoration: none;">All</a></li>
+                    <li><a href="#projects" class="mono" style="color: var(--charcoal); text-decoration: none; padding-bottom: 0.5rem; transition: var(--transition-smooth);">Projects</a></li>
+                    <li><a href="#process" class="mono" style="color: var(--charcoal); text-decoration: none; padding-bottom: 0.5rem; transition: var(--transition-smooth);">Process</a></li>
+                    <li><a href="#trends" class="mono" style="color: var(--charcoal); text-decoration: none; padding-bottom: 0.5rem; transition: var(--transition-smooth);">Trends</a></li>
+                    <li><a href="#products" class="mono" style="color: var(--charcoal); text-decoration: none; padding-bottom: 0.5rem; transition: var(--transition-smooth);">Products</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <!-- Featured Post -->
+        <article style="padding: 4rem 4rem 8rem 4rem; max-width: 1400px; margin: 0 auto;" class="reveal">
+            <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center;">
+                <a href="#" style="display: block; position: relative; overflow: hidden; height: 600px;">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1400" 
+                         alt="Featured: Lake Minnetonka modern estate" 
+                         loading="lazy"
+                         style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+                </a>
+                <div>
+                    <span class="mono" style="color: var(--gold); display: block; margin-bottom: 1rem;">Featured / Projects</span>
+                    <h2 style="font-size: 3.5rem; margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; line-height: 1.1;">
+                        <a href="#" style="color: var(--charcoal); text-decoration: none;">Lakeside Minimalism: A Modern Estate on Minnetonka</a>
+                    </h2>
+                    <p style="font-size: 1.2rem; color: #666; margin-bottom: 2rem; line-height: 1.7;">How we balanced panoramic lake views with cozy, livable interiors for a young family's 8,000 sq ft retreat.</p>
+                    <div style="display: flex; gap: 2rem; align-items: center; margin-bottom: 2rem; color: #999; font-size: 0.9rem;">
+                        <span class="mono">12 Min Read</span>
+                        <span class="mono">January 15, 2025</span>
+                    </div>
+                    <a href="#" class="cta-pill magnetic">Read Full Story</a>
+                </div>
+            </div>
+        </article>
+
+        <!-- Posts Grid -->
+        <section style="padding: 4rem 4rem 8rem 4rem; background: var(--taupe);" aria-labelledby="recent-posts-heading">
+            <h2 id="recent-posts-heading" class="section-label mono" style="text-align: center; margin-bottom: 4rem;">Recent Posts</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1400px; margin: 0 auto;">
+                
+                <!-- Post 1 -->
+                <article class="reveal" style="background: white;">
+                    <a href="#" style="display: block; position: relative; overflow: hidden; height: 350px;">
+                        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800" 
+                             alt="Fabric swatches and material selection" 
+                             loading="lazy"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+                    </a>
+                    <div style="padding: 2rem;">
+                        <span class="mono" style="color: var(--gold); font-size: 0.8rem; display: block; margin-bottom: 1rem;">Process</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">
+                            <a href="#" style="color: var(--charcoal); text-decoration: none;">The Art of Fabric Selection: Balancing Beauty and Durability</a>
+                        </h3>
+                        <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">How we choose upholstery that stands the test of time—and toddlers.</p>
+                        <div style="display: flex; gap: 1.5rem; color: #999; font-size: 0.85rem;">
+                            <span class="mono">8 Min Read</span>
+                            <time datetime="2025-01-10" class="mono">Jan 10</time>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="reveal" style="background: white;">
+                    <a href="#" style="display: block; position: relative; overflow: hidden; height: 350px;">
+                        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" 
+                             alt="Curved contemporary furniture in neutral palette" 
+                             loading="lazy"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+                    </a>
+                    <div style="padding: 2rem;">
+                        <span class="mono" style="color: var(--gold); font-size: 0.8rem; display: block; margin-bottom: 1rem;">Trends</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">
+                            <a href="#" style="color: var(--charcoal); text-decoration: none;">The Return of Curves: Why Organic Shapes Are Dominating 2025</a>
+                        </h3>
+                        <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">A shift away from hard edges toward sculptural, biomorphic forms.</p>
+                        <div style="display: flex; gap: 1.5rem; color: #999; font-size: 0.85rem;">
+                            <span class="mono">6 Min Read</span>
+                            <time datetime="2025-01-08" class="mono">Jan 8</time>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="reveal" style="background: white;">
+                    <a href="#" style="display: block; position: relative; overflow: hidden; height: 350px;">
+                        <img src="https://images.unsplash.com/photo-1600607687644-c7171bb3e29b?auto=format&fit=crop&q=80&w=800" 
+                             alt="Design sketches and floor plans" 
+                             loading="lazy"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+                    </a>
+                    <div style="padding: 2rem;">
+                        <span class="mono" style="color: var(--gold); font-size: 0.8rem; display: block; margin-bottom: 1rem;">Projects</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">
+                            <a href="#" style="color: var(--charcoal); text-decoration: none;">Behind the Design: Transforming a 1920s Tudor into a Modern Sanctuary</a>
+                        </h3>
+                        <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">Honoring original architecture while introducing contemporary comforts.</p>
+                        <div style="display: flex; gap: 1.5rem; color: #999; font-size: 0.85rem;">
+                            <span class="mono">10 Min Read</span>
+                            <time datetime="2025-01-05" class="mono">Jan 5</time>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="reveal" style="background: white;">
+                    <a href="#" style="display: block; position: relative; overflow: hidden; height: 350px;">
+                        <img src="https://images.unsplash.com/photo-1556912173-46c336c7fd55?auto=format&fit=crop&q=80&w=800" 
+                             alt="Designer lighting fixtures" 
+                             loading="lazy"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+                    </a>
+                    <div style="padding: 2rem;">
+                        <span class="mono" style="color: var(--gold); font-size: 0.8rem; display: block; margin-bottom: 1rem;">Products</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">
+                            <a href="#" style="color: var(--charcoal); text-decoration: none;">Lighting as Sculpture: Our Favorite Statement Fixtures</a>
+                        </h3>
+                        <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">Chandeliers, pendants, and sconces that double as art installations.</p>
+                        <div style="display: flex; gap: 1.5rem; color: #999; font-size: 0.85rem;">
+                            <span class="mono">5 Min Read</span>
+                            <time datetime="2025-01-02" class="mono">Jan 2</time>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 5 -->
+                <article class="reveal" style="background: white;">
+                    <a href="#" style="display: block; position: relative; overflow: hidden; height: 350px;">
+                        <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=800" 
+                             alt="Open concept living space" 
+                             loading="lazy"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+                    </a>
+                    <div style="padding: 2rem;">
+                        <span class="mono" style="color: var(--gold); font-size: 0.8rem; display: block; margin-bottom: 1rem;">Process</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">
+                            <a href="#" style="color: var(--charcoal); text-decoration: none;">Space Planning 101: How We Design for Flow and Function</a>
+                        </h3>
+                        <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">The science and intuition behind furniture layouts that work.</p>
+                        <div style="display: flex; gap: 1.5rem; color: #999; font-size: 0.85rem;">
+                            <span class="mono">9 Min Read</span>
+                            <time datetime="2024-12-28" class="mono">Dec 28</time>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 6 -->
+                <article class="reveal" style="background: white;">
+                    <a href="#" style="display: block; position: relative; overflow: hidden; height: 350px;">
+                        <img src="https://images.unsplash.com/photo-1600585154526-990dcea4db0d?auto=format&fit=crop&q=80&w=800" 
+                             alt="Natural wood textures and materials" 
+                             loading="lazy"
+                             style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;">
+                    </a>
+                    <div style="padding: 2rem;">
+                        <span class="mono" style="color: var(--gold); font-size: 0.8rem; display: block; margin-bottom: 1rem;">Trends</span>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; line-height: 1.3;">
+                            <a href="#" style="color: var(--charcoal); text-decoration: none;">Warmth Over Minimalism: The New Hygge-Inspired Luxury</a>
+                        </h3>
+                        <p style="color: #666; margin-bottom: 1.5rem; line-height: 1.6;">Why tactile materials and layered textures are replacing stark white spaces.</p>
+                        <div style="display: flex; gap: 1.5rem; color: #999; font-size: 0.85rem;">
+                            <span class="mono">7 Min Read</span>
+                            <time datetime="2024-12-22" class="mono">Dec 22</time>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Newsletter CTA -->
+        <section style="padding: 10rem 4rem; text-align: center; background: var(--charcoal); color: white;" class="reveal">
+            <span class="mono" style="color: var(--gold); margin-bottom: 2rem; display: block;">Stay Inspired</span>
+            <h2 style="font-size: 4rem; margin-bottom: 2rem;">Join Our Design List.</h2>
+            <p style="max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.1rem; color: rgba(255,255,255,0.7);">Monthly design insights, project spotlights, and exclusive showroom previews delivered to your inbox.</p>
+            <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 1rem;" aria-label="Newsletter subscription" action="#" method="post">
+                <label for="journal-newsletter-email" class="visually-hidden">Email address</label>
+                <input type="email" 
+                       id="journal-newsletter-email" 
+                       name="email" 
+                       placeholder="Your email address" 
+                       style="flex: 1; padding: 1rem 1.5rem; border: 1px solid rgba(255,255,255,0.2); background: transparent; color: white; font-size: 1rem;"
+                       required
+                       aria-label="Email address for newsletter">
+                <button type="submit" class="cta-pill magnetic" style="background: var(--gold); color: var(--charcoal); padding: 1rem 2.5rem;">Subscribe</button>
+            </form>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-grid" style="grid-template-columns: 1fr 2fr; gap: 4rem; padding: 2.5rem 4rem;">
+            <div>
+                <div class="logo footer-logo" aria-label="Chazin Interiors" style="font-size: 1.1rem; line-height: 1.2; margin-bottom: 1rem;">CHAZIN INTERIORS</div>
+                <div style="display: flex; gap: 0.4rem; align-items: center; margin-bottom: 1.5rem;">
+                    <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="tel:+19529350300" aria-label="Call us at (952) 935-0300" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div style="opacity: 0.7; font-size: 0.8rem; line-height: 1.6; max-width: 280px;">
+                    <p style="margin: 0 0 0.5rem 0; font-weight: 500;">1250 Wayzata Boulevard East</p>
+                    <p style="margin: 0 0 1rem 0;">Wayzata, MN 55391</p>
+                    <p style="margin: 0;"><a href="tel:+19529350300" style="color: white; text-decoration: none; transition: opacity 0.3s;">(952) 935-0300</a></p>
+                </div>
+                <form style="margin-top: 1.5rem;" aria-label="Newsletter signup" action="#" method="post">
+                    <label for="newsletter-email" class="visually-hidden">Email address</label>
+                    <input type="email" 
+                           id="newsletter-email" 
+                           name="email" 
+                           placeholder="Join our design list" 
+                           style="border-bottom: 1px solid rgba(255,255,255,0.2); color: white; width: 250px; font-size: 0.9rem;"
+                           aria-label="Email address for newsletter">
+                </form>
+            </div>
+            <nav aria-label="Footer navigation" style="display: flex; align-items: flex-start; padding-top: 0.3rem;">
+                <ul style="list-style: none; opacity: 0.8; display: flex; gap: 1.8rem; flex-wrap: wrap;">
+                    <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
+                    <li><a href="/src/pages/journal.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Journal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+    <noscript>
+        <style> .hero-title { opacity: 1; transform: none; } </style>
+    </noscript>
+</body>
+</html>

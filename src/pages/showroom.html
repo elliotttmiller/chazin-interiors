@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Showroom | CHAZIN</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/src/styles/main.css">
+    
+    <meta name="description" content="Visit CHAZIN's luxury furniture showroom in Wayzata. Experience curated collections from Roche Bobois, Minotti, B&B Italia, and more.">
+    <meta name="keywords" content="furniture showroom, luxury furniture, Wayzata, Minneapolis, Roche Bobois, Minotti, designer furniture">
+    
+    <meta property="og:title" content="The Showroom | CHAZIN">
+    <meta property="og:description" content="3,000 sq ft of curated luxury furniture and design inspiration in Wayzata.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.example/showroom.html">
+    <meta property="og:image" content="https://yourdomain.example/og-image.jpg">
+    
+    <link rel="canonical" href="https://yourdomain.example/showroom.html">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <svg class="grain-overlay" aria-hidden="true">
+        <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#noiseFilter)"/>
+    </svg>
+
+    <div id="cursor" aria-hidden="true"></div>
+    <div id="cursor-follower" aria-hidden="true"></div>
+
+    <header id="header" role="banner">
+        <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
+        <nav aria-label="Main navigation">
+            <ul>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
+                <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
+                <li><a href="/src/pages/showroom.html" aria-current="page">The Showroom</a></li>
+                <li><a href="/src/pages/journal.html">Journal</a></li>
+            </ul>
+        </nav>
+        <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" aria-label="Showroom hero">
+            <div class="hero-video-wrap">
+                <img src="https://images.unsplash.com/photo-1618219740975-d40978bb7378?auto=format&fit=crop&q=80&w=2000" 
+                     alt="CHAZIN luxury furniture showroom interior" 
+                     loading="eager" 
+                     fetchpriority="high">
+            </div>
+            <div class="hero-content">
+                <span class="mono" style="margin-bottom: 1rem; display: block;">3,000 SQ FT in Wayzata</span>
+                <h1 class="hero-title" id="hero-title">Experience. Touch. Discover.</h1>
+                <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-weight: 300;">A curated sanctuary of the world's finest furniture, textiles, and design objects.</p>
+            </div>
+        </section>
+
+        <!-- Introduction -->
+        <section style="padding: 8rem 4rem; max-width: 900px; margin: 0 auto; text-align: center;" class="reveal">
+            <span class="section-label mono">The Showroom</span>
+            <h2 style="font-size: 3.5rem; margin-bottom: 2rem; line-height: 1.2;">Where Artistry<br>Meets Function.</h2>
+            <p style="font-size: 1.2rem; color: #666; line-height: 1.8;">Our showroom is more than a retail space—it's an immersive design laboratory where clients can touch materials, test seating ergonomics, and experience how lighting transforms mood. We represent only the brands we trust implicitly.</p>
+        </section>
+
+        <!-- Brand Partners Grid -->
+        <section style="padding: 6rem 4rem; background: var(--taupe);" class="reveal" aria-labelledby="partners-heading">
+            <h2 id="partners-heading" class="section-label mono" style="text-align: center; margin-bottom: 4rem;">Featured Brand Partners</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1200px; margin: 0 auto;">
+                <article style="text-align: center; padding: 3rem 2rem; background: white;">
+                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Roche Bobois</span>
+                    </div>
+                    <p style="color: #666;">French luxury furniture and haute couture design since 1960.</p>
+                </article>
+                <article style="text-align: center; padding: 3rem 2rem; background: white;">
+                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Minotti</span>
+                    </div>
+                    <p style="color: #666;">Italian craftsmanship and contemporary elegance since 1948.</p>
+                </article>
+                <article style="text-align: center; padding: 3rem 2rem; background: white;">
+                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">B&B Italia</span>
+                    </div>
+                    <p style="color: #666;">Design research and innovation, recognized by MoMA.</p>
+                </article>
+                <article style="text-align: center; padding: 3rem 2rem; background: white;">
+                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Cassina</span>
+                    </div>
+                    <p style="color: #666;">Masters Collection featuring Le Corbusier and Rietveld.</p>
+                </article>
+                <article style="text-align: center; padding: 3rem 2rem; background: white;">
+                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Poliform</span>
+                    </div>
+                    <p style="color: #666;">Modular systems and bespoke storage solutions.</p>
+                </article>
+                <article style="text-align: center; padding: 3rem 2rem; background: white;">
+                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Holly Hunt</span>
+                    </div>
+                    <p style="color: #666;">Luxury textiles, lighting, and furniture for the trade.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Featured Collections Split -->
+        <section class="split-section reveal" style="padding: 10rem 4rem;">
+            <div class="split-text">
+                <span class="section-label mono">Autumn 2024 Collection</span>
+                <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">Sculptural Seating.</h2>
+                <p style="margin-bottom: 1.5rem; color: #666; font-size: 1.1rem;">This season, we're showcasing seating that blurs the line between furniture and art. Organic forms, tactile bouclé fabrics, and architectural silhouettes that command attention.</p>
+                <p style="margin-bottom: 2rem; color: #666; font-size: 1.1rem;">From Pierre Paulin's iconic Ribbon Chair to new modular systems from Minotti's 2024 collection, these pieces redefine what seating can be.</p>
+                <a href="/index.html#contact" class="cta-pill magnetic">Schedule Private Viewing</a>
+            </div>
+            <div class="split-image">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=1200" 
+                     alt="Sculptural modern seating collection" 
+                     loading="lazy">
+            </div>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section style="padding: 8rem 4rem;" class="reveal" aria-labelledby="gallery-heading">
+            <h2 id="gallery-heading" class="section-label mono" style="text-align: center; margin-bottom: 4rem;">Inside the Showroom</h2>
+            <div class="portfolio-masonry">
+                <figure class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&q=80&w=800" 
+                         alt="Showroom living room vignette" 
+                         loading="lazy">
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem;">Sitting Room Vignette</h3>
+                    </figcaption>
+                </figure>
+                <figure class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&q=80&w=800" 
+                         alt="Lighting display and design objects" 
+                         loading="lazy">
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem;">Lighting Gallery</h3>
+                    </figcaption>
+                </figure>
+                <figure class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?auto=format&fit=crop&q=80&w=800" 
+                         alt="Textile and material library" 
+                         loading="lazy">
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem;">Material Library</h3>
+                    </figcaption>
+                </figure>
+                <figure class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" 
+                         alt="Contemporary dining setup" 
+                         loading="lazy">
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem;">Dining Display</h3>
+                    </figcaption>
+                </figure>
+                <figure class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600566753151-384129cf4e3e?auto=format&fit=crop&q=80&w=800" 
+                         alt="Bedroom furniture and textiles" 
+                         loading="lazy">
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem;">Bedroom Suite</h3>
+                    </figcaption>
+                </figure>
+                <figure class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?auto=format&fit=crop&q=80&w=800" 
+                         alt="Design consultation area" 
+                         loading="lazy">
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem;">Consultation Lounge</h3>
+                    </figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Visit Information -->
+        <section style="padding: 8rem 4rem; background: var(--charcoal); color: white;" class="reveal">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;">
+                <div>
+                    <span class="section-label mono" style="color: var(--gold);">Visit Us</span>
+                    <h2 style="font-size: 3rem; margin-bottom: 2rem;">Plan Your Visit.</h2>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 3rem;">Private appointments are encouraged for personalized service. Walk-ins welcome during showroom hours.</p>
+                    
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">Showroom Hours</h3>
+                        <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">
+                            Tuesday–Friday: 10am–6pm<br>
+                            Saturday: 11am–5pm<br>
+                            Sunday–Monday: By Appointment
+                        </p>
+                    </div>
+                    
+                    <div style="margin-bottom: 3rem;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">Location</h3>
+                        <address style="color: rgba(255,255,255,0.7); line-height: 1.8; font-style: normal;">
+                            245 Lake Street East<br>
+                            Wayzata, MN 55391<br>
+                            <a href="tel:+19525551234" style="color: var(--gold); text-decoration: none;">(952) 555-1234</a>
+                        </address>
+                    </div>
+                    
+                    <a href="/index.html#contact" class="cta-pill magnetic" style="background: var(--gold); color: var(--charcoal);">Book Private Appointment</a>
+                </div>
+                <div style="background: rgba(255,255,255,0.05); padding: 2rem; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
+                    <p style="font-style: italic; color: rgba(255,255,255,0.5); text-align: center;">[Interactive map embed would go here]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trade Program -->
+        <section style="padding: 8rem 4rem; text-align: center;" class="reveal">
+            <span class="mono" style="color: var(--gold); margin-bottom: 2rem; display: block;">For Design Professionals</span>
+            <h2 style="font-size: 4rem; margin-bottom: 2rem;">Trade Program.</h2>
+            <p style="max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.1rem; color: #666;">Architects, designers, and builders: Join our trade program for access to exclusive pricing, COM/COL services, and white-glove project support.</p>
+            <a href="/index.html#contact" class="cta-pill magnetic" style="font-size: 1rem; padding: 1.2rem 3rem;">Apply for Trade Account</a>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <div class="footer-grid" style="grid-template-columns: 1fr 2fr; gap: 4rem; padding: 2.5rem 4rem;">
+            <div>
+                <div class="logo footer-logo" aria-label="Chazin Interiors" style="font-size: 1.1rem; line-height: 1.2; margin-bottom: 1rem;">CHAZIN INTERIORS</div>
+                <div style="display: flex; gap: 0.4rem; align-items: center; margin-bottom: 1.5rem;">
+                    <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="tel:+19529350300" aria-label="Call us at (952) 935-0300" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div style="opacity: 0.7; font-size: 0.8rem; line-height: 1.6; max-width: 280px;">
+                    <p style="margin: 0 0 0.5rem 0; font-weight: 500;">1250 Wayzata Boulevard East</p>
+                    <p style="margin: 0 0 1rem 0;">Wayzata, MN 55391</p>
+                    <p style="margin: 0;"><a href="tel:+19529350300" style="color: white; text-decoration: none; transition: opacity 0.3s;">(952) 935-0300</a></p>
+                </div>
+                <form style="margin-top: 1.5rem;" aria-label="Newsletter signup" action="#" method="post">
+                    <label for="newsletter-email" class="visually-hidden">Email address</label>
+                    <input type="email" 
+                           id="newsletter-email" 
+                           name="email" 
+                           placeholder="Join our design list" 
+                           style="border-bottom: 1px solid rgba(255,255,255,0.2); color: white; width: 250px; font-size: 0.9rem;"
+                           aria-label="Email address for newsletter">
+                </form>
+            </div>
+            <nav aria-label="Footer navigation" style="display: flex; align-items: flex-start; padding-top: 0.3rem;">
+                <ul style="list-style: none; opacity: 0.8; display: flex; gap: 1.8rem; flex-wrap: wrap;">
+                    <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
+                    <li><a href="/src/pages/journal.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Journal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+    <noscript>
+        <style> .hero-title { opacity: 1; transform: none; } </style>
+    </noscript>
+</body>
+</html>
