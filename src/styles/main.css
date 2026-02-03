@@ -646,41 +646,50 @@ footer nav a:hover {
         display: none;
     }
     
-    /* ========== Mobile Header - Logo Left, Hamburger Right ========== */
+    /* ========== Mobile Header - Logo Centered, Hamburger Right ========== */
     header {
-        padding: 1.2rem 1.5rem !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        gap: 1rem;
+        padding: 0 !important;
+        display: block !important;
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
     }
     
     header.scrolled {
-        padding: 1rem 1.5rem !important;
+        padding: 0 !important;
+    }
+
+    header .site-header-inner {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1.25rem 1.5rem !important;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 60px;
     }
     
-    /* Logo - Left aligned */
+    /* Logo - Mathematically Centered */
     .logo {
+        position: static !important;
+        transform: none !important;
         font-size: 1rem !important;
         letter-spacing: 2px;
-        text-align: left !important;
-        flex: 1;
-        order: 1;
+        text-align: center !important;
+        margin: 0 auto !important;
+        z-index: 1;
     }
     
-    /* Hide desktop nav on mobile */
-    #main-nav {
-        display: none !important;
-    }
-    
-    /* CTA hidden on mobile, shown in overlay */
+    /* Hide desktop nav and CTA on mobile */
+    #main-nav, 
     header .cta-pill {
         display: none !important;
     }
     
-    /* ========== Hamburger Menu Button - Right Side ========== */
+    /* ========== Hamburger Menu Button - Padded on Far Right Edge ========== */
     .mobile-menu-toggle {
-        display: flex;
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -688,11 +697,13 @@ footer nav a:hover {
         height: 44px;
         background: transparent;
         border: none;
-        padding: 8px;
+        padding: 0;
         cursor: pointer;
         z-index: 1001;
-        order: 2;
-        flex-shrink: 0;
+        position: absolute !important;
+        right: 1.25rem !important; /* Padded from edge */
+        top: 50% !important;
+        transform: translateY(-50%) !important;
     }
     
     .mobile-menu-toggle span {
@@ -1195,22 +1206,30 @@ footer nav a:hover {
 /* Small mobile refinements: < 480px */
 @media (max-width: 480px) {
     header {
-        padding: 1rem 1.2rem !important;
+        padding: 0 !important;
     }
     
     header.scrolled {
-        padding: 0.9rem 1.2rem !important;
+        padding: 0 !important;
+    }
+
+    header .site-header-inner {
+        padding: 1rem 1.2rem !important;
+        min-height: 50px;
     }
     
     .logo {
-        font-size: 0.95rem !important;
+        font-size: 0.9rem !important;
         letter-spacing: 1.5px !important;
     }
     
     .mobile-menu-toggle {
         width: 40px;
         height: 40px;
-        padding: 6px;
+        position: absolute !important;
+        right: 1.2rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
     }
     
     .mobile-menu-toggle span {
