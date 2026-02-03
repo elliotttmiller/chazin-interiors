@@ -41,7 +41,7 @@
 
     <header id="header" role="banner">
         <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
-        <nav aria-label="Main navigation">
+        <nav id="main-nav" aria-label="Main navigation">
             <ul>
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/src/pages/interior-design.html" aria-current="page">Interior Design</a></li>
@@ -51,7 +51,35 @@
             </ul>
         </nav>
         <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-logo">CHAZIN INTERIORS</div>
+            <button class="mobile-nav-close" aria-label="Close navigation menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav-content">
+            <nav class="mobile-nav" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/src/pages/interior-design.html" aria-current="page">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
+                    <li><a href="/src/pages/journal.html">Journal</a></li>
+                </ul>
+            </nav>
+            <a href="/index.html#contact" class="cta-pill mobile-nav-cta">Book Consultation</a>
+        </div>
+    </div>
 
     <main id="main-content">
         <!-- Hero Section -->
@@ -65,89 +93,9 @@
             <div class="hero-content">
                 <span class="mono" style="margin-bottom: 1rem; display: block;">Full-Service Design</span>
                 <h1 class="hero-title" id="hero-title">Interior Design That Speaks.</h1>
-                <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-weight: 300;">From blueprint to finishing touches, we create residential spaces that balance function, beauty, and your unique lifestyle.</p>
+                <p style="max-width: 500px; margin: 0 auto; font-size: 1.1rem; font-weight: 300;">From blueprint to finishing touches, we create residential spaces that balance function, beauty, and your unique lifestyle.</p>
             </div>
-        </section>
-
-        <!-- Philosophy Section -->
-        <section class="split-section reveal" style="padding: 10rem 4rem;">
-            <div class="split-text">
-                <span class="section-label mono">Our Philosophy</span>
-                <h2 style="font-size: 3.5rem; margin-bottom: 2rem; line-height: 1.2;">Design as a Living Experience.</h2>
-                <p style="margin-bottom: 1.5rem; color: #666; font-size: 1.1rem;">We believe interior design is not about imposing a style—it's about uncovering the soul of a space and the people who inhabit it.</p>
-                <p style="margin-bottom: 1.5rem; color: #666; font-size: 1.1rem;">Every project begins with deep listening. We study how you move, how light shifts throughout the day, and what moments of beauty matter most to you.</p>
-                <p style="color: #666; font-size: 1.1rem;">The result? Interiors that feel both inevitable and unexpected—spaces you didn't know you needed until you step inside.</p>
-            </div>
-            <div class="split-image">
-                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=1200" 
-                     alt="Thoughtfully designed living space with natural materials" 
-                     loading="lazy">
-            </div>
-        </section>
-
-        <!-- Services Breakdown -->
-        <section style="padding: 8rem 4rem; background: var(--taupe);" class="reveal" aria-labelledby="services-heading">
-            <h2 id="services-heading" class="section-label mono" style="text-align: center; margin-bottom: 4rem;">What We Offer</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1400px; margin: 0 auto;">
-                <article style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 2rem auto; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">01</div>
-                    <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Full-Service Design</h3>
-                    <p style="color: #666;">End-to-end residential design from spatial planning and architectural details to furniture selection and final styling.</p>
-                </article>
-                <article style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 2rem auto; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">02</div>
-                    <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Renovations & Remodels</h3>
-                    <p style="color: #666;">Structural changes, custom millwork, kitchen and bath design. We coordinate with architects and contractors seamlessly.</p>
-                </article>
-                <article style="text-align: center;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 2rem auto; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white;">03</div>
-                    <h3 style="margin-bottom: 1rem; font-size: 1.5rem;">Furnishings & Styling</h3>
-                    <p style="color: #666;">Curated furniture procurement, custom upholstery, art advisory, and layered finishing touches that bring soul to a space.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Featured Projects -->
-        <section style="padding: 8rem 4rem;" class="reveal" aria-labelledby="projects-heading">
-            <h2 id="projects-heading" class="section-label mono" style="text-align: center; margin-bottom: 4rem;">Recent Interior Design Projects</h2>
-            <div class="portfolio-masonry">
-                <figure class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=800" 
-                         alt="Modern living room interior design project" 
-                         loading="lazy">
-                    <figcaption style="padding: 1.5rem; background: white;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Lake Minnetonka Residence</h3>
-                        <p style="color: #999; font-size: 0.9rem;">Full home renovation, 4,200 sq ft</p>
-                    </figcaption>
-                </figure>
-                <figure class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1600607687644-c7171bb3e29b?auto=format&fit=crop&q=80&w=800" 
-                         alt="Contemporary bedroom design" 
-                         loading="lazy">
-                    <figcaption style="padding: 1.5rem; background: white;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Downtown Penthouse</h3>
-                        <p style="color: #999; font-size: 0.9rem;">Master suite redesign</p>
-                    </figcaption>
-                </figure>
-                <figure class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" 
-                         alt="Luxury dining room with statement lighting" 
-                         loading="lazy">
-                    <figcaption style="padding: 1.5rem; background: white;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Edina Estate</h3>
-                        <p style="color: #999; font-size: 0.9rem;">Formal dining & entertaining spaces</p>
-                    </figcaption>
-                </figure>
-                <figure class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1616486341353-c5833ad88aad?auto=format&fit=crop&q=80&w=800" 
-                         alt="Modern kitchen interior design" 
-                         loading="lazy">
-                    <figcaption style="padding: 1.5rem; background: white;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Wayzata Kitchen Remodel</h3>
-                        <p style="color: #999; font-size: 0.9rem;">Custom millwork & chef's kitchen</p>
-                    </figcaption>
-                </figure>
-                <figure class="portfolio-item">
+        <!-- footer moved to end of document -->
                     <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6f3ea?auto=format&fit=crop&q=80&w=800" 
                          alt="Spa-like bathroom design" 
                          loading="lazy">
@@ -189,51 +137,60 @@
     </main>
 
     <footer role="contentinfo">
-        <div class="footer-grid" style="grid-template-columns: 1fr 2fr; gap: 4rem; padding: 2.5rem 4rem;">
+        <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4rem; padding: 3rem 8rem;">
+            <!-- Brand & Social -->
             <div>
-                <div class="logo footer-logo" aria-label="Chazin Interiors" style="font-size: 1.1rem; line-height: 1.2; margin-bottom: 1rem;">CHAZIN INTERIORS</div>
-                <div style="display: flex; gap: 0.4rem; align-items: center; margin-bottom: 1.5rem;">
-                    <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                <div class="logo footer-logo" aria-label="Chazin Interiors" style="font-size: 1.1rem; line-height: 1.2; margin-bottom: 1.5rem;">CHAZIN INTERIORS</div>
+                <div style="display: flex; gap: 0.6rem; align-items: center;">
+                    <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style="color: white; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg>
                     </a>
-                    <a href="https://www.facebook.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                    <a href="https://www.facebook.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" style="color: white; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                         </svg>
                     </a>
-                    <a href="tel:+19529350300" aria-label="Call us at (952) 935-0300" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                    </a>
                 </div>
-                <div style="opacity: 0.7; font-size: 0.8rem; line-height: 1.6; max-width: 280px;">
-                    <p style="margin: 0 0 0.5rem 0; font-weight: 500;">1250 Wayzata Boulevard East</p>
-                    <p style="margin: 0 0 1rem 0;">Wayzata, MN 55391</p>
-                    <p style="margin: 0;"><a href="tel:+19529350300" style="color: white; text-decoration: none; transition: opacity 0.3s;">(952) 935-0300</a></p>
-                </div>
-                <form style="margin-top: 1.5rem;" aria-label="Newsletter signup" action="#" method="post">
-                    <label for="newsletter-email" class="visually-hidden">Email address</label>
-                    <input type="email" 
-                           id="newsletter-email" 
-                           name="email" 
-                           placeholder="Join our design list" 
-                           style="border-bottom: 1px solid rgba(255,255,255,0.2); color: white; width: 250px; font-size: 0.9rem;"
-                           aria-label="Email address for newsletter">
-                </form>
             </div>
-            <nav aria-label="Footer navigation" style="display: flex; align-items: flex-start; padding-top: 0.3rem;">
-                <ul style="list-style: none; opacity: 0.8; display: flex; gap: 1.8rem; flex-wrap: wrap;">
-                    <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
-                    <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
-                    <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
-                    <li><a href="/src/pages/journal.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Journal</a></li>
+            
+            <!-- Navigation -->
+            <nav aria-label="Footer navigation">
+                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Explore</h4>
+                <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 2.5rem; flex-wrap: wrap;">
+                    <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
+                    <li><a href="/src/pages/journal.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Journal</a></li>
                 </ul>
             </nav>
+            
+            <!-- Location & Contact -->
+            <div>
+                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Visit Us</h4>
+                <address style="font-style: normal; font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
+                    <p style="margin: 0;">1250 Wayzata Blvd, E</p>
+                    <p style="margin: 0 0 1rem 0;">Wayzata, MN 55391</p>
+                    <p style="margin: 0;"><a href="tel:+19529350300" style="color: white; text-decoration: none; transition: opacity 0.3s;">(952) 935-0300</a></p>
+                </address>
+            </div>
+            
+            <!-- Hours -->
+            <div>
+                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Hours</h4>
+                <div style="font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
+                    <p style="margin: 0;">Mon – Sat: 10am – 5pm</p>
+                    <p style="margin: 0;">Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom: Copyright -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 8rem; text-align: center;">
+            <p style="font-size: 0.7rem; opacity: 0.5; margin: 0;">© 2026 Chazin Interiors. All rights reserved.</p>
         </div>
     </footer>
 

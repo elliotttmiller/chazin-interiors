@@ -38,7 +38,7 @@
 
     <header id="header" role="banner">
         <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
-        <nav aria-label="Main navigation">
+        <nav id="main-nav" aria-label="Main navigation">
             <ul>
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
@@ -48,7 +48,35 @@
             </ul>
         </nav>
         <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-logo">CHAZIN INTERIORS</div>
+            <button class="mobile-nav-close" aria-label="Close navigation menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav-content">
+            <nav class="mobile-nav" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html" aria-current="page">The Showroom</a></li>
+                    <li><a href="/src/pages/journal.html">Journal</a></li>
+                </ul>
+            </nav>
+            <a href="/index.html#contact" class="cta-pill mobile-nav-cta">Book Consultation</a>
+        </div>
+    </div>
 
     <main id="main-content">
         <!-- Hero Section -->
@@ -62,67 +90,9 @@
             <div class="hero-content">
                 <span class="mono" style="margin-bottom: 1rem; display: block;">3,000 SQ FT in Wayzata</span>
                 <h1 class="hero-title" id="hero-title">Experience. Touch. Discover.</h1>
-                <p style="max-width: 600px; margin: 0 auto; font-size: 1.1rem; font-weight: 300;">A curated sanctuary of the world's finest furniture, textiles, and design objects.</p>
+                <p style="max-width: 500px; margin: 0 auto; font-size: 1.1rem; font-weight: 300;">A curated sanctuary of the world's finest furniture, textiles, and design objects.</p>
             </div>
-        </section>
-
-        <!-- Introduction -->
-        <section style="padding: 8rem 4rem; max-width: 900px; margin: 0 auto; text-align: center;" class="reveal">
-            <span class="section-label mono">The Showroom</span>
-            <h2 style="font-size: 3.5rem; margin-bottom: 2rem; line-height: 1.2;">Where Artistry<br>Meets Function.</h2>
-            <p style="font-size: 1.2rem; color: #666; line-height: 1.8;">Our showroom is more than a retail space—it's an immersive design laboratory where clients can touch materials, test seating ergonomics, and experience how lighting transforms mood. We represent only the brands we trust implicitly.</p>
-        </section>
-
-        <!-- Brand Partners Grid -->
-        <section style="padding: 6rem 4rem; background: var(--taupe);" class="reveal" aria-labelledby="partners-heading">
-            <h2 id="partners-heading" class="section-label mono" style="text-align: center; margin-bottom: 4rem;">Featured Brand Partners</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; max-width: 1200px; margin: 0 auto;">
-                <article style="text-align: center; padding: 3rem 2rem; background: white;">
-                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Roche Bobois</span>
-                    </div>
-                    <p style="color: #666;">French luxury furniture and haute couture design since 1960.</p>
-                </article>
-                <article style="text-align: center; padding: 3rem 2rem; background: white;">
-                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Minotti</span>
-                    </div>
-                    <p style="color: #666;">Italian craftsmanship and contemporary elegance since 1948.</p>
-                </article>
-                <article style="text-align: center; padding: 3rem 2rem; background: white;">
-                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">B&B Italia</span>
-                    </div>
-                    <p style="color: #666;">Design research and innovation, recognized by MoMA.</p>
-                </article>
-                <article style="text-align: center; padding: 3rem 2rem; background: white;">
-                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Cassina</span>
-                    </div>
-                    <p style="color: #666;">Masters Collection featuring Le Corbusier and Rietveld.</p>
-                </article>
-                <article style="text-align: center; padding: 3rem 2rem; background: white;">
-                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Poliform</span>
-                    </div>
-                    <p style="color: #666;">Modular systems and bespoke storage solutions.</p>
-                </article>
-                <article style="text-align: center; padding: 3rem 2rem; background: white;">
-                    <div style="height: 80px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                        <span style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700;">Holly Hunt</span>
-                    </div>
-                    <p style="color: #666;">Luxury textiles, lighting, and furniture for the trade.</p>
-                </article>
-            </div>
-        </section>
-
-        <!-- Featured Collections Split -->
-        <section class="split-section reveal" style="padding: 10rem 4rem;">
-            <div class="split-text">
-                <span class="section-label mono">Autumn 2024 Collection</span>
-                <h2 style="font-size: 3.5rem; margin-bottom: 2rem;">Sculptural Seating.</h2>
-                <p style="margin-bottom: 1.5rem; color: #666; font-size: 1.1rem;">This season, we're showcasing seating that blurs the line between furniture and art. Organic forms, tactile bouclé fabrics, and architectural silhouettes that command attention.</p>
-                <p style="margin-bottom: 2rem; color: #666; font-size: 1.1rem;">From Pierre Paulin's iconic Ribbon Chair to new modular systems from Minotti's 2024 collection, these pieces redefine what seating can be.</p>
+        <!-- footer moved to end of document -->
                 <a href="/index.html#contact" class="cta-pill magnetic">Schedule Private Viewing</a>
             </div>
             <div class="split-image">
@@ -189,34 +159,48 @@
 
         <!-- Visit Information -->
         <section style="padding: 8rem 4rem; background: var(--charcoal); color: white;" class="reveal">
-            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem;">
+            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: start;">
                 <div>
                     <span class="section-label mono" style="color: var(--gold);">Visit Us</span>
                     <h2 style="font-size: 3rem; margin-bottom: 2rem;">Plan Your Visit.</h2>
                     <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 3rem;">Private appointments are encouraged for personalized service. Walk-ins welcome during showroom hours.</p>
-                    
+
                     <div style="margin-bottom: 3rem;">
                         <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">Showroom Hours</h3>
                         <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">
-                            Tuesday–Friday: 10am–6pm<br>
-                            Saturday: 11am–5pm<br>
-                            Sunday–Monday: By Appointment
+                            Monday – Saturday: 10am – 5pm<br>
+                            Sunday: Closed
                         </p>
                     </div>
-                    
-                    <div style="margin-bottom: 3rem;">
+
+                    <div style="margin-bottom: 2.25rem;">
                         <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">Location</h3>
-                        <address style="color: rgba(255,255,255,0.7); line-height: 1.8; font-style: normal;">
-                            245 Lake Street East<br>
+                        <address style="color: rgba(255,255,255,0.85); line-height: 1.8; font-style: normal;">
+                            1250 Wayzata Blvd, E<br>
                             Wayzata, MN 55391<br>
-                            <a href="tel:+19525551234" style="color: var(--gold); text-decoration: none;">(952) 555-1234</a>
+                            <a href="tel:+19529350300" style="color: var(--gold); text-decoration: none;">(952) 935-0300</a>
                         </address>
                     </div>
-                    
+
                     <a href="/index.html#contact" class="cta-pill magnetic" style="background: var(--gold); color: var(--charcoal);">Book Private Appointment</a>
                 </div>
-                <div style="background: rgba(255,255,255,0.05); padding: 2rem; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center;">
-                    <p style="font-style: italic; color: rgba(255,255,255,0.5); text-align: center;">[Interactive map embed would go here]</p>
+
+                <!-- Interactive map embed (responsive) -->
+                <div style="background: rgba(255,255,255,0.03); padding: 0; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06);">
+                    <div style="width: 100%; height: 100%; min-height: 480px;">
+                        <iframe
+                            title="Chazin Interiors Showroom — Wayzata"
+                            src="https://www.google.com/maps?q=1250+Wayzata+Blvd+E+Wayzata+MN+55391&output=embed"
+                            width="100%"
+                            height="100%"
+                            style="border:0; min-height:480px;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div style="padding: 0.7rem 1rem; background: rgba(0,0,0,0.15); text-align: right;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=1250+Wayzata+Blvd+E+Wayzata+MN+55391" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.9); font-size: 0.95rem; text-decoration: none;">Open in Google Maps</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -231,51 +215,60 @@
     </main>
 
     <footer role="contentinfo">
-        <div class="footer-grid" style="grid-template-columns: 1fr 2fr; gap: 4rem; padding: 2.5rem 4rem;">
+        <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4rem; padding: 3rem 8rem;">
+            <!-- Brand & Social -->
             <div>
-                <div class="logo footer-logo" aria-label="Chazin Interiors" style="font-size: 1.1rem; line-height: 1.2; margin-bottom: 1rem;">CHAZIN INTERIORS</div>
-                <div style="display: flex; gap: 0.4rem; align-items: center; margin-bottom: 1.5rem;">
-                    <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                <div class="logo footer-logo" aria-label="Chazin Interiors" style="font-size: 1.1rem; line-height: 1.2; margin-bottom: 1.5rem;">CHAZIN INTERIORS</div>
+                <div style="display: flex; gap: 0.6rem; align-items: center;">
+                    <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" style="color: white; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                             <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                         </svg>
                     </a>
-                    <a href="https://www.facebook.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
+                    <a href="https://www.facebook.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook" style="color: white; transition: opacity 0.3s; display: flex; align-items: center; justify-content: center;">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                         </svg>
                     </a>
-                    <a href="tel:+19529350300" aria-label="Call us at (952) 935-0300" style="color: white; transition: color 0.3s; display: flex; align-items: center; justify-content: center;">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                        </svg>
-                    </a>
                 </div>
-                <div style="opacity: 0.7; font-size: 0.8rem; line-height: 1.6; max-width: 280px;">
-                    <p style="margin: 0 0 0.5rem 0; font-weight: 500;">1250 Wayzata Boulevard East</p>
-                    <p style="margin: 0 0 1rem 0;">Wayzata, MN 55391</p>
-                    <p style="margin: 0;"><a href="tel:+19529350300" style="color: white; text-decoration: none; transition: opacity 0.3s;">(952) 935-0300</a></p>
-                </div>
-                <form style="margin-top: 1.5rem;" aria-label="Newsletter signup" action="#" method="post">
-                    <label for="newsletter-email" class="visually-hidden">Email address</label>
-                    <input type="email" 
-                           id="newsletter-email" 
-                           name="email" 
-                           placeholder="Join our design list" 
-                           style="border-bottom: 1px solid rgba(255,255,255,0.2); color: white; width: 250px; font-size: 0.9rem;"
-                           aria-label="Email address for newsletter">
-                </form>
             </div>
-            <nav aria-label="Footer navigation" style="display: flex; align-items: flex-start; padding-top: 0.3rem;">
-                <ul style="list-style: none; opacity: 0.8; display: flex; gap: 1.8rem; flex-wrap: wrap;">
-                    <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
-                    <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
-                    <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
-                    <li><a href="/src/pages/journal.html" style="color: white; text-decoration: none; font-size: 0.8rem; transition: opacity 0.3s; white-space: nowrap;">Journal</a></li>
+            
+            <!-- Navigation -->
+            <nav aria-label="Footer navigation">
+                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Explore</h4>
+                <ul style="list-style: none; margin: 0; padding: 0; display: flex; gap: 2.5rem; flex-wrap: wrap;">
+                    <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
+                    <li><a href="/src/pages/journal.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Journal</a></li>
                 </ul>
             </nav>
+            
+            <!-- Location & Contact -->
+            <div>
+                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Visit Us</h4>
+                <address style="font-style: normal; font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
+                    <p style="margin: 0;">1250 Wayzata Blvd, E</p>
+                    <p style="margin: 0 0 1rem 0;">Wayzata, MN 55391</p>
+                    <p style="margin: 0;"><a href="tel:+19529350300" style="color: white; text-decoration: none; transition: opacity 0.3s;">(952) 935-0300</a></p>
+                </address>
+            </div>
+            
+            <!-- Hours -->
+            <div>
+                <h4 style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 1rem; opacity: 0.5; font-weight: 500;">Hours</h4>
+                <div style="font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
+                    <p style="margin: 0;">Mon – Sat: 10am – 5pm</p>
+                    <p style="margin: 0;">Sunday: Closed</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom: Copyright -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding: 1.5rem 8rem; text-align: center;">
+            <p style="font-size: 0.7rem; opacity: 0.5; margin: 0;">© 2026 Chazin Interiors. All rights reserved.</p>
         </div>
     </footer>
 
