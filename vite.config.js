@@ -15,7 +15,7 @@ export default defineConfig({
         'interior-design': resolve(__dirname, 'src/pages/interior-design.html'),
         'home-staging': resolve(__dirname, 'src/pages/home-staging.html'),
         'showroom': resolve(__dirname, 'src/pages/showroom.html'),
-        'journal': resolve(__dirname, 'src/pages/journal.html')
+  // 'journal' entry removed — journal page removed from navigation and redirected
       }
     }
   }
