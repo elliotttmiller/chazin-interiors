@@ -123,17 +123,43 @@
 
     <header id="header" role="banner">
         <div class="logo" aria-label="Chazin Interiors">CHAZIN INTERIORS</div>
-        <nav aria-label="Main navigation">
+        <nav aria-label="Main navigation" id="main-nav">
             <ul>
                 <li><a href="/index.html" aria-current="page">Home</a></li>
                 <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
                 <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
                 <li><a href="/src/pages/showroom.html">The Showroom</a></li>
-                <li><a href="/src/pages/journal.html">Journal</a></li>
             </ul>
         </nav>
         <a href="#contact" class="cta-pill magnetic" aria-label="Book a consultation">Book Consultation</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-logo">CHAZIN INTERIORS</div>
+            <button class="mobile-nav-close" aria-label="Close navigation menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+        <div class="mobile-nav-content">
+            <nav class="mobile-nav" aria-label="Mobile navigation">
+                <ul>
+                    <li><a href="/index.html" aria-current="page">Home</a></li>
+                    <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
+                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
+                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="mobile-nav-cta cta-pill">Book Consultation</a>
+        </div>
+    </div>
 
     <main id="main-content">
         <!-- Hero Section -->
@@ -310,7 +336,6 @@
                     <li><a href="/src/pages/interior-design.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Interior Design</a></li>
                     <li><a href="/src/pages/home-staging.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Home Staging</a></li>
                     <li><a href="/src/pages/showroom.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">The Showroom</a></li>
-                    <li><a href="/src/pages/journal.html" style="color: white; text-decoration: none; font-size: 0.85rem; opacity: 0.85; transition: opacity 0.3s; white-space: nowrap;">Journal</a></li>
                 </ul>
             </nav>
             
