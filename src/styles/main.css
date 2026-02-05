@@ -518,6 +518,32 @@ section {
     flex: 1;
 }
 
+/* Showroom split: improve spacing between text and CTA */
+.split-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.split-text p {
+    margin-bottom: 1.25rem; /* create breathing room above CTA */
+    color: rgba(26,26,26,0.85);
+}
+
+.split-text .cta-pill.secondary {
+    margin-top: 0.75rem;
+    padding: 0.6rem 1.1rem;
+    align-self: flex-start; /* keep CTA aligned with the text block start */
+}
+
+/* On larger screens keep CTA aligned with heading baseline; center on very small screens */
+@media (max-width: 480px) {
+    .split-text .cta-pill.secondary {
+        align-self: center;
+        margin-top: 1rem;
+    }
+}
+
 /* Form Styling */
 .contact-wrap {
     display: grid;
@@ -667,13 +693,17 @@ footer {
     padding: 6rem 8vw 0;
 }
 
+/* Footer grid — balanced columns and responsive gaps */
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.5fr 2fr 1fr 1fr;
-    gap: 4rem;
+    /* make columns more even while keeping the brand column slightly wider */
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    column-gap: clamp(2rem, 4vw, 4rem);
+    row-gap: 2.5rem;
     max-width: 1400px;
     margin: 0 auto;
     padding-bottom: 4rem;
+    align-items: start;
 }
 
 .footer-logo {
@@ -703,6 +733,34 @@ footer {
     opacity: 0.8;
 }
 
+/* Give each footer column horizontal breathing room so the grid looks balanced */
+.footer-grid > * {
+    padding-inline: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+/* Make the non-brand columns centered for balanced layout */
+.footer-grid > *:not(:first-child) {
+    text-align: center;
+}
+
+/* Ensure nav and contact columns stack nicely and center their content */
+.footer-grid nav,
+.footer-grid > div:nth-child(3),
+.footer-grid > div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer-grid nav ul {
+    align-items: center;
+}
+
+.footer-grid nav a {
+    text-align: center;
+}
+
 .footer-grid nav {
     display: flex;
     flex-direction: column;
@@ -725,6 +783,28 @@ footer {
 
 .footer-grid nav h4 {
     margin-bottom: 0.35rem;
+}
+
+/* Center footer section headers & content (except brand/social column) */
+.footer-grid > *:not(:first-child) {
+    text-align: center;
+}
+
+.footer-grid nav,
+.footer-grid > div:nth-child(3),
+.footer-grid > div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-grid nav ul {
+    align-items: center;
+}
+
+.footer-grid nav a {
+    text-align: center;
 }
 
 /* Footer Social Icons */
