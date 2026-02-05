@@ -125,8 +125,8 @@ header {
     top: 0;
     width: 100%;
     z-index: 1000;
-    /* horizontal padding moved into inner container to align with page content */
-    padding: 1.5rem 0;
+    /* add slightly more vertical padding so the header breathes */
+    padding: 2rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -138,7 +138,8 @@ header {
 }
 
 header.scrolled {
-    padding: 1rem 5rem;
+    /* slightly reduced padding in scrolled state, keep balanced horizontally */
+    padding: 1rem 3rem;
     background: var(--glass);
     backdrop-filter: blur(15px);
     /* soften the scrolled state border and shadow */
@@ -150,11 +151,13 @@ header.scrolled {
 header .site-header-inner {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 4rem; /* matches section horizontal padding */
+    /* increase horizontal padding so header content aligns comfortably with viewport edges */
+    padding: 0 3rem; /* increased from 4rem for better visual balance at large widths */
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative; /* ensure absolutely positioned children are anchored inside */
 }
 
 .logo {
@@ -167,18 +170,20 @@ header .site-header-inner {
 nav ul {
     display: flex;
     list-style: none;
-    gap: 3rem;
+    /* slightly wider gap between tabs for clearer separation */
+    gap: 3.2rem;
     align-items: center;
 }
 
 nav a {
     text-decoration: none;
     color: var(--charcoal);
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1.2px;
     position: relative;
-    padding-bottom: 3px;
+    /* add comfortable hit-area padding for each tab */
+    padding: 0.5rem 0.75rem 0.375rem 0.75rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
     font-weight: 400;
     transition: all 0.3s ease;
@@ -238,23 +243,7 @@ textarea:focus-visible {
     border-color: var(--charcoal);
 }
 
-/* Position header CTA on the far right corner of the screen (desktop) */
-header .cta-pill {
-    position: absolute;
-    right: 2rem; /* distance from the viewport edge */
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1002;
-}
-
-/* Remove hover animation/effect for header CTA (Book Consultation) */
-header .cta-pill:hover {
-    /* keep original static styles on hover */
-    background: var(--charcoal) !important;
-    color: var(--alabaster) !important;
-    transform: translateY(-50%) !important; /* maintain vertical centering */
-    box-shadow: none !important;
-}
+/* Header CTA has been removed from the markup; header-specific positioning rules removed to avoid affecting other .cta-pill usages */
 
 .cta-pill.secondary:hover {
     background: var(--charcoal);
