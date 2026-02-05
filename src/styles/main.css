@@ -55,6 +55,20 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
+/* Hide custom cursor and disable custom cursor behavior on touch devices */
+@media (hover: none), (pointer: coarse) {
+    * { cursor: auto !important; }
+    #cursor,
+    #cursor-follower {
+        display: none !important;
+    }
+}
+
+/* Ensure root also prevents horizontal overflow on small devices */
+html {
+    overflow-x: hidden;
+}
+
 /* Woven Grain Filter */
 .grain-overlay {
     position: fixed;
@@ -457,7 +471,8 @@ section {
 
 .portfolio-item img {
     width: 100%;
-    height: 100%;
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
     transition: var(--transition-smooth);
     display: block;
@@ -608,6 +623,33 @@ input:focus {
 }
 .contact-info h2 {
     margin-bottom: 0.6rem;
+}
+.contact-info .reach-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    line-height: 1.05;
+    margin-bottom: 0.35rem;
+    color: var(--charcoal);
+    letter-spacing: 0.2px;
+}
+.contact-info .reach-sub {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    font-size: 0.72rem;
+    margin-bottom: 1rem;
+}
+.contact-info .contact-details p {
+    margin-bottom: 0.85rem;
+    color: rgba(26,26,26,0.9);
+    font-size: 1rem;
+}
+.contact-info .contact-details a {
+    color: var(--charcoal);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 .contact-info p, .contact-info a {
     color: var(--charcoal);
@@ -945,6 +987,21 @@ footer nav a:hover {
         transform: rotate(-45deg) translate(8px, -8px);
         background: white;
     }
+    
+    /* Small adjustments: ensure contact layout has comfortable padding on small viewports */
+    .contact-grid {
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-info {
+        padding: 1.25rem !important;
+        max-width: 720px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Make sure main content doesn't sit under the fixed header on mobile */
+    main#main-content { padding-top: 68px !important; }
     
     /* ========== Mobile Navigation Overlay ========== */
     .mobile-nav-overlay {

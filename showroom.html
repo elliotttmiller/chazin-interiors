@@ -64,16 +64,18 @@
                 <span></span>
             </button>
         </div>
-        <div class="mobile-nav-content">
-            <nav class="mobile-nav" aria-label="Mobile navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="interior-design.html">Interior Design</a></li>
-                    <li><a href="home-staging.html">Home Staging</a></li>
-                    <li><a href="showroom.html" aria-current="page">The Showroom</a></li>
-                </ul>
-            </nav>
-        </div>
+            <div class="mobile-nav-content">
+                <nav class="mobile-nav" aria-label="Mobile navigation">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="interior-design.html">Interior Design</a></li>
+                        <li><a href="home-staging.html">Home Staging</a></li>
+                        <li><a href="showroom.html" aria-current="page">The Showroom</a></li>
+                    </ul>
+                </nav>
+                <!-- Mobile Contact CTA (appears at bottom of overlay) -->
+                <a href="contact.html" class="mobile-nav-cta" aria-label="Contact us">Contact Us</a>
+            </div>
     </div>
 
     <main id="main-content">
@@ -151,50 +153,46 @@
             </div>
         </section>
 
-        <!-- Visit Information -->
-        <section style="background: var(--charcoal); color: white;" class="reveal">
-            <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 6rem; align-items: start;">
-                <div>
-                    <span class="section-label mono" style="color: var(--gold);">Visit Us</span>
-                    <h2 style="font-size: 3rem; margin-bottom: 2rem;">Plan Your Visit.</h2>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 3rem;">Private appointments are encouraged for personalized service. Walk-ins welcome during showroom hours.</p>
+        <!-- Visit Information (uses shared contact-grid/contact-map styles for responsive behavior) -->
+        <section class="reveal contact-grid" style="background: var(--charcoal); color: white;">
+            <div class="contact-info">
+                <span class="section-label mono" style="color: var(--gold);">Visit Us</span>
+                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Plan Your Visit.</h2>
+                <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-bottom: 3rem;">Private appointments are encouraged for personalized service. Walk-ins welcome during showroom hours.</p>
 
-                    <div style="margin-bottom: 3rem;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">Showroom Hours</h3>
-                        <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">
-                            Monday – Saturday: 10am – 5pm<br>
-                            Sunday: Closed
-                        </p>
-                    </div>
-
-                    <div style="margin-bottom: 2.25rem;">
-                        <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">Location</h3>
-                        <address style="color: rgba(255,255,255,0.85); line-height: 1.8; font-style: normal;">
-                            1250 Wayzata Blvd, E<br>
-                            Wayzata, MN 55391<br>
-                            <a href="tel:+19529350300" style="color: var(--gold); text-decoration: none;">(952) 935-0300</a>
-                        </address>
-                    </div>
-
-                    <a href="index.html#contact" class="cta-pill magnetic" style="background: var(--gold); color: var(--charcoal);">Book Private Appointment</a>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">Showroom Hours</h3>
+                    <p style="color: rgba(255,255,255,0.7); line-height: 1.8;">
+                        Monday – Saturday: 10am – 5pm<br>
+                        Sunday: Closed
+                    </p>
                 </div>
 
-                <!-- Interactive map embed (responsive) -->
-                <div style="background: rgba(255,255,255,0.03); padding: 0; border-radius: 6px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06);">
-                    <div style="width: 100%; height: 100%; min-height: 480px;">
-                        <iframe
-                            title="Chazin Interiors Showroom — Wayzata"
-                            src="https://www.google.com/maps?q=1250+Wayzata+Blvd+E+Wayzata+MN+55391&output=embed"
-                            width="100%"
-                            height="100%"
-                            style="border:0; min-height:480px;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                    <div style="padding: 0.7rem 1rem; background: rgba(0,0,0,0.15); text-align: right;">
-                        <a href="https://www.google.com/maps/search/?api=1&query=1250+Wayzata+Blvd+E+Wayzata+MN+55391" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.9); font-size: 0.95rem; text-decoration: none;">Open in Google Maps</a>
-                    </div>
+                <div style="margin-bottom: 2.25rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--gold);">Location</h3>
+                    <address style="color: rgba(255,255,255,0.85); line-height: 1.8; font-style: normal;">
+                        1250 Wayzata Blvd, E<br>
+                        Wayzata, MN 55391<br>
+                        <a href="tel:+19529350300" style="color: var(--gold); text-decoration: none;">(952) 935-0300</a>
+                    </address>
+                </div>
+
+                <a href="index.html#contact" class="cta-pill magnetic" style="background: var(--gold); color: var(--charcoal);">Book Private Appointment</a>
+            </div>
+
+            <!-- Interactive map embed (responsive) uses contact-map class so site CSS controls min-heights on mobile -->
+            <div class="contact-map">
+                <iframe
+                    title="Chazin Interiors Showroom — Wayzata"
+                    src="https://www.google.com/maps?q=1250+Wayzata+Blvd+E+Wayzata+MN+55391&output=embed"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div style="padding: 0.7rem 1rem; background: rgba(0,0,0,0.15); text-align: right;">
+                    <a href="https://www.google.com/maps/search/?api=1&query=1250+Wayzata+Blvd+E+Wayzata+MN+55391" target="_blank" rel="noopener noreferrer" style="color: rgba(255,255,255,0.9); font-size: 0.95rem; text-decoration: none;">Open in Google Maps</a>
                 </div>
             </div>
         </section>
