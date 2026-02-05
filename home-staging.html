@@ -3,27 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interior Design Services | CHAZIN</title>
+    <title>Home Staging Services | CHAZIN</title>
     
-    <!-- Font optimization: preconnect + font-display swap -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="/src/styles/main.css">
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Full-service residential interior design from Chazin Interiors. Turn-key solutions from initial consultation to final installation in Minneapolis and Wayzata.">
-    <meta name="keywords" content="interior design, residential design, luxury interiors, Minneapolis interior designer, Wayzata, full service design">
+    <meta name="description" content="Professional home staging services in Minneapolis and Wayzata. Strategic design to sell your property faster and for top dollar.">
+    <meta name="keywords" content="home staging, real estate staging, property staging, Minneapolis, Wayzata, luxury home staging">
     
-    <!-- Open Graph -->
-    <meta property="og:title" content="Interior Design Services | CHAZIN">
-    <meta property="og:description" content="Full-service residential interior design from concept to completion.">
+    <meta property="og:title" content="Home Staging Services | CHAZIN">
+    <meta property="og:description" content="Strategic staging that transforms properties into market-ready showcases.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yourdomain.example/interior-design.html">
+    <meta property="og:url" content="https://yourdomain.example/home-staging.html">
     <meta property="og:image" content="https://yourdomain.example/og-image.jpg">
     
-    <link rel="canonical" href="https://yourdomain.example/interior-design.html">
+    <link rel="canonical" href="https://yourdomain.example/home-staging.html">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 </head>
 <body>
@@ -44,10 +41,10 @@
             <div class="logo" aria-label="Chazin Interiors"><a href="/index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
             <nav id="main-nav" aria-label="Main navigation">
                 <ul>
-                    <li><a href="/src/pages/interior-design.html" aria-current="page">Interior Design</a></li>
-                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
-                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
-                        <li><a href="/src/pages/contact.html">Contact Us</a></li>
+                    <li><a href="/interior-design.html">Interior Design</a></li>
+                    <li><a href="/home-staging.html" aria-current="page">Home Staging</a></li>
+                    <li><a href="/showroom.html">The Showroom</a></li>
+                    <li><a href="/contact.html">Contact Us</a></li>
                 </ul>
             </nav>
             <a href="/index.html#contact" class="cta-pill">Book Consultation</a>
@@ -72,9 +69,9 @@
             <nav class="mobile-nav" aria-label="Mobile navigation">
                 <ul>
                     <li><a href="/index.html">Home</a></li>
-                    <li><a href="/src/pages/interior-design.html" aria-current="page">Interior Design</a></li>
-                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
-                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
+                    <li><a href="/interior-design.html">Interior Design</a></li>
+                    <li><a href="/home-staging.html" aria-current="page">Home Staging</a></li>
+                    <li><a href="/showroom.html">The Showroom</a></li>
                 </ul>
             </nav>
             <a href="/index.html#contact" class="cta-pill mobile-nav-cta">Book Consultation</a>
@@ -83,61 +80,115 @@
 
     <main id="main-content">
         <!-- Hero Section -->
-        <section class="hero" aria-label="Interior Design hero">
+        <section class="hero" aria-label="Home Staging hero">
             <div class="hero-video-wrap">
-                <img src="/src/assets/images/portfolio_1.png" 
-                     alt="Elegant residential interior design with modern furniture and sophisticated lighting" 
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=2000" 
+                     alt="Professionally staged living room for real estate sale" 
                      loading="eager" 
                      fetchpriority="high">
             </div>
             <div class="hero-content">
-                <span class="mono">Full-Service Design</span>
-                <h1 class="hero-title" id="hero-title">Interior Design That Speaks.</h1>
-                <p>From blueprint to finishing touches, we create residential spaces that balance function, beauty, and your unique lifestyle.</p>
+                <span class="mono">Real Estate Staging</span>
+                <h1 class="hero-title" id="hero-title">Stage to Sell.</h1>
+                <p>Strategic staging that creates emotional connections, elevates perceived value, and sells properties faster.</p>
             </div>
         </section>
 
-        <!-- Portfolio Gallery -->
-        <section class="reveal gallery-section">
+        <!-- Services Section -->
+        <section class="reveal services-grid-section">
+            <div class="services-grid">
+                <article class="service-card" style="height: 500px;">
+                    <img src="/src/assets/images/portfolio_2.png" 
+                         class="service-img" 
+                         alt="Luxury staging for high-end properties"
+                         loading="lazy">
+                    <div class="service-overlay">
+                        <h3 style="font-size: 2rem; margin-bottom: 1rem;">Luxury Staging</h3>
+                        <p style="font-size: 1.1rem;">High-end furnishings, art, and accessories for estates and luxury listings. We match the caliber of your property.</p>
+                    </div>
+                </article>
+                <article class="service-card" style="height: 500px;">
+                    <img src="/src/assets/images/portfolio_3.png" 
+                         class="service-img" 
+                         alt="Real estate photography staging"
+                         loading="lazy">
+                    <div class="service-overlay">
+                        <h3 style="font-size: 2rem; margin-bottom: 1rem;">Photo-Ready Prep</h3>
+                        <p style="font-size: 1.1rem;">Day-of styling for listing photography. We ensure every angle is camera-perfect and scroll-stopping.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Before/After Gallery -->
+        <section class="reveal" aria-labelledby="transformations-heading">
+            <h2 id="transformations-heading" class="section-label mono" style="text-align: center; margin-bottom: 4rem;">Staging Transformations</h2>
             <div class="portfolio-masonry">
                 <figure class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6f3ea?auto=format&fit=crop&q=80&w=800" 
-                         alt="Spa-like bathroom design" 
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" 
+                         alt="Staged dining room transformation" 
                          loading="lazy">
-                    <figcaption>
-                        <h3>Spa Bath Retreat</h3>
-                        <p>Primary bath renovation</p>
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Minnetonka Colonial</h3>
+                        <p style="color: #999; font-size: 0.9rem;">Sold in 9 days, 15% over ask</p>
                     </figcaption>
                 </figure>
                 <figure class="portfolio-item">
                     <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&q=80&w=800" 
-                         alt="Open concept living space" 
+                         alt="Staged open living space" 
                          loading="lazy">
-                    <figcaption>
-                        <h3>Modern Farmhouse</h3>
-                        <p>Open-plan living redesign</p>
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Edina Rambler</h3>
+                        <p style="color: #999; font-size: 0.9rem;">Sold in 5 days, multiple offers</p>
+                    </figcaption>
+                </figure>
+                <figure class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800" 
+                         alt="Luxury home office staging" 
+                         loading="lazy">
+                    <figcaption style="padding: 1.5rem; background: white;">
+                        <h3 style="font-size: 1.2rem; margin-bottom: 0.5rem;">Wayzata Estate</h3>
+                        <p style="color: #999; font-size: 0.9rem;">Sold at record price for neighborhood</p>
                     </figcaption>
                 </figure>
             </div>
         </section>
 
+        <!-- Agent Partners Ticker -->
+        <div class="ticker" aria-label="Realtor partners">
+            <div class="ticker-content" aria-hidden="true">
+                <span>EDINA REALTY</span>
+                <span>LAKES SOTHEBY'S</span>
+                <span>COMPASS</span>
+                <span>COLDWELL BANKER</span>
+                <span>RE/MAX</span>
+                <span>KELLER WILLIAMS</span>
+                <span>EDINA REALTY</span>
+                <span>LAKES SOTHEBY'S</span>
+                <span>COMPASS</span>
+                <span>COLDWELL BANKER</span>
+                <span>RE/MAX</span>
+                <span>KELLER WILLIAMS</span>
+            </div>
+        </div>
+
         <!-- Testimonial -->
         <section style="background: var(--taupe); text-align: center;" class="reveal">
             <blockquote class="testimonial">
-                <p>"Chazin didn't just redesign our home—they reimagined how we live in it. Every room feels intentional, serene, and unmistakably ours."</p>
+                <p>"We had the property listed for 6 months with no offers. Chazin staged it, and we had 3 offers within a week. The ROI was incredible."</p>
                 <footer>
-                    <span style="font-weight: 500; color: var(--charcoal);">— Sarah & Michael T.</span><br>
-                    Lake Minnetonka Residence
+                    <span style="font-weight: 500; color: var(--charcoal);">— Jennifer L., Realtor</span><br>
+                    Edina Realty
                 </footer>
             </blockquote>
         </section>
 
         <!-- CTA Section -->
         <section style="text-align: center;" class="reveal">
-            <span class="mono" style="margin-bottom: 2rem; display: block;">Ready to Begin?</span>
-            <h2>Let's Create Your Dream Space.</h2>
-            <p style="max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.1rem; color: #666;">Schedule a complimentary consultation to discuss your project, timeline, and vision.</p>
-            <a href="/index.html#contact" class="cta-pill magnetic">Book Consultation</a>
+            <span class="mono" style="margin-bottom: 2rem; display: block;">For Homeowners & Realtors</span>
+            <h2>Let's Get Your Property Sold.</h2>
+            <p style="max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.1rem; color: #666;">Contact us for a complimentary staging consultation and proposal.</p>
+            <a href="/index.html#contact" class="cta-pill magnetic">Request Consultation</a>
         </section>
     </main>
 
@@ -166,9 +217,9 @@
             <nav aria-label="Footer navigation">
                 <h4>Explore</h4>
                 <ul>
-                    <li><a href="/src/pages/interior-design.html">Interior Design</a></li>
-                    <li><a href="/src/pages/home-staging.html">Home Staging</a></li>
-                    <li><a href="/src/pages/showroom.html">The Showroom</a></li>
+                    <li><a href="/interior-design.html">Interior Design</a></li>
+                    <li><a href="/home-staging.html">Home Staging</a></li>
+                    <li><a href="/showroom.html">The Showroom</a></li>
                 </ul>
             </nav>
             
