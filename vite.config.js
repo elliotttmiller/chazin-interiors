@@ -3,6 +3,7 @@ import { resolve } from 'path';
 
 export default defineConfig({
   root: '.',
+  base: '/chazin-interiors/',
   server: {
     port: 5173
   },
