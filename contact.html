@@ -119,13 +119,18 @@
                     </div>
 
                     <div class="input-group">
-                        <label for="contact-project-type" class="visually-hidden">Project Type</label>
-                        <select id="contact-project-type" name="project-type" required aria-required="true">
-                            <option value="" disabled selected>Project Type</option>
-                            <option value="interior-design">Interior Design</option>
-                            <option value="home-staging">Home Staging</option>
-                            <option value="furniture-consultation">Furniture Consultation</option>
-                        </select>
+                        <label id="contact-project-type-label" class="visually-hidden">Project Type</label>
+                        <!-- Custom accessible dropdown: styled button + list + hidden input for form submission -->
+                        <div class="custom-select" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="contact-project-type-label" data-name="project-type">
+                            <button type="button" class="custom-select__toggle" aria-controls="contact-project-type-list">Project Type</button>
+                            <ul id="contact-project-type-list" class="custom-select__list" role="listbox" tabindex="-1">
+                                <li role="option" data-value="" aria-selected="true">Project Type</li>
+                                <li role="option" data-value="interior-design">Interior Design</li>
+                                <li role="option" data-value="home-staging">Home Staging</li>
+                                <li role="option" data-value="furniture-consultation">Furniture Consultation</li>
+                            </ul>
+                            <input type="hidden" name="project-type" value="">
+                        </div>
                     </div>
 
                     <div class="input-group">

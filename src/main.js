@@ -168,4 +168,100 @@ document.addEventListener('DOMContentLoaded', () => {
       if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   });
+
+  // Custom select / dropdown (accessible, keyboard-friendly)
+  const initCustomSelects = () => {
+    const selects = document.querySelectorAll('.custom-select');
+    selects.forEach(select => {
+      const toggle = select.querySelector('.custom-select__toggle');
+      const list = select.querySelector('.custom-select__list');
+      const hidden = select.querySelector('input[type="hidden"]');
+      const options = Array.from(list.querySelectorAll('li'));
+
+      const open = () => {
+        select.classList.add('open');
+        select.setAttribute('aria-expanded', 'true');
+        list.focus();
+      };
+
+      const close = () => {
+        select.classList.remove('open');
+        select.setAttribute('aria-expanded', 'false');
+      };
+
+      const selectOption = (opt) => {
+        const value = opt.getAttribute('data-value') || '';
+        const label = opt.textContent.trim();
+        // update hidden input for form
+        if (hidden) hidden.value = value;
+        // update button label
+        if (toggle) toggle.textContent = label;
+        // update aria-selected
+        options.forEach(o => o.setAttribute('aria-selected', 'false'));
+        opt.setAttribute('aria-selected', 'true');
+        close();
+      };
+
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const isOpen = select.classList.contains('open');
+        if (isOpen) close(); else open();
+      });
+
+      // Option click
+      options.forEach(opt => {
+        opt.addEventListener('click', () => selectOption(opt));
+        opt.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            selectOption(opt);
+          }
+        });
+      });
+
+      // keyboard support on toggle
+      toggle.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowDown' || e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open();
+          // focus first option
+          const first = options[0];
+          if (first) first.focus();
+        }
+      });
+
+      // Close on outside click or escape
+      document.addEventListener('click', (e) => {
+        if (!select.contains(e.target)) close();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close();
+      });
+    });
+  };
+
+  // Initialize custom selects if present
+  initCustomSelects();
+
+  // Ensure the contact form validates custom select before submitting
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      const custom = contactForm.querySelector('.custom-select');
+      if (custom) {
+        const hidden = custom.querySelector('input[type="hidden"]');
+        // If project type is required but empty, prevent submission
+        if (hidden && hidden.value === '') {
+          e.preventDefault();
+          // open the dropdown and focus the first option or toggle
+          custom.classList.add('open');
+          custom.setAttribute('aria-expanded', 'true');
+          const firstOpt = custom.querySelector('.custom-select__list li:nth-child(2)');
+          if (firstOpt) firstOpt.focus();
+          return false;
+        }
+      }
+    });
+  }
 });
