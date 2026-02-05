@@ -227,9 +227,11 @@
         <!-- Tectonic Split Section -->
         <section class="split-section reveal" aria-labelledby="showroom-heading">
             <div class="split-image">
-                <img src="https://images.unsplash.com/photo-1505691723518-34e3b9e64b1b?auto=format&fit=crop&q=80&w=1200" 
-                     alt="Modern luxury kitchen with marble countertops and designer appliances" 
-                     loading="lazy">
+                <!-- Use local image asset to avoid external hotlinking and ensure consistent builds -->
+                <img src="/src/assets/images/portfolio_2.png"
+                     alt="Modern luxury kitchen with marble countertops and designer appliances"
+                     loading="lazy"
+                     decoding="async">
             </div>
             <div class="split-text">
                 <span id="showroom-heading" class="section-label mono">The Showroom</span>
