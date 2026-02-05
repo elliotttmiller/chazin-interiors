@@ -58,30 +58,56 @@ document.addEventListener('DOMContentLoaded', () => {
   
   let mouseX = 0;
   let mouseY = 0;
-  let targetX = 0;
-  let targetY = 0;
+
+  // Smoothed positions for the dot and the follower
+  let dotX = 0;
+  let dotY = 0;
+  let folX = 0;
+  let folY = 0;
+
+  // Easing factors (dot is quicker, follower lags a bit)
+  const DOT_EASE = 0.35;
+  const FOL_EASE = 0.12;
+
+  // Center offsets (computed once, updated on resize)
+  let cursorHalf = 6; // defaults match CSS (#cursor 12px)
+  let followerHalf = 20; // defaults match CSS (#cursor-follower 40px)
+
+  const updateSizes = () => {
+    if (cursor) cursorHalf = cursor.offsetWidth / 2;
+    if (follower) followerHalf = follower.offsetWidth / 2;
+  };
+
+  window.addEventListener('resize', updateSizes);
+  updateSizes();
 
   document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
   });
 
-  // Use requestAnimationFrame for smooth cursor movement
+  // Use requestAnimationFrame + lerp for smooth, synchronized motion
   const animateCursor = () => {
+    // Lerp small dot towards the current mouse position (fast)
+    dotX += (mouseX - dotX) * DOT_EASE;
+    dotY += (mouseY - dotY) * DOT_EASE;
+
+    // Lerp follower (slower) for a natural trailing circle
+    folX += (mouseX - folX) * FOL_EASE;
+    folY += (mouseY - folY) * FOL_EASE;
+
     if (cursor) {
-      cursor.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
+      // center the element by subtracting half its dimensions
+      cursor.style.transform = `translate3d(${dotX - cursorHalf}px, ${dotY - cursorHalf}px, 0)`;
     }
-    
+
     if (follower) {
-      // Smooth follower with easing
-      targetX += (mouseX - 14 - targetX) * 0.2;
-      targetY += (mouseY - 14 - targetY) * 0.2;
-      follower.style.transform = `translate3d(${targetX}px, ${targetY}px, 0)`;
+      follower.style.transform = `translate3d(${folX - followerHalf}px, ${folY - followerHalf}px, 0)`;
     }
-    
+
     requestAnimationFrame(animateCursor);
   };
-  
+
   animateCursor();
 
   // Sticky Header
