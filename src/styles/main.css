@@ -174,6 +174,48 @@ header .site-header-inner {
     position: relative; /* ensure absolutely positioned children are anchored inside */
 }
 
+/* Header social icons placed at the far right of the header on desktop */
+/* Header social icons positioned at the far right (outside the centered inner container)
+   Moved to be a direct child of `header` so icons can sit nearer the viewport edge. */
+header > .header-social {
+    position: absolute;
+    right: 1.25rem; /* nudged to sit closer to the viewport edge */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    z-index: 1100;
+}
+
+/* Small hit-area so icons align visually and are easier to hit with the mouse */
+header > .header-social a {
+    color: var(--charcoal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.15s ease;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+header > .header-social a svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+/* Hover and focus states - subtle color change to match site accent */
+header > .header-social a:hover svg,
+header > .header-social a:focus svg {
+    stroke: var(--gold);
+}
+
+/* Hide header social icons on small screens where mobile nav/overlay provides them */
+@media (max-width: 900px) {
+    header > .header-social { display: none; }
+}
+
 .logo {
     font-size: 1.4rem;
     font-family: 'Playfair Display', serif;
@@ -1198,6 +1240,39 @@ footer nav a:hover {
         background: white;
         color: var(--charcoal);
         transform: translateY(0) scale(0.97);
+    }
+
+    /* Social icons underneath mobile CTA */
+    .mobile-nav-social {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.25rem;
+    }
+
+    .mobile-nav-social a {
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.06);
+        transition: background 0.2s ease, transform 0.15s ease;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .mobile-nav-social a:hover {
+        background: rgba(255,255,255,0.12);
+        transform: translateY(-2px);
+    }
+
+    .mobile-nav-social svg {
+        width: 18px;
+        height: 18px;
+        stroke: white;
     }
     
     /* ========== Page Content Mobile Optimizations ========== */
