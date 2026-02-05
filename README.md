@@ -19,7 +19,7 @@ This repository is a migration of a single-file static site into a production-re
 - ✅ Descriptive alt text for all images
 - ✅ ARIA labels for navigation and sections
 - ✅ Proper heading hierarchy
-
+- 
 ### SEO Optimization
 - ✅ Comprehensive meta tags (description, keywords, author)
 - ✅ Open Graph tags for social sharing
