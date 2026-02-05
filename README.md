@@ -143,7 +143,21 @@ chazin-interior/
 
 ## Deployment
 
-### Netlify (Recommended)
+### GitHub Pages (Automated)
+The site is configured to automatically deploy to GitHub Pages when changes are pushed to the `main` branch.
+
+**Setup Steps:**
+1. Go to your repository settings → Pages
+2. Set Source to "GitHub Actions"
+3. Push to `main` branch to trigger deployment
+4. Your site will be available at: `https://elliotttmiller.github.io/chazin-interiors/`
+
+The deployment is handled by `.github/workflows/deploy.yml` which:
+- Builds the site with `npm run build`
+- Deploys the `dist` folder to GitHub Pages
+- Runs automatically on every push to `main` or can be triggered manually
+
+### Netlify
 1. Connect your Git repository to Netlify
 2. Build settings are in `netlify.toml`
 3. Deploy previews will be created for PRs automatically
