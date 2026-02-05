@@ -47,8 +47,5 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# SPA redirect
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Multi-page application - no catch-all redirect needed
+# Each HTML file will be served directly
