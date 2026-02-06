@@ -80,7 +80,6 @@ function createPortfolioCard(project, index) {
       ` : '<div class="portfolio-card-placeholder"></div>'}
       <div class="portfolio-card-overlay">
         <h3>${project.title}</h3>
-        <span class="mono">${project.total_images} Images</span>
       </div>
     </div>
   `;
