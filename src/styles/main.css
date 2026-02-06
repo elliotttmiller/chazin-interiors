@@ -272,13 +272,15 @@ header > .header-social a:focus svg {
         font-size: 0.9rem;
         white-space: nowrap;
         flex-shrink: 0;
-        min-height: 44px; /* iOS minimum touch target */
+        min-height: 44px; /* Minimum touch target for accessibility (iOS/Android guidelines) */
         display: inline-flex;
         align-items: center;
         justify-content: center;
+        /* Combined with 1rem horizontal padding, ensures sufficient touch target width */
     }
 }
-/* Note: Brand card styles are defined in the Vendors Page Styles section below */
+
+/* Note: Brand card styles are defined in the "Vendors Page Styles" section below */
 
 .logo {
 
