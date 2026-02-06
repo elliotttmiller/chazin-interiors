@@ -940,9 +940,9 @@ section {
 
 /* Page transition variables and classes */
 :root {
-    /* Slower, more natural page transition */
-    --page-transition-duration: 760ms; /* increased from 480ms */
-    --page-transition-easing: cubic-bezier(0.2, 0.12, 0.2, 1); /* gentler ease-out curve */
+    /* Reduced page transition so entry/exit feel snappier while keeping the effect */
+    --page-transition-duration: 260ms; /* reduced from 760ms to shorten blank screen */
+    --page-transition-easing: cubic-bezier(0.2, 0.12, 0.2, 1);
 }
 
 /* Initial hidden state to allow JS to apply enter animation */

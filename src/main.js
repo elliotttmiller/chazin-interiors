@@ -274,8 +274,8 @@ document.addEventListener('DOMContentLoaded', () => {
     docBody.classList.add('transition-enabled');
     // Wait a tick so CSS can pick up the initial state, then add ready class
     requestAnimationFrame(() => {
-      // Delay slightly to avoid flashing on very fast loads — give browser a bit more time for smoother entry
-      setTimeout(() => docBody.classList.add('transition-ready'), 60);
+      // Small delay so CSS picks up initial state; keep this as tiny as possible to avoid long blank screen
+      setTimeout(() => docBody.classList.add('transition-ready'), 10);
     });
 
     // Delegate click handling to intercept internal navigation
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // read duration from CSS variable if present
       const computed = getComputedStyle(document.documentElement).getPropertyValue('--page-transition-duration') || '480ms';
       const ms = parseFloat(computed) * (computed.indexOf('ms') > -1 ? 1 : 1000) || 480;
-      const padding = 80; // extra ms to ensure animation completes fully and feels natural
+  const padding = 30; // extra ms to ensure animation completes but remain snappy
 
       setTimeout(() => {
         // navigate after animation
