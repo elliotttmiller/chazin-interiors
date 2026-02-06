@@ -217,6 +217,41 @@ header > .header-social a:focus svg {
 }
 
 .logo {
+
+/* Show more button styles */
+.portfolio-show-more {
+    grid-column: 1 / -1; /* span full width of grid */
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.show-more-btn {
+    /* small additions on top of .cta-pill */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.show-more-btn::after {
+    content: '▾';
+    display: inline-block;
+    font-size: 0.95rem;
+    line-height: 1;
+    transform-origin: center;
+    transition: transform 220ms ease;
+    color: inherit;
+}
+
+.show-more-btn[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 700px) {
+    .show-more-btn { width: 90%; justify-content: center; }
+}
     font-size: 1.4rem;
     font-family: 'Playfair Display', serif;
     letter-spacing: 3px;

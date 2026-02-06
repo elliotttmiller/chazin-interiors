@@ -42,11 +42,61 @@ async function initializePortfolioGrid() {
   // Clear loading state
   gridContainer.innerHTML = '';
 
-  // Create portfolio cards
-  data.projects.forEach((project, index) => {
+  // Show only first N projects initially, then provide a Show more button
+  const VISIBLE_COUNT = 6;
+  const projects = data.projects || [];
+
+  // Create visible cards
+  projects.slice(0, VISIBLE_COUNT).forEach((project, index) => {
     const card = createPortfolioCard(project, index);
     gridContainer.appendChild(card);
   });
+
+  // Create hidden cards for the rest
+  const hiddenCards = [];
+  projects.slice(VISIBLE_COUNT).forEach((project, idx) => {
+    const globalIndex = VISIBLE_COUNT + idx;
+    const card = createPortfolioCard(project, globalIndex);
+    // hide initially
+    card.setAttribute('data-hidden', 'true');
+    card.style.display = 'none';
+    hiddenCards.push(card);
+    gridContainer.appendChild(card);
+  });
+
+  // If there are hidden cards, add a Show more control
+  if (hiddenCards.length > 0) {
+    const moreWrap = document.createElement('div');
+    moreWrap.className = 'portfolio-show-more';
+    // Ensure the wrapper spans the full grid and centers its contents (inline styles to avoid CSS specificity issues)
+    moreWrap.style.gridColumn = '1 / -1';
+    moreWrap.style.display = 'flex';
+    moreWrap.style.justifyContent = 'center';
+    moreWrap.style.alignItems = 'center';
+    moreWrap.style.marginTop = '1rem';
+    moreWrap.innerHTML = `
+      <button class="cta-pill show-more-btn" aria-expanded="false">Show more</button>
+    `;
+    gridContainer.appendChild(moreWrap);
+
+    const btn = moreWrap.querySelector('.show-more-btn');
+    btn.addEventListener('click', () => {
+      // reveal hidden cards with a small stagger
+      hiddenCards.forEach((c, i) => {
+        setTimeout(() => {
+          c.style.display = '';
+          // force reflow then add a revealed class if styling uses it
+          void c.offsetWidth;
+          c.classList.add('revealed');
+        }, i * 60);
+      });
+      btn.setAttribute('aria-expanded', 'true');
+      // remove the button after expanding
+      setTimeout(() => {
+        if (moreWrap && moreWrap.parentNode) moreWrap.parentNode.removeChild(moreWrap);
+      }, hiddenCards.length * 60 + 200);
+    });
+  }
 }
 
 /**
