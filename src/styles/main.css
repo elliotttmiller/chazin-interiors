@@ -1393,6 +1393,12 @@ footer nav a:hover {
     * {
         cursor: auto !important;
     }
+
+    /* Reduce the height of service cards on tablet/phone to improve visual balance
+       and avoid overly tall blocks on small viewports. Original desktop height is 700px. */
+    .service-card {
+        height: 525px !important; /* ~25% shorter than 700px */
+    }
     
     #cursor,
     #cursor-follower {
@@ -2147,6 +2153,11 @@ footer nav a:hover {
     .split-section {
         gap: 2.5rem !important;
         padding: 3rem 1.2rem !important;
+    }
+
+    /* Further reduce service card height on very small screens */
+    .service-card {
+        height: 420px !important;
     }
     
     .split-image {
