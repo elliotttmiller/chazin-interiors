@@ -394,9 +394,18 @@ section {
 }
 
 .ticker-content {
+    --ticker-duration: 60s; /* slower, more natural default */
     display: flex;
     white-space: nowrap;
-    animation: scroll 30s linear infinite;
+    will-change: transform;
+    /* use translate3d for GPU acceleration; duration configurable via var */
+    animation: scroll var(--ticker-duration) linear infinite;
+}
+
+/* Pause on hover/focus for usability */
+.ticker-content:hover,
+.ticker-content:focus-within {
+    animation-play-state: paused;
 }
 
 .ticker-content span {
@@ -409,8 +418,13 @@ section {
 }
 
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .ticker-content { animation: none !important; }
 }
 
 /* Service Cards */
