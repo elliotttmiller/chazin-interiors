@@ -27,6 +27,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
+    <meta name="robots" content="index, follow">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -36,6 +37,7 @@
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://chazininteriors.com/">
+    <link rel="alternate" hreflang="en-US" href="https://chazininteriors.com/">
     
     <!-- Favicon (placeholder - add actual favicon files) -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -43,6 +45,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     
     <!-- JSON-LD Structured Data -->
+    <link rel="preload" as="image" href="/chazin_portfolio/Hill%20Farm%20Condominiums/Hill-Farm-Condos-300-MLS-15.jpg">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -164,6 +167,20 @@
       ]
     }
     </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://chazininteriors.com/"
+                }
+            ]
+        }
+        </script>
 </head>
 <body>
     <!-- Skip to main content link for accessibility -->
@@ -248,11 +265,13 @@
     <main id="main-content">
         <!-- Hero Section -->
         <section class="hero" id="home" aria-label="Hero introduction">
-            <div class="hero-video-wrap">
+            <div class="hero-video-wrap" style="aspect-ratio: 16/9; overflow: hidden; display: block;">
                 <img src="/chazin_portfolio/Hill%20Farm%20Condominiums/Hill-Farm-Condos-300-MLS-15.jpg" 
                      alt="Hill Farm Condominiums living area — Chazin Interiors project" 
                      loading="eager" 
-                     fetchpriority="high">
+                     fetchpriority="high"
+                     decoding="async"
+                     style="width:100%; height:100%; object-fit: cover; display:block;">
             </div>
             <div class="hero-content">
                 <span class="mono">Minneapolis | Wayzata</span>

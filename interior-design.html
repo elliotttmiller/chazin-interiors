@@ -27,6 +27,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="en_US">
+    <meta name="robots" content="index, follow">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -35,6 +36,8 @@
     <meta name="twitter:image" content="https://chazininteriors.com/og-image.jpg">
     
     <link rel="canonical" href="https://chazininteriors.com/interior-design.html">
+    <link rel="alternate" hreflang="en-US" href="https://chazininteriors.com/interior-design.html">
+    <link rel="preload" as="image" href="/chazin_portfolio/11411%20Riverview%20Road/3.jpeg">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     
     <!-- JSON-LD Structured Data for Service -->
@@ -55,6 +58,26 @@
       "description": "Full-service residential interior design from initial consultation to final installation. Turn-key solutions for luxury homes."
     }
     </script>
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://chazininteriors.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Interior Design",
+                    "item": "https://chazininteriors.com/interior-design.html"
+                }
+            ]
+        }
+        </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -138,11 +161,13 @@
     <main id="main-content">
         <!-- Hero Section -->
         <section class="hero" aria-label="Interior Design hero">
-            <div class="hero-video-wrap">
+            <div class="hero-video-wrap" style="aspect-ratio: 16/9; overflow: hidden; display: block;">
                 <img src="/chazin_portfolio/11411%20Riverview%20Road/3.jpeg" 
                      alt="Elegant residential interior design with modern furniture and sophisticated lighting" 
                      loading="eager" 
-                     fetchpriority="high">
+                     fetchpriority="high"
+                     decoding="async"
+                     style="width:100%; height:100%; object-fit: cover; display:block;">
             </div>
             <div class="hero-content">
                 <span class="mono">Full-Service Design</span>
