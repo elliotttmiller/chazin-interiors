@@ -5,13 +5,23 @@
 
   async function loadBrandData() {
     try {
-      const response = await fetch('/chazin-interiors/vendors_with_images.json');
+      // Use document base URL for flexible deployment paths
+      const basePath = document.querySelector('base')?.href || window.location.origin + '/chazin-interiors/';
+      const jsonPath = new URL('vendors_with_images.json', basePath).href;
+      const response = await fetch(jsonPath);
+      
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+      
       const brandList = await response.json();
       renderBrandShowcase(brandList);
     } catch (error) {
+      console.error('Failed to load vendor data:', error);
       showcaseContainer.innerHTML = `
         <div style="text-align: center; padding: 4rem 2rem; color: var(--charcoal);">
           <p>Unable to load brand information at this time.</p>
+          <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.7;">Please refresh the page or try again later.</p>
         </div>
       `;
     }
