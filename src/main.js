@@ -264,4 +264,60 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Page enter/exit transitions for smoother navigation
+  const initPageTransitions = () => {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return; // respect user setting
+
+    const docBody = document.body;
+    // enable transition styling and queue the enter animation
+    docBody.classList.add('transition-enabled');
+    // Wait a tick so CSS can pick up the initial state, then add ready class
+    requestAnimationFrame(() => {
+      // Delay slightly to avoid flashing on very fast loads — give browser a bit more time for smoother entry
+      setTimeout(() => docBody.classList.add('transition-ready'), 60);
+    });
+
+    // Delegate click handling to intercept internal navigation
+    document.addEventListener('click', (e) => {
+      const anchor = e.target.closest && e.target.closest('a');
+      if (!anchor) return;
+
+      // skip if anchor has target, download, or no href
+      const href = anchor.getAttribute('href');
+      if (!href || anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+
+      // skip external links (hosts differ) and protocol-only links
+      try {
+        const url = new URL(href, location.href);
+        if (url.origin !== location.origin) return; // external
+      } catch (err) {
+        return; // malformed URL, ignore
+      }
+
+      // allow same-page hash links to behave normally
+      if (anchor.hash && anchor.pathname === location.pathname) return;
+
+      // At this point we should intercept the click and animate out
+      e.preventDefault();
+
+      // If already exiting, ignore duplicate clicks
+      if (docBody.classList.contains('transition-exit')) return;
+
+      docBody.classList.remove('transition-ready');
+      docBody.classList.add('transition-exit');
+
+      // read duration from CSS variable if present
+      const computed = getComputedStyle(document.documentElement).getPropertyValue('--page-transition-duration') || '480ms';
+      const ms = parseFloat(computed) * (computed.indexOf('ms') > -1 ? 1 : 1000) || 480;
+      const padding = 80; // extra ms to ensure animation completes fully and feels natural
+
+      setTimeout(() => {
+        // navigate after animation
+        window.location.href = anchor.href;
+      }, ms + padding);
+    }, { passive: false });
+  };
+
+  initPageTransitions();
 });

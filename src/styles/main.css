@@ -490,6 +490,8 @@ textarea:focus-visible {
     z-index: 2;
     text-align: center;
     color: white;
+    max-width: 1100px; /* widen the hero content container so text can spread wider */
+    margin: 0 auto;
 }
 
 .hero-title {
@@ -508,11 +510,13 @@ textarea:focus-visible {
 }
 
 .hero-content p {
-    max-width: 600px;
+    max-width: 820px; /* allow slightly longer lines for improved readability */
     margin: 0 auto;
     font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: 300;
-    opacity: 0.9;
+    color: #ffffff; /* brighter white for better contrast */
+    opacity: 1; /* fully opaque for clarity */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.25); /* subtle lift on busy hero images */
 }
 
 /* Tectonic Sections */
@@ -675,8 +679,49 @@ section {
 
 /* Portfolio Masonry */
 .portfolio-masonry {
+    /* legacy multi-column fallback for mixed content — primary showroom layout uses .showroom-tiles */
     columns: 3;
     column-gap: 2rem;
+}
+
+/* Showroom tiles: use CSS Grid for perfectly balanced 3-up cards */
+.showroom-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.showroom-tiles .portfolio-item {
+    display: flex;
+    flex-direction: column;
+    height: 420px; /* balanced card height for showroom */
+    overflow: hidden;
+    background: var(--taupe);
+}
+
+.showroom-tiles .portfolio-item img {
+    width: 100%;
+    /* let the image flex inside the card so the figcaption has room
+       (height:100% caused the image to fill the card and hide the caption) */
+    height: auto;
+    object-fit: cover;
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.showroom-tiles .portfolio-item figcaption {
+    flex: 0 0 auto;
+    padding: 1rem;
+    text-align: center;
+    background: #fff;
+}
+
+@media (max-width: 900px) {
+    .showroom-tiles {
+        grid-template-columns: 1fr;
+    }
+    .showroom-tiles .portfolio-item { height: auto; }
 }
 
 .portfolio-item {
@@ -789,6 +834,46 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+/* Page transition variables and classes */
+:root {
+    /* Slower, more natural page transition */
+    --page-transition-duration: 760ms; /* increased from 480ms */
+    --page-transition-easing: cubic-bezier(0.2, 0.12, 0.2, 1); /* gentler ease-out curve */
+}
+
+/* Initial hidden state to allow JS to apply enter animation */
+body.transition-enabled {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+/* When JS adds .transition-ready we animate into place */
+body.transition-ready {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--page-transition-duration) var(--page-transition-easing),
+                transform var(--page-transition-duration) var(--page-transition-easing);
+}
+
+/* Exit transition before navigating away */
+body.transition-exit {
+    opacity: 0 !important;
+    transform: translateY(-6px) !important;
+    transition: opacity calc(var(--page-transition-duration) * 0.9) var(--page-transition-easing),
+                transform calc(var(--page-transition-duration) * 0.9) var(--page-transition-easing);
+}
+
+/* Respect reduced motion preference — disable transitions */
+@media (prefers-reduced-motion: reduce) {
+    body.transition-ready,
+    body.transition-exit,
+    body.transition-enabled {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
 }
 
 /* Give split images a smoother rounded corner look */
@@ -1568,6 +1653,8 @@ footer nav a:hover {
         font-size: 1rem !important;
         max-width: 90% !important;
         line-height: 1.6 !important;
+        color: #ffffff !important;
+        opacity: 1 !important;
     }
     
     .hero-content .mono {
