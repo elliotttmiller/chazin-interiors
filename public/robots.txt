@@ -1,4 +1,7 @@
+# robots.txt for Chazin Interiors
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /*.json$
 
-Sitemap: https://yourdomain.example/sitemap.xml
+Sitemap: https://chazininteriors.com/sitemap.xml

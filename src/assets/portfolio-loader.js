@@ -49,6 +49,10 @@ async function initializePortfolioGrid() {
   // Create visible cards
   projects.slice(0, VISIBLE_COUNT).forEach((project, index) => {
     const card = createPortfolioCard(project, index);
+    // Mark last 3 visible cards for fade effect
+    if (index >= VISIBLE_COUNT - 3) {
+      card.classList.add('portfolio-card-fadeable');
+    }
     gridContainer.appendChild(card);
   });
 
@@ -66,6 +70,15 @@ async function initializePortfolioGrid() {
 
   // If there are hidden cards, add a Show more control
   if (hiddenCards.length > 0) {
+    // Wrap the grid in a container for proper overlay positioning
+    const gridParent = gridContainer.parentElement;
+    
+    // Create fade overlay for last 3 visible cards
+    const fadeOverlay = document.createElement('div');
+    fadeOverlay.className = 'portfolio-fade-overlay';
+    fadeOverlay.setAttribute('aria-hidden', 'true');
+    gridContainer.appendChild(fadeOverlay);
+
     const moreWrap = document.createElement('div');
     moreWrap.className = 'portfolio-show-more';
     // Ensure the wrapper spans the full grid and centers its contents (inline styles to avoid CSS specificity issues)
@@ -73,14 +86,30 @@ async function initializePortfolioGrid() {
     moreWrap.style.display = 'flex';
     moreWrap.style.justifyContent = 'center';
     moreWrap.style.alignItems = 'center';
-    moreWrap.style.marginTop = '1rem';
+    moreWrap.style.marginTop = '-3rem';
+    moreWrap.style.position = 'relative';
+    moreWrap.style.zIndex = '10';
     moreWrap.innerHTML = `
-      <button class="cta-pill show-more-btn" aria-expanded="false">Show more</button>
+      <button class="cta-pill show-more-btn" aria-expanded="false">
+        <span>Show more</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
     `;
     gridContainer.appendChild(moreWrap);
 
     const btn = moreWrap.querySelector('.show-more-btn');
     btn.addEventListener('click', () => {
+      // Fade out the overlay
+      fadeOverlay.style.opacity = '0';
+      fadeOverlay.style.pointerEvents = 'none';
+      
+      // Remove blur effect from fadeable cards
+      document.querySelectorAll('.portfolio-card-fadeable').forEach(card => {
+        card.classList.remove('portfolio-card-fadeable');
+      });
+      
       // reveal hidden cards with a small stagger
       hiddenCards.forEach((c, i) => {
         setTimeout(() => {
@@ -91,9 +120,10 @@ async function initializePortfolioGrid() {
         }, i * 60);
       });
       btn.setAttribute('aria-expanded', 'true');
-      // remove the button after expanding
+      // remove the button and overlay after expanding
       setTimeout(() => {
         if (moreWrap && moreWrap.parentNode) moreWrap.parentNode.removeChild(moreWrap);
+        if (fadeOverlay && fadeOverlay.parentNode) fadeOverlay.parentNode.removeChild(fadeOverlay);
       }, hiddenCards.length * 60 + 200);
     });
   }
