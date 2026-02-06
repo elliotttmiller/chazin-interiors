@@ -40,7 +40,9 @@
       brandCard.href = brand.website || '#';
       brandCard.target = '_blank';
       brandCard.rel = 'noopener noreferrer';
-      brandCard.className = 'brand-card';
+  brandCard.className = 'brand-card';
+  // expose the brand name to assistive tech on the link
+  brandCard.setAttribute('aria-label', brand.name || 'Brand');
       brandCard.setAttribute('data-index', idx);
       
       const imageWrapper = document.createElement('div');
@@ -61,12 +63,12 @@
       imageWrapper.appendChild(brandImg);
       brandCard.appendChild(imageWrapper);
       
-      if (brand.categories && Array.isArray(brand.categories) && brand.categories.length > 0) {
-        const categoryBadge = document.createElement('div');
-        categoryBadge.className = 'brand-card-categories';
-        categoryBadge.textContent = brand.categories.slice(0, 2).join(' • ');
-        brandCard.appendChild(categoryBadge);
-      }
+      // Show the company name on the card (instead of category text)
+      const nameBadge = document.createElement('div');
+      // keep existing styling hook so CSS doesn't need changes
+      nameBadge.className = 'brand-card-categories';
+      nameBadge.textContent = brand.name || '';
+      brandCard.appendChild(nameBadge);
       
       showcaseContainer.appendChild(brandCard);
     });
