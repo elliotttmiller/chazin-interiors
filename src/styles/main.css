@@ -1960,6 +1960,8 @@ blockquote footer {
     font-weight: 500;
     border-top: 1px solid rgba(26, 26, 26, 0.06);
     background: rgba(245, 242, 237, 0.4);
+    /* Center the vendor/company name inside the card */
+    text-align: center;
 }
 
 @media (max-width: 768px) {
