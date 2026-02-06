@@ -120,6 +120,18 @@
         // reading again and clearing transform to allow normal layout
         showcaseContainer.getBoundingClientRect();
         showcaseContainer.style.transform = '';
+        // If the brand showcase sits inside a `.reveal` section, ensure that
+        // the reveal animation state is set to 'active' so the container and
+        // its children are visible immediately (fixes mobile cases where the
+        // IntersectionObserver may not have fired yet or paint was deferred).
+        try {
+          const revealParent = showcaseContainer.closest && showcaseContainer.closest('.reveal');
+          if (revealParent && !revealParent.classList.contains('active')) {
+            revealParent.classList.add('active');
+          }
+        } catch (e) {
+          // ignore failures in older browsers
+        }
       });
     });
   }
