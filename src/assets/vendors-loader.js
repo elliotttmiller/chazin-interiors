@@ -5,10 +5,10 @@
 
   async function loadBrandData() {
     try {
-      // Use document base URL for flexible deployment paths
-      const basePath = document.querySelector('base')?.href || window.location.origin + '/chazin-interiors/';
-      const jsonPath = new URL('vendors_with_images.json', basePath).href;
-      const response = await fetch(jsonPath);
+      // Fetch JSON file relative to the site base path
+      // In dev: /vendors_with_images.json
+      // In prod: /chazin-interiors/vendors_with_images.json
+      const response = await fetch(`${import.meta.env.BASE_URL}vendors_with_images.json`);
       
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
