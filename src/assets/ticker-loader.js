@@ -1,5 +1,11 @@
 // Ticker loader: populate the home page ticker with vendor names
 (function() {
+  // Configuration constants for ticker animation speed
+  const TICKER_SPEED_PX_PER_SEC = 80; // Pixels per second - smooth, natural scrolling speed
+  const MIN_DURATION_SECONDS = 15;    // Minimum animation duration
+  const DEFAULT_DURATION_SECONDS = 30; // Fallback duration if calculation fails
+  const VENDOR_LIST_REPEATS = 2;      // Number of times to repeat vendor list for seamless loop
+
   const ticker = document.querySelector('.ticker-content');
   if (!ticker) return;
 
@@ -29,10 +35,9 @@
 
       if (names.length === 0) return;
 
-      // To make the ticker feel continuous, repeat the list at least twice
-      const repeats = 2;
+      // To make the ticker feel continuous, repeat the list
       ticker.innerHTML = '';
-      for (let r = 0; r < repeats; r++) {
+      for (let r = 0; r < VENDOR_LIST_REPEATS; r++) {
         names.forEach(n => {
           const span = document.createElement('span');
           span.textContent = n.toUpperCase(); // match existing style
@@ -44,9 +49,10 @@
   // distance = width of one set (total scrollWidth / repeats)
   // desiredSpeed = pixels per second. Higher value = faster scroll.
   const totalWidth = ticker.scrollWidth || 0;
-  const setWidth = repeats > 0 ? (totalWidth / repeats) : totalWidth;
-  const desiredSpeed = 80; // px per second - smooth, natural scrolling speed
-  const durationSeconds = setWidth > 0 ? Math.max(15, Math.round(setWidth / desiredSpeed)) : 30; // minimum 15s
+  const setWidth = VENDOR_LIST_REPEATS > 0 ? (totalWidth / VENDOR_LIST_REPEATS) : totalWidth;
+  const durationSeconds = setWidth > 0 
+    ? Math.max(MIN_DURATION_SECONDS, Math.round(setWidth / TICKER_SPEED_PX_PER_SEC)) 
+    : DEFAULT_DURATION_SECONDS;
       // Apply duration via CSS variable used by .ticker-content
       ticker.style.setProperty('--ticker-duration', `${durationSeconds}s`);
       console.debug('[ticker-loader] ticker width:', totalWidth, 'setWidth:', setWidth, 'duration(s):', durationSeconds);
