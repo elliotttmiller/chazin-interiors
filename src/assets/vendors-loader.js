@@ -10,7 +10,15 @@
 
   async function loadBrandData() {
     try {
-      const basePath = import.meta.env.BASE_URL || '/';
+      // Safely resolve base path. In bundlers (Vite) import.meta.env.BASE_URL exists,
+      // but in plain browser ESM import.meta.env may be undefined and accessing
+      // import.meta.env.BASE_URL would throw. Use try/catch and fallback to '/'.
+      let basePath = '/';
+      try {
+        basePath = (import.meta && import.meta.env && import.meta.env.BASE_URL) || '/';
+      } catch (err) {
+        basePath = '/';
+      }
       const jsonPath = `${basePath}vendors_with_images.json`;
       const response = await fetch(jsonPath);
 

@@ -251,36 +251,64 @@ header > .header-social a:focus svg {
     border-color: var(--gold);
 }
 
-/* Mobile-friendly vendor filter toolbar */
-@media (max-width: 768px) {
-    .vendor-filter-bar {
-        gap: 0.5rem;
-        padding: 0.5rem 1rem;
-        overflow-x: auto;
-        overflow-y: hidden;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE/Edge */
-    }
-    
-    .vendor-filter-bar::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
-    }
-    
-    .vendor-filter-btn {
-        padding: 0.6rem 1rem;
-        font-size: 0.9rem;
-        white-space: nowrap;
-        flex-shrink: 0;
-        min-height: 44px; /* Minimum touch target for accessibility (iOS/Android guidelines) */
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        /* Combined with 1rem horizontal padding, ensures sufficient touch target width */
-    }
+/* Brand showcase grid (small, centered cards) */
+.brand-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    padding-top: 1rem;
 }
 
-/* Note: Brand card styles are defined in the "Vendors Page Styles" section below */
+.brand-card {
+    display: block;
+    width: 160px;
+    max-width: 100%;
+    text-align: center;
+    transition: transform 300ms cubic-bezier(.23,1,.32,1), opacity 300ms;
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-card-image-wrapper {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brand-card img { 
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-card-categories {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: rgba(26,26,26,0.9);
+}
+
+/* filtered-out state */
+.brand-card.hidden {
+    opacity: 0.12;
+    transform: scale(0.98);
+    pointer-events: none;
+}
+
+/* small help for FLIP: ensure transform-origin is center for smoother movement */
+.brand-card {
+    transform-origin: center center;
+}
+
+@media (max-width: 700px) {
+    .brand-card { width: 140px; }
+    .brand-card-image-wrapper { height: 56px; }
+}
 
 .logo {
 
@@ -2328,20 +2356,12 @@ blockquote footer {
     display: flex;
     flex-direction: column;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transform-origin: center center; /* for smooth FLIP animations */
 }
 
 .brand-card:hover {
     transform: translateY(-6px);
     box-shadow: 0 12px 32px rgba(197, 160, 89, 0.15);
     border-color: var(--gold);
-}
-
-/* filtered-out state (used by vendor filter) */
-.brand-card.hidden {
-    opacity: 0.12;
-    transform: scale(0.98);
-    pointer-events: none;
 }
 
 .brand-card-image-wrapper {
@@ -2401,6 +2421,28 @@ blockquote footer {
     .brand-card-categories {
         font-size: 0.7rem;
         padding: 0.8rem 1rem;
+    }
+
+    /* Ensure vendor cards are visible on mobile: enforce background, border and image visibility
+       Some earlier/global rules may leave cards visually subtle on small screens; make them stand out. */
+    .brand-showcase-grid .brand-card {
+        background: white !important;
+        border: 1px solid rgba(26,26,26,0.12) !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+        color: var(--charcoal) !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .brand-showcase-grid .brand-card-image-wrapper {
+        background: white !important;
+    }
+
+    .brand-showcase-grid .brand-card img,
+    .brand-showcase-grid .brand-card-fallback {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
 }
 
