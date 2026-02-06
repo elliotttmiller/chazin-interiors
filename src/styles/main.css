@@ -218,39 +218,148 @@ header > .header-social a:focus svg {
 
 .logo {
 
-/* Show more button styles */
+/* Portfolio Fade Overlay - Modern gradient with blur effect */
+.portfolio-fade-overlay {
+    grid-column: 1 / -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 500px;
+    pointer-events: none;
+    z-index: 5;
+    background: linear-gradient(
+        to bottom,
+        rgba(250, 249, 247, 0) 0%,
+        rgba(250, 249, 247, 0.2) 20%,
+        rgba(250, 249, 247, 0.5) 40%,
+        rgba(250, 249, 247, 0.75) 60%,
+        rgba(250, 249, 247, 0.92) 80%,
+        rgba(250, 249, 247, 1) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Additional subtle overlay on fadeable cards for enhanced effect */
+.portfolio-card-fadeable {
+    position: relative;
+}
+
+.portfolio-card-fadeable::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(250, 249, 247, 0) 0%,
+        rgba(250, 249, 247, 0.25) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.portfolio-grid:has(.portfolio-show-more) .portfolio-card-fadeable::before {
+    opacity: 1;
+}
+
+/* Show more button styles - Modern glassmorphism design */
 .portfolio-show-more {
     grid-column: 1 / -1; /* span full width of grid */
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
     width: 100%;
     box-sizing: border-box;
 }
 
 .show-more-btn {
-    /* small additions on top of .cta-pill */
+    /* Modern glassmorphism button */
     display: inline-flex;
     align-items: center;
-    gap: 0.6rem;
+    gap: 0.75rem;
+    padding: 1.1rem 2.75rem;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 1),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    color: var(--charcoal);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
 }
 
-.show-more-btn::after {
-    content: '▾';
-    display: inline-block;
-    font-size: 0.95rem;
-    line-height: 1;
-    transform-origin: center;
-    transition: transform 220ms ease;
-    color: inherit;
+.show-more-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.show-more-btn[aria-expanded="true"]::after {
+.show-more-btn:hover::before {
+    opacity: 1;
+}
+
+.show-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 1),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.show-more-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 1),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.show-more-btn svg {
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    stroke-width: 2.5;
+}
+
+.show-more-btn:hover svg {
+    transform: translateY(3px);
+}
+
+.show-more-btn[aria-expanded="true"] svg {
     transform: rotate(180deg);
 }
 
 @media (max-width: 700px) {
-    .show-more-btn { width: 90%; justify-content: center; }
+    .show-more-btn { 
+        width: 90%; 
+        justify-content: center;
+        padding: 0.9rem 2rem;
+        font-size: 0.95rem;
+    }
+    
+    .portfolio-fade-overlay {
+        height: 300px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
 }
     font-size: 1.4rem;
     font-family: 'Playfair Display', serif;
@@ -2075,6 +2184,7 @@ blockquote footer {
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
+    position: relative; /* For fade overlay positioning */
 }
 
 .portfolio-card {
