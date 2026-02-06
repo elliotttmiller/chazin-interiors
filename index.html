@@ -265,6 +265,19 @@
             </div>
         </section>
 
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="reveal" aria-labelledby="portfolio-heading">
+            <h2 id="portfolio-heading" class="section-label mono">Our Portfolio</h2>
+            <div class="portfolio-intro">
+                <h2>Crafted Spaces, Timeless Stories.</h2>
+                <p>Explore our collection of meticulously designed residential projects. Each space tells a unique story of luxury, comfort, and sophisticated living.</p>
+            </div>
+            <div id="portfolio-grid" class="portfolio-grid">
+                <!-- Portfolio cards will be dynamically loaded here -->
+                <div class="portfolio-loading">Loading portfolio...</div>
+            </div>
+        </section>
+
         <!-- Contact teaser: direct users to contact page -->
         <section id="contact" class="reveal" aria-labelledby="contact-heading">
             <div class="contact-wrap" style="display:flex; justify-content:center; align-items:center; text-align:center;">
@@ -335,8 +348,44 @@
         </div>
     </footer>
 
+    <!-- Portfolio Modal -->
+    <div id="portfolio-modal" class="portfolio-modal" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title">
+        <div class="portfolio-modal-backdrop"></div>
+        <div class="portfolio-modal-content">
+            <button class="portfolio-modal-close" aria-label="Close portfolio viewer">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div class="portfolio-modal-header">
+                <h2 id="portfolio-modal-title" class="portfolio-modal-title"></h2>
+                <span class="portfolio-modal-counter mono"></span>
+            </div>
+
+            <div class="portfolio-modal-image-container">
+                <img src="" alt="" class="portfolio-modal-image">
+            </div>
+
+            <div class="portfolio-modal-nav">
+                <button class="portfolio-modal-prev" aria-label="Previous image">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <button class="portfolio-modal-next" aria-label="Next image">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="/src/main.js"></script>
     <script type="module" src="/src/assets/ticker-loader.js"></script>
+    <script type="module" src="/src/assets/portfolio-loader.js"></script>
     <noscript>
         <!-- Minimal fallback for users without JS -->
         <style> .hero-title { opacity: 1; transform: none; } </style>
