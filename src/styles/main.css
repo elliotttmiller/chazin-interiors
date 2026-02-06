@@ -747,6 +747,10 @@ section {
 }
 
 .service-img {
+    /* Position the image as a full-bleed layer so it always fills the card
+       even when the card has padding or variable height. */
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -754,6 +758,7 @@ section {
     /* inherit the parent's radius so images clip cleanly */
     border-radius: inherit;
     display: block;
+    z-index: 0;
 }
 
 .service-card:hover .service-img {
@@ -769,6 +774,7 @@ section {
     background: linear-gradient(transparent, rgba(0,0,0,0.6));
     color: white;
     transition: var(--transition-smooth);
+    z-index: 2; /* ensure overlay (text) sits above the image */
 }
 
 /* Make entire service card clickable when anchor wraps content */
@@ -1997,8 +2003,12 @@ footer nav a:hover {
         font-size: 0.75rem !important;
     }
     
-    /* Service cards mobile */
+    /* Service cards mobile: remove outer padding so images can fill edge-to-edge.
+       Move spacing into the overlay (text area) instead so image remains full-bleed. */
     .service-card {
+        padding: 0 !important;
+    }
+    .service-card .service-overlay {
         padding: 2.5rem 1.5rem !important;
     }
     
