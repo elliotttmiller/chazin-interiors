@@ -5,9 +5,9 @@
 
   async function loadBrandData() {
     try {
-      // Use document base URL for flexible deployment paths
-      const basePath = document.querySelector('base')?.href || window.location.origin + '/chazin-interiors/';
-      const jsonPath = new URL('vendors_with_images.json', basePath).href;
+      // Use import.meta.env.BASE_URL for correct path resolution in Vite
+      const basePath = import.meta.env.BASE_URL || '/';
+      const jsonPath = `${basePath}vendors_with_images.json`;
       const response = await fetch(jsonPath);
       
       if (!response.ok) {

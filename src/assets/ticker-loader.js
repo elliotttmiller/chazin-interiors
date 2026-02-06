@@ -5,10 +5,9 @@
 
   async function loadTicker() {
     try {
-      const baseEl = document.querySelector('base')?.href;
-      const jsonPath = baseEl
-        ? new URL('vendors_with_images.json', baseEl).href
-        : new URL('vendors_with_images.json', window.location.href).href;
+      // Use import.meta.env.BASE_URL for correct path resolution in Vite
+      const basePath = import.meta.env.BASE_URL || '/';
+      const jsonPath = `${basePath}vendors_with_images.json`;
       console.debug('[ticker-loader] fetching vendor JSON from:', jsonPath);
 
       const res = await fetch(jsonPath);
@@ -41,13 +40,13 @@
         });
       }
 
-  // Calculate an appropriate duration so perceived speed is smooth.
+  // Calculate an appropriate duration so perceived speed is smooth and natural.
   // distance = width of one set (total scrollWidth / repeats)
-  // desiredSpeed = pixels per second. Increase this value to make the ticker slightly faster.
+  // desiredSpeed = pixels per second. Higher value = faster scroll.
   const totalWidth = ticker.scrollWidth || 0;
   const setWidth = repeats > 0 ? (totalWidth / repeats) : totalWidth;
-  const desiredSpeed = 42; // px per second (higher = faster). Increased to ~2x for a noticeably faster scroll.
-  const durationSeconds = setWidth > 0 ? Math.max(10, Math.round(setWidth / desiredSpeed)) : 30; // minimum 10s
+  const desiredSpeed = 80; // px per second - smooth, natural scrolling speed
+  const durationSeconds = setWidth > 0 ? Math.max(15, Math.round(setWidth / desiredSpeed)) : 30; // minimum 15s
       // Apply duration via CSS variable used by .ticker-content
       ticker.style.setProperty('--ticker-duration', `${durationSeconds}s`);
       console.debug('[ticker-loader] ticker width:', totalWidth, 'setWidth:', setWidth, 'duration(s):', durationSeconds);
