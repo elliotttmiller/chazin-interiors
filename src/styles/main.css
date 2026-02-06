@@ -565,20 +565,38 @@ textarea:focus-visible {
     overflow: hidden;
 }
 
+.hero-video-wrap {
+    /* place media behind the overlay but beneath the content */
+    z-index: 0;
+}
+
 .hero-video-wrap img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.9);
+    /* keep a subtle darkening to help legibility while preserving image tones */
+    filter: brightness(0.88) contrast(0.98);
     transform: scale(1.1);
     animation: kenburns 20s infinite alternate;
 }
 
-@keyframes kenburns {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
+/* Non-destructive overlay between the media and the text to improve contrast on bright images */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1; /* sits above the image (z-index:0) and behind the content (z-index:2) */
+    pointer-events: none;
+    background: linear-gradient(180deg,
+        rgba(0,0,0,0.12) 0%,
+        rgba(0,0,0,0.28) 30%,
+        rgba(0,0,0,0.42) 60%,
+        rgba(0,0,0,0.55) 100%
+    );
+    transition: background 300ms ease;
 }
 
+/* Make hero content sit above overlay */
 .hero-content {
     position: relative;
     z-index: 2;
@@ -588,6 +606,11 @@ textarea:focus-visible {
     margin: 0 auto;
 }
 
+@keyframes kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
 .hero-title {
     color: white;
     font-size: 5vw;
@@ -595,6 +618,11 @@ textarea:focus-visible {
     margin-bottom: 2rem;
     opacity: 0;
     transform: translateY(30px);
+}
+
+/* Stronger shadow for headings on busy/brighter hero images */
+.hero-title {
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .hero-content .mono {
@@ -610,7 +638,30 @@ textarea:focus-visible {
     font-weight: 300;
     color: #ffffff; /* brighter white for better contrast */
     opacity: 1; /* fully opaque for clarity */
-    text-shadow: 0 1px 2px rgba(0,0,0,0.25); /* subtle lift on busy hero images */
+    text-shadow: 0 6px 18px rgba(0,0,0,0.45); /* stronger lift for readability on bright images */
+}
+
+/* Slightly reduce overlay on smaller screens so text doesn't get lost behind heavy scrims */
+@media (max-width: 700px) {
+    .hero::before {
+        background: linear-gradient(180deg,
+            rgba(0,0,0,0.08) 0%,
+            rgba(0,0,0,0.24) 40%,
+            rgba(0,0,0,0.45) 100%
+        );
+    }
+}
+
+/* Respect users who prefer increased contrast: slightly intensify the overlay */
+@media (prefers-contrast: more) {
+    .hero::before {
+        background: linear-gradient(180deg,
+            rgba(0,0,0,0.18) 0%,
+            rgba(0,0,0,0.45) 30%,
+            rgba(0,0,0,0.65) 60%,
+            rgba(0,0,0,0.82) 100%
+        );
+    }
 }
 
 /* Tectonic Sections */
