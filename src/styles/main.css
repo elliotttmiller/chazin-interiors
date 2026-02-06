@@ -1394,6 +1394,18 @@ footer nav a:hover {
         cursor: auto !important;
     }
 
+    /* Hide showroom image on mobile to improve layout and reduce vertical space.
+       Keep the image visible on desktop. Text content will take full width. */
+    .split-section .split-image {
+        display: none !important;
+    }
+
+    .split-section .split-text {
+        flex: 1 1 100% !important;
+        padding: 0 1.2rem !important;
+        text-align: center !important;
+    }
+
     /* Reduce the height of service cards on tablet/phone to improve visual balance
        and avoid overly tall blocks on small viewports. Original desktop height is 700px. */
     .service-card {
