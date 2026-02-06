@@ -179,7 +179,8 @@ header .site-header-inner {
    Moved to be a direct child of `header` so icons can sit nearer the viewport edge. */
 header > .header-social {
     position: absolute;
-    right: 1.25rem; /* nudged to sit closer to the viewport edge */
+    /* increase right offset so social icons are inset from the viewport edge */
+    right: 3rem;
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -214,6 +215,99 @@ header > .header-social a:focus svg {
 /* Hide header social icons on small screens where mobile nav/overlay provides them */
 @media (max-width: 900px) {
     header > .header-social { display: none; }
+}
+
+/* Vendor filter toolbar styles */
+.vendor-filter-bar {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 1rem;
+}
+
+.vendor-filter-btn {
+    background: transparent;
+    border: 1px solid rgba(26,26,26,0.08);
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: background 220ms cubic-bezier(.23,1,.32,1), color 220ms;
+}
+
+.vendor-filter-btn:hover,
+.vendor-filter-btn:focus {
+    background: rgba(197,160,89,0.08);
+    color: var(--charcoal);
+    outline: none;
+}
+
+.vendor-filter-btn.active {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+
+/* Brand showcase grid (small, centered cards) */
+.brand-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    padding-top: 1rem;
+}
+
+.brand-card {
+    display: block;
+    width: 160px;
+    max-width: 100%;
+    text-align: center;
+    transition: transform 300ms cubic-bezier(.23,1,.32,1), opacity 300ms;
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-card-image-wrapper {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brand-card img { 
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-card-categories {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: rgba(26,26,26,0.9);
+}
+
+/* filtered-out state */
+.brand-card.hidden {
+    opacity: 0.12;
+    transform: scale(0.98);
+    pointer-events: none;
+}
+
+/* small help for FLIP: ensure transform-origin is center for smoother movement */
+.brand-card {
+    transform-origin: center center;
+}
+
+@media (max-width: 700px) {
+    .brand-card { width: 140px; }
+    .brand-card-image-wrapper { height: 56px; }
 }
 
 .logo {
@@ -624,6 +718,14 @@ section {
     background: linear-gradient(transparent, rgba(0,0,0,0.6));
     color: white;
     transition: var(--transition-smooth);
+}
+
+/* Make entire service card clickable when anchor wraps content */
+.service-card > a {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
 }
 
 /* Ensure service card titles are white on pages that render full-bleed images */
@@ -2687,4 +2789,18 @@ blockquote footer {
     .portfolio-modal-nav {
         padding: 0 0.5rem;
     }
+}
+
+/* Center brand and social icons in the footer first column */
+.footer-grid > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem; /* reduced space between logo and icons */
+}
+
+.footer-grid > div:first-child a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
