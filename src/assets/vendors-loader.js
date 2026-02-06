@@ -72,7 +72,14 @@
       const brandImg = document.createElement('img');
       brandImg.src = brand.brand_image || '';
       brandImg.alt = `${brand.name || 'Brand'} logo`;
-      brandImg.loading = 'lazy';
+      // On small/phone viewports some browsers aggressively defer lazy image loading
+      // until user interaction. Use eager loading on narrow viewports so logos
+      // render immediately on mobile devices.
+      try {
+        brandImg.loading = (window && window.innerWidth && window.innerWidth <= 768) ? 'eager' : 'lazy';
+      } catch (err) {
+        brandImg.loading = 'lazy';
+      }
       brandImg.onerror = function() {
         this.style.display = 'none';
         const fallback = document.createElement('div');
@@ -90,14 +97,30 @@
       brandCard.appendChild(nameBadge);
 
       showcaseContainer.appendChild(brandCard);
+      // Ensure the newly created card is visible (override any subtle CSS that
+      // may have hidden or delayed painting on mobile). We set explicit styles
+      // and attempt a decode to prompt the browser to paint the image.
+      brandCard.style.opacity = brandCard.style.opacity || '1';
+      brandCard.style.visibility = 'visible';
+      brandCard.style.display = 'block';
+      // Try to decode the image (some browsers will start the fetch/paint)
+      if (brandImg.decode) {
+        brandImg.decode().catch(() => { /* ignore decode failures */ });
+      }
     });
 
     // Some mobile browsers defer painting/compositing newly inserted nodes until
     // there's user interaction. Force a short reflow/paint so cards appear
-    // immediately without requiring the user to tap the screen.
+    // immediately without requiring the user to tap the screen. We also apply
+    // a trivial transform to nudge the compositor and then clear it.
     requestAnimationFrame(() => {
-      // reading layout forces a reflow
       showcaseContainer.getBoundingClientRect();
+      showcaseContainer.style.transform = 'translateZ(0)';
+      requestAnimationFrame(() => {
+        // reading again and clearing transform to allow normal layout
+        showcaseContainer.getBoundingClientRect();
+        showcaseContainer.style.transform = '';
+      });
     });
   }
 
