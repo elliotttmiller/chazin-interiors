@@ -6,14 +6,8 @@
       "title": "11411 Riverview Road",
       "url": "https://www.chazininteriors.com/portfolio-1/riverview-road",
       "slug": "riverview-road",
-      "total_images": 39,
+      "total_images": 38,
       "images": [
-        {
-          "filename": "Exterior.jpeg",
-          "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/f9919165-b9fa-4b30-8b26-be6fc5224a4f/Exterior.jpeg",
-          "alt": "",
-          "local_path": "chazin_portfolio\\11411 Riverview Road\\Exterior.jpeg"
-        },
         {
           "filename": "Exterior.jpeg",
           "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/184da3f9-e33d-4509-b6a7-212737e8ccc1/Exterior.jpeg",
@@ -248,17 +242,11 @@
       "title": "Hill Farm Condominiums",
       "url": "https://www.chazininteriors.com/portfolio-1/hill-farm-road",
       "slug": "hill-farm-road",
-      "total_images": 27,
+      "total_images": 26,
       "images": [
         {
           "filename": "1-Welcome-to-Hill-Farm-Condominiums.jpg",
           "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/0b75ffad-ab87-4521-9ea8-48a764ec6bfd/1-Welcome-to-Hill-Farm-Condominiums.jpg",
-          "alt": "",
-          "local_path": "chazin_portfolio\\Hill Farm Condominiums\\1-Welcome-to-Hill-Farm-Condominiums.jpg"
-        },
-        {
-          "filename": "1-Welcome-to-Hill-Farm-Condominiums.jpg",
-          "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/78fc2229-a3c0-4824-8431-cfc55b00975a/1-Welcome-to-Hill-Farm-Condominiums.jpg",
           "alt": "",
           "local_path": "chazin_portfolio\\Hill Farm Condominiums\\1-Welcome-to-Hill-Farm-Condominiums.jpg"
         },
