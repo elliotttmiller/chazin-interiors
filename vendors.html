@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Contact — Chazin Interiors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Vendors | CHAZIN</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="/src/styles/main.css">
-    <meta name="description" content="Contact Chazin Interiors — Visit our Wayzata showroom or schedule a consultation.">
+    
+    <meta name="description" content="Explore our curated collection of premium furniture and design brands at CHAZIN Interiors.">
+    <meta name="keywords" content="furniture vendors, luxury brands, design partners, Wayzata showroom">
+    
+    <meta property="og:title" content="Our Vendors | CHAZIN">
+    <meta property="og:description" content="Discover the world's finest furniture and design brands available at our showroom.">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 </head>
 <body>
-    <a href="#main-content" class="skip-link" style="position: absolute; left: -9999px; z-index: 999;">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <svg class="grain-overlay" aria-hidden="true">
         <filter id="noiseFilter">
@@ -21,18 +34,18 @@
     <div id="cursor-follower" aria-hidden="true"></div>
 
     <header id="header" role="banner">
-            <div class="site-header-inner">
-            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
+        <div class="site-header-inner">
+            <div class="logo" aria-label="Chazin Interiors"><a href="index.html" style="color: inherit; text-decoration: none;">CHAZIN INTERIORS</a></div>
             <nav id="main-nav" aria-label="Main navigation">
                 <ul>
                     <li><a href="interior-design.html">Interior Design</a></li>
                     <li><a href="home-staging.html">Home Staging</a></li>
                     <li><a href="showroom.html">The Showroom</a></li>
-                    <li><a href="vendors.html">Our Vendors</a></li>
-                    <li><a href="contact.html" aria-current="page">Contact Us</a></li>
+                    <li><a href="vendors.html" aria-current="page">Our Vendors</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </nav>
-            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -54,7 +67,6 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation Overlay -->
     <div class="mobile-nav-overlay" id="mobile-nav-overlay">
         <div class="mobile-nav-header">
             <div class="mobile-nav-logo">CHAZIN INTERIORS</div>
@@ -70,10 +82,9 @@
                     <li><a href="interior-design.html">Interior Design</a></li>
                     <li><a href="home-staging.html">Home Staging</a></li>
                     <li><a href="showroom.html">The Showroom</a></li>
-                    <li><a href="vendors.html">Our Vendors</a></li>
+                    <li><a href="vendors.html" aria-current="page">Our Vendors</a></li>
                 </ul>
             </nav>
-            <!-- Mobile Contact CTA (appears at bottom of overlay) -->
             <a href="contact.html" class="mobile-nav-cta" aria-label="Contact us">Contact Us</a>
             <div class="mobile-nav-social" aria-hidden="true">
                 <a href="https://www.instagram.com/chazininteriors" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -87,75 +98,34 @@
     </div>
 
     <main id="main-content">
-        <section class="contact-hero">
-            <div class="contact-hero-inner">
-                <h1>Contact Us</h1>
-                <p class="lead">Visit our Wayzata showroom, call, or send us a message — we’ll respond within 48 hours.</p>
+        <section class="hero" aria-label="Vendors hero">
+            <div class="hero-video-wrap">
+                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=2000" 
+                     alt="Luxury furniture showroom brands" 
+                     loading="eager" 
+                     fetchpriority="high">
+            </div>
+            <div class="hero-content">
+                <span class="mono">PREMIUM PARTNERSHIPS</span>
+                <h1 class="hero-title" id="hero-title">Our Curated Brand Collection</h1>
+                <p>We partner with the world's most distinguished furniture and design brands to bring you unparalleled quality and style.</p>
             </div>
         </section>
 
-        <section class="contact-grid" aria-label="Contact information and map">
-            <div class="contact-info">
-                <h2 class="reach-title">Reach Us</h2>
-                <p class="mono reach-sub">Showroom &amp; Office</p>
-                <div class="contact-details">
-                    <p>1250 Wayzata Blvd E<br>Wayzata, MN 55391</p>
-                    <p>Phone: <a href="tel:+19529350300">(952) 935-0300</a></p>
-                    <p>Email: <a href="mailto:steffchazin@aol.com">steffchazin@aol.com</a></p>
+        <section class="reveal" style="padding: 6rem 2rem; background: var(--alabaster);">
+            <div style="max-width: 1400px; margin: 0 auto;">
+                <h2 class="section-label mono" style="text-align: center; margin-bottom: 3rem;">Featured Brands</h2>
+                <div id="brand-showcase" class="brand-showcase-grid">
+                    <div style="text-align: center; padding: 4rem 2rem; color: var(--gold);">
+                        <p class="mono">Loading brand partners...</p>
+                    </div>
                 </div>
-
-                <h3>Hours</h3>
-                <p>Mon – Sat: 10am – 5pm<br>Sunday: Closed</p>
-
-                <h3>Get In Touch</h3>
-                <!-- Migrated multi-field form (moved from homepage): includes project type and message -->
-                <form id="contact-form" action="#" method="post" aria-label="Contact form">
-                    <div class="input-group">
-                        <label for="contact-name" class="visually-hidden">Full Name</label>
-                        <input type="text" id="contact-name" name="name" placeholder="Full Name" required aria-required="true">
-                    </div>
-
-                    <div class="input-group">
-                        <label for="contact-email" class="visually-hidden">Email</label>
-                        <input id="contact-email" name="email" type="email" placeholder="Email" required aria-required="true">
-                    </div>
-
-                    <div class="input-group">
-                        <label id="contact-project-type-label" class="visually-hidden">Project Type</label>
-                        <!-- Custom accessible dropdown: styled button + list + hidden input for form submission -->
-                        <div class="custom-select" role="combobox" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="contact-project-type-label" data-name="project-type">
-                            <button type="button" class="custom-select__toggle" aria-controls="contact-project-type-list">Project Type</button>
-                            <ul id="contact-project-type-list" class="custom-select__list" role="listbox" tabindex="-1">
-                                <li role="option" data-value="" aria-selected="true">Project Type</li>
-                                <li role="option" data-value="interior-design">Interior Design</li>
-                                <li role="option" data-value="home-staging">Home Staging</li>
-                                <li role="option" data-value="furniture-consultation">Furniture Consultation</li>
-                            </ul>
-                            <input type="hidden" name="project-type" value="">
-                        </div>
-                    </div>
-
-                    <div class="input-group">
-                        <label for="contact-message" class="visually-hidden">Tell us about your space</label>
-                        <textarea id="contact-message" name="message" placeholder="Tell us about your space..." rows="6" aria-label="Message"></textarea>
-                    </div>
-
-                    <button type="submit" class="cta-pill">Send Inquiry</button>
-                </form>
-            </div>
-
-            <div class="contact-map">
-                <iframe
-                    src="https://www.google.com/maps?q=1250+Wayzata+Blvd+E+Wayzata+MN&output=embed"
-                    width="100%" height="460" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0">
-                </iframe>
             </div>
         </section>
     </main>
 
     <footer role="contentinfo">
         <div class="footer-grid">
-            <!-- Brand & Social -->
             <div>
                 <div class="logo footer-logo" aria-label="Chazin Interiors">CHAZIN INTERIORS</div>
                 <div style="display: flex; gap: 0.6rem; align-items: center;">
@@ -174,7 +144,6 @@
                 </div>
             </div>
             
-            <!-- Navigation -->
             <nav aria-label="Footer navigation">
                 <h4>Explore</h4>
                 <ul>
@@ -185,7 +154,6 @@
                 </ul>
             </nav>
             
-            <!-- Location & Contact -->
             <div>
                 <h4>Visit Us</h4>
                 <address style="font-style: normal; font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
@@ -195,7 +163,6 @@
                 </address>
             </div>
             
-            <!-- Hours -->
             <div>
                 <h4>Hours</h4>
                 <div style="font-size: 0.85rem; line-height: 1.7; opacity: 0.85;">
@@ -205,12 +172,15 @@
             </div>
         </div>
         
-        <!-- Footer Bottom: Copyright -->
         <div class="footer-bottom">
             <p>© 2026 Chazin Interiors. All rights reserved.</p>
         </div>
     </footer>
 
     <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/assets/vendors-loader.js"></script>
+    <noscript>
+        <style> .hero-title { opacity: 1; transform: none; } </style>
+    </noscript>
 </body>
 </html>
