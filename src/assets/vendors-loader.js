@@ -91,6 +91,14 @@
 
       showcaseContainer.appendChild(brandCard);
     });
+
+    // Some mobile browsers defer painting/compositing newly inserted nodes until
+    // there's user interaction. Force a short reflow/paint so cards appear
+    // immediately without requiring the user to tap the screen.
+    requestAnimationFrame(() => {
+      // reading layout forces a reflow
+      showcaseContainer.getBoundingClientRect();
+    });
   }
 
   function buildFilterToolbar(brandList) {
@@ -127,6 +135,10 @@
       btn.addEventListener('click', () => applyFilter(cat, btn));
       filterBar.appendChild(btn);
     });
+
+    // Force a reflow/paint for the toolbar as well to ensure buttons are visible
+    // immediately on platforms that may defer initial paint.
+    requestAnimationFrame(() => filterBar.getBoundingClientRect());
 
     // keyboard support: left/right arrow navigation inside toolbar
     filterBar.addEventListener('keydown', (ev) => {
