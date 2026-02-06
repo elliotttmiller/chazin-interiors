@@ -5,6 +5,9 @@
   const filterBar = document.getElementById('vendor-filter-bar');
   if (!showcaseContainer) return;
 
+  // cache original brand list so we can fully re-render when needed
+  let cachedBrandList = [];
+
   async function loadBrandData() {
     try {
       const basePath = import.meta.env.BASE_URL || '/';
@@ -15,9 +18,10 @@
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
 
-      const brandList = await response.json();
-      renderBrandShowcase(brandList);
-      buildFilterToolbar(brandList);
+  const brandList = await response.json();
+  cachedBrandList = Array.isArray(brandList) ? brandList.slice() : [];
+  renderBrandShowcase(brandList);
+  buildFilterToolbar(brandList);
     } catch (error) {
       console.error('Failed to load vendor data:', error);
       showcaseContainer.innerHTML = `
@@ -49,6 +53,8 @@
   // attach data-categories for filtering
   const categories = Array.isArray(brand.categories) ? brand.categories.map(c => c.trim()) : [];
   brandCard.setAttribute('data-categories', categories.join('|'));
+  // store a normalized name for sorting and quick access
+  brandCard.setAttribute('data-name', (brand.name || '').trim());
   // store a normalized name for sorting and quick access
   brandCard.setAttribute('data-name', (brand.name || '').trim());
 
@@ -135,22 +141,58 @@
       b.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     });
 
-    // gather current cards
-    const cards = Array.from(showcaseContainer.querySelectorAll('.brand-card'));
+    // If 'all' selected we want to fully re-render the original list (restoring removed nodes)
+    if (category === 'all') {
+      // FLIP: measure first rects of current items
+      const currentCards = Array.from(showcaseContainer.querySelectorAll('.brand-card'));
+      const firstRects = new Map();
+      currentCards.forEach(card => firstRects.set(card, card.getBoundingClientRect()));
 
-    // helper to check match
+      // rebuild full list
+      renderBrandShowcase(cachedBrandList);
+
+      // after render, measure last rects and animate from first -> last
+      const newCards = Array.from(showcaseContainer.querySelectorAll('.brand-card'));
+      const lastRects = new Map();
+      newCards.forEach(card => lastRects.set(card, card.getBoundingClientRect()));
+
+      // invert animation for elements that existed before
+      newCards.forEach(card => {
+        const first = firstRects.get(card);
+        const last = lastRects.get(card);
+        if (!first || !last) return;
+        const dx = first.left - last.left;
+        const dy = first.top - last.top;
+        if (dx !== 0 || dy !== 0) {
+          card.style.transition = 'transform 450ms cubic-bezier(.23,1,.32,1), opacity 300ms ease';
+          card.style.transform = `translate(${dx}px, ${dy}px)`;
+          requestAnimationFrame(() => card.style.transform = '');
+        }
+      });
+
+      // cleanup
+      setTimeout(() => {
+        Array.from(showcaseContainer.querySelectorAll('.brand-card')).forEach(card => {
+          card.style.transition = '';
+          card.style.transform = '';
+        });
+      }, 600);
+
+      return;
+    }
+
+    // For other categories: remove non-matching items from the DOM after animating
+    const cards = Array.from(showcaseContainer.querySelectorAll('.brand-card'));
     const catLower = String(category).toLowerCase();
     const isMatch = (card) => {
-      if (category === 'all') return true;
       const data = (card.getAttribute('data-categories') || '').toLowerCase();
       return data.split('|').some(d => d.trim() === catLower);
     };
 
-    // Separate matches and non-matches
     const matches = cards.filter(isMatch);
     const nonMatches = cards.filter(c => !isMatch(c));
 
-    // sort helper - alphabetical ascending by data-name
+    // sort ascending A→Z by name
     const sortAscByName = (a, b) => {
       const na = (a.getAttribute('data-name') || '').toLowerCase();
       const nb = (b.getAttribute('data-name') || '').toLowerCase();
@@ -160,50 +202,51 @@
     };
 
     matches.sort(sortAscByName);
-    nonMatches.sort(sortAscByName);
 
-    const desired = [...matches, ...nonMatches];
-
-    // FLIP animation: measure first positions
+    // FLIP: measure first positions for all cards
     const firstRects = new Map();
     cards.forEach(card => firstRects.set(card, card.getBoundingClientRect()));
 
-    // Reorder DOM to desired order
-    desired.forEach(card => showcaseContainer.appendChild(card));
+    // Reorder DOM so matches are first (append in sorted order)
+    matches.forEach(card => showcaseContainer.appendChild(card));
 
-    // measure last positions
+    // measure last positions after reorder
     const lastRects = new Map();
     cards.forEach(card => lastRects.set(card, card.getBoundingClientRect()));
 
-    // apply invert transforms
+    // animate movement (invert transforms)
     cards.forEach(card => {
       const first = firstRects.get(card);
       const last = lastRects.get(card);
       if (!first || !last) return;
       const dx = first.left - last.left;
       const dy = first.top - last.top;
-      // if element moved, invert it
       if (dx !== 0 || dy !== 0) {
         card.style.transition = 'transform 450ms cubic-bezier(.23,1,.32,1), opacity 300ms ease';
         card.style.transform = `translate(${dx}px, ${dy}px)`;
-        // force reflow then remove transform to animate
-        requestAnimationFrame(() => {
-          card.style.transform = '';
-        });
+        requestAnimationFrame(() => { card.style.transform = ''; });
       }
     });
 
-    // update visual state for matches vs non-matches
-    matches.forEach(c => c.classList.remove('hidden'));
-    nonMatches.forEach(c => c.classList.add('hidden'));
+    // fade out non-matches while animation runs
+    nonMatches.forEach(n => {
+      n.style.transition = 'opacity 350ms ease, transform 350ms ease';
+      n.style.opacity = '0';
+      n.style.transform = 'scale(0.98)';
+    });
 
-    // cleanup transitions after animation completes
+    // After animation completes, remove non-matches from the DOM completely
     setTimeout(() => {
-      cards.forEach(card => {
+      nonMatches.forEach(n => {
+        if (n.parentNode) n.parentNode.removeChild(n);
+      });
+      // cleanup transitions on remaining cards
+      Array.from(showcaseContainer.querySelectorAll('.brand-card')).forEach(card => {
         card.style.transition = '';
         card.style.transform = '';
+        card.style.opacity = '';
       });
-    }, 600);
+    }, 500);
   }
 
   loadBrandData();
