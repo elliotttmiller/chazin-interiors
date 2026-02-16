@@ -1,0 +1,7 @@
+# robots.txt for Pearson Designs
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /*.json$
+
+Sitemap: https://pearsondesigns.com/sitemap.xml

@@ -1,0 +1,2912 @@
+:root {
+    --alabaster: #FDFDFD;
+    --charcoal: #1A1A1A;
+    --gold: #C5A059;
+    --taupe: #F5F2ED;
+    /* softer translucent overlay for header/backdrops */
+    --glass: rgba(253, 253, 253, 0.6);
+    --transition-smooth: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    --tectonic-gap: 4rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: none; /* deliberate design choice - review for accessibility */
+}
+
+/* Accessibility utilities */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1rem 2rem;
+    background: var(--gold);
+    color: var(--charcoal);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.skip-link:focus {
+    left: 50%;
+    top: 1rem;
+    transform: translateX(-50%);
+}
+
+body {
+    background-color: var(--alabaster);
+    color: var(--charcoal);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Hide custom cursor and disable custom cursor behavior on touch devices */
+@media (hover: none), (pointer: coarse) {
+    * { cursor: auto !important; }
+    #cursor,
+    #cursor-follower {
+        display: none !important;
+    }
+}
+
+/* Ensure root also prevents horizontal overflow on small devices */
+html {
+    overflow-x: hidden;
+}
+
+/* Woven Grain Filter */
+.grain-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.04;
+}
+
+/* Custom Cursor */
+#cursor {
+    width: 12px;
+    height: 12px;
+    background: var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 10000;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+#cursor-follower {
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    will-change: transform;
+    transform: translate3d(0, 0, 0);
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--charcoal);
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 5rem);
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.75rem;
+    color: var(--gold);
+}
+
+/* Header Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    /* add slightly more vertical padding so the header breathes */
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition-smooth);
+    /* slightly more translucent for a softer visual effect */
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+header.scrolled {
+    /* slightly reduced padding in scrolled state, keep balanced horizontally */
+    padding: 1rem 3rem;
+    background: var(--glass);
+    backdrop-filter: blur(15px);
+    /* soften the scrolled state border and shadow */
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 2px 16px rgba(0,0,0,0.035);
+}
+
+/* Header inner container aligns header items with page content */
+header .site-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* increase horizontal padding so header content aligns comfortably with viewport edges */
+    padding: 0 3rem; /* increased from 4rem for better visual balance at large widths */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; /* ensure absolutely positioned children are anchored inside */
+}
+
+/* Header social icons placed at the far right of the header on desktop */
+/* Header social icons positioned at the far right (outside the centered inner container)
+   Moved to be a direct child of `header` so icons can sit nearer the viewport edge. */
+header > .header-social {
+    position: absolute;
+    /* increase right offset so social icons are inset from the viewport edge */
+    right: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    z-index: 1100;
+}
+
+/* Small hit-area so icons align visually and are easier to hit with the mouse */
+header > .header-social a {
+    color: var(--charcoal);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.15s ease;
+    padding: 6px;
+    border-radius: 50%;
+}
+
+header > .header-social a svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+}
+
+/* Hover and focus states - subtle color change to match site accent */
+header > .header-social a:hover svg,
+header > .header-social a:focus svg {
+    stroke: var(--gold);
+}
+
+/* Hide header social icons on small screens where mobile nav/overlay provides them */
+@media (max-width: 900px) {
+    header > .header-social { display: none; }
+}
+
+/* Vendor filter toolbar styles */
+.vendor-filter-bar {
+    display: flex;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 1rem;
+}
+
+.vendor-filter-btn {
+    background: transparent;
+    border: 1px solid rgba(26,26,26,0.08);
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    color: var(--charcoal);
+    cursor: pointer;
+    transition: background 220ms cubic-bezier(.23,1,.32,1), color 220ms;
+}
+
+.vendor-filter-btn:hover,
+.vendor-filter-btn:focus {
+    background: rgba(197,160,89,0.08);
+    color: var(--charcoal);
+    outline: none;
+}
+
+.vendor-filter-btn.active {
+    background: var(--gold);
+    color: white;
+    border-color: var(--gold);
+}
+
+/* Brand showcase grid (small, centered cards) */
+.brand-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    padding-top: 1rem;
+}
+
+.brand-card {
+    display: block;
+    width: 160px;
+    max-width: 100%;
+    text-align: center;
+    transition: transform 300ms cubic-bezier(.23,1,.32,1), opacity 300ms;
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-card-image-wrapper {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.brand-card img { 
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.brand-card-categories {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: rgba(26,26,26,0.9);
+}
+
+/* filtered-out state */
+.brand-card.hidden {
+    opacity: 0.12;
+    transform: scale(0.98);
+    pointer-events: none;
+}
+
+/* small help for FLIP: ensure transform-origin is center for smoother movement */
+.brand-card {
+    transform-origin: center center;
+}
+
+@media (max-width: 700px) {
+    .brand-card { width: 140px; }
+    .brand-card-image-wrapper { height: 56px; }
+}
+
+.logo {
+
+/* Portfolio Fade Overlay - Modern gradient with blur effect */
+.portfolio-fade-overlay {
+    grid-column: 1 / -1;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 500px;
+    pointer-events: none;
+    z-index: 5;
+    background: linear-gradient(
+        to bottom,
+        rgba(250, 249, 247, 0) 0%,
+        rgba(250, 249, 247, 0.2) 20%,
+        rgba(250, 249, 247, 0.5) 40%,
+        rgba(250, 249, 247, 0.75) 60%,
+        rgba(250, 249, 247, 0.92) 80%,
+        rgba(250, 249, 247, 1) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Additional subtle overlay on fadeable cards for enhanced effect */
+.portfolio-card-fadeable {
+    position: relative;
+}
+
+.portfolio-card-fadeable::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(250, 249, 247, 0) 0%,
+        rgba(250, 249, 247, 0.25) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.portfolio-grid:has(.portfolio-show-more) .portfolio-card-fadeable::before {
+    opacity: 1;
+}
+
+/* Show more button styles - Modern glassmorphism design */
+.portfolio-show-more {
+    grid-column: 1 / -1; /* span full width of grid */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.show-more-btn {
+    /* Modern glassmorphism button */
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.1rem 2.75rem;
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 1),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    color: var(--charcoal);
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.show-more-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.4) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.show-more-btn:hover::before {
+    opacity: 1;
+}
+
+.show-more-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15),
+                inset 0 1px 2px rgba(255, 255, 255, 1),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.8);
+}
+
+.show-more-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1),
+                inset 0 1px 2px rgba(255, 255, 255, 1),
+                inset 0 -1px 1px rgba(0, 0, 0, 0.05);
+}
+
+.show-more-btn svg {
+    transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    stroke-width: 2.5;
+}
+
+.show-more-btn:hover svg {
+    transform: translateY(3px);
+}
+
+.show-more-btn[aria-expanded="true"] svg {
+    transform: rotate(180deg);
+}
+
+@media (max-width: 700px) {
+    .show-more-btn { 
+        width: 90%; 
+        justify-content: center;
+        padding: 0.9rem 2rem;
+        font-size: 0.95rem;
+    }
+    
+    .portfolio-fade-overlay {
+        height: 300px;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+    }
+}
+    font-size: 1.4rem;
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 3px;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    /* slightly reduced gap to avoid accidental wrapping on narrower desktop widths */
+    gap: 2rem;
+    flex-wrap: nowrap; /* keep nav items on a single line */
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--charcoal);
+    font-size: 0.88rem; /* slightly smaller on desktop so labels fit */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    /* add comfortable hit-area padding for each tab */
+    padding: 0.45rem 0.6rem 0.35rem 0.6rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    font-weight: 400;
+    transition: all 0.3s ease;
+    white-space: nowrap; /* keep each tab on a single line */
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: var(--transition-smooth);
+}
+
+nav a:hover::after,
+nav a[aria-current="page"]::after {
+    width: 100%;
+}
+
+/* Keyboard focus states for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.cta-pill {
+    background: var(--charcoal);
+    color: var(--alabaster);
+    padding: 0.75rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--charcoal);
+    white-space: nowrap;
+}
+
+.cta-pill:hover {
+    background: transparent;
+    color: var(--charcoal);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.cta-pill.secondary {
+    background: transparent;
+    color: var(--charcoal);
+    border-color: var(--charcoal);
+}
+
+/* Header CTA has been removed from the markup; header-specific positioning rules removed to avoid affecting other .cta-pill usages */
+
+.cta-pill.secondary:hover {
+    background: var(--charcoal);
+    color: var(--alabaster);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--taupe);
+}
+
+.hero-video-wrap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.hero-video-wrap {
+    /* place media behind the overlay but beneath the content */
+    z-index: 0;
+}
+
+.hero-video-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* keep a subtle darkening to help legibility while preserving image tones */
+    filter: brightness(0.88) contrast(0.98);
+    transform: scale(1.1);
+    animation: kenburns 20s infinite alternate;
+}
+
+/* Non-destructive overlay between the media and the text to improve contrast on bright images */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1; /* sits above the image (z-index:0) and behind the content (z-index:2) */
+    pointer-events: none;
+    background: linear-gradient(180deg,
+        rgba(0,0,0,0.12) 0%,
+        rgba(0,0,0,0.28) 30%,
+        rgba(0,0,0,0.42) 60%,
+        rgba(0,0,0,0.55) 100%
+    );
+    transition: background 300ms ease;
+}
+
+/* Make hero content sit above overlay */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 1100px; /* widen the hero content container so text can spread wider */
+    margin: 0 auto;
+}
+
+@keyframes kenburns {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.hero-title {
+    color: white;
+    font-size: 5vw;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+/* Stronger shadow for headings on busy/brighter hero images */
+.hero-title {
+    text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.hero-content .mono {
+    display: block;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.hero-content p {
+    max-width: 820px; /* allow slightly longer lines for improved readability */
+    margin: 0 auto;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-weight: 300;
+    color: #ffffff; /* brighter white for better contrast */
+    opacity: 1; /* fully opaque for clarity */
+    text-shadow: 0 6px 18px rgba(0,0,0,0.45); /* stronger lift for readability on bright images */
+}
+
+/* Slightly reduce overlay on smaller screens so text doesn't get lost behind heavy scrims */
+@media (max-width: 700px) {
+    .hero::before {
+        background: linear-gradient(180deg,
+            rgba(0,0,0,0.08) 0%,
+            rgba(0,0,0,0.24) 40%,
+            rgba(0,0,0,0.45) 100%
+        );
+    }
+}
+
+/* Respect users who prefer increased contrast: slightly intensify the overlay */
+@media (prefers-contrast: more) {
+    .hero::before {
+        background: linear-gradient(180deg,
+            rgba(0,0,0,0.18) 0%,
+            rgba(0,0,0,0.45) 30%,
+            rgba(0,0,0,0.65) 60%,
+            rgba(0,0,0,0.82) 100%
+        );
+    }
+}
+
+/* Tectonic Sections */
+section {
+    padding: 8rem 4rem;
+    position: relative;
+}
+
+.section-label {
+    display: block;
+    margin: 0 auto 2rem;
+    color: var(--gold);
+    text-align: center; /* center section labels site-wide */
+    width: 100%;
+}
+
+
+/* Social Proof Ticker */
+.ticker {
+    padding: 4rem 0;
+    background: var(--alabaster);
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    overflow: hidden;
+    display: flex;
+}
+
+.ticker-content {
+    --ticker-duration: 60s; /* slower, more natural default */
+    display: flex;
+    white-space: nowrap;
+    will-change: transform;
+    /* use translate3d for GPU acceleration; duration configurable via var */
+    animation: scroll var(--ticker-duration) linear infinite;
+}
+
+/* Pause on hover/focus for usability */
+.ticker-content:hover,
+.ticker-content:focus-within {
+    animation-play-state: paused;
+}
+
+.ticker-content span {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    margin: 0 4vw;
+    opacity: 0.3;
+    color: var(--charcoal);
+    text-transform: uppercase;
+}
+
+@keyframes scroll {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .ticker-content { animation: none !important; }
+}
+
+/* Service Cards */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--tectonic-gap);
+}
+
+.service-card {
+    position: relative;
+    height: 700px;
+    overflow: hidden;
+    background: var(--taupe);
+}
+
+.service-card {
+    position: relative;
+    height: 700px;
+    overflow: hidden;
+    background: var(--taupe);
+    /* smoother rounded corners for hero/service cards */
+    border-radius: 14px;
+}
+
+.service-img {
+    /* Position the image as a full-bleed layer so it always fills the card
+       even when the card has padding or variable height. */
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+    /* inherit the parent's radius so images clip cleanly */
+    border-radius: inherit;
+    display: block;
+    z-index: 0;
+}
+
+.service-card:hover .service-img {
+    transform: scale(1.05);
+}
+
+.service-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem;
+    background: linear-gradient(transparent, rgba(0,0,0,0.6));
+    color: white;
+    transition: var(--transition-smooth);
+    z-index: 2; /* ensure overlay (text) sits above the image */
+}
+
+/* Make entire service card clickable when anchor wraps content */
+.service-card > a {
+    display: block;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Ensure service card titles are white on pages that render full-bleed images */
+.services-grid-section .service-overlay h3,
+.service-card .service-overlay h3 {
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Timeline */
+.timeline-section {
+    background: var(--charcoal);
+    color: var(--alabaster);
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 0%;
+    background: var(--gold);
+    transition: height 2s ease;
+}
+
+.timeline.active::before {
+    height: 100%;
+}
+
+.timeline-item {
+    margin-bottom: 6rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-smooth);
+}
+
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Portfolio Masonry */
+.portfolio-masonry {
+    /* legacy multi-column fallback for mixed content — primary showroom layout uses .showroom-tiles */
+    columns: 3;
+    column-gap: 2rem;
+}
+
+/* Showroom tiles: use CSS Grid for perfectly balanced 3-up cards */
+.showroom-tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.showroom-tiles .portfolio-item {
+    display: flex;
+    flex-direction: column;
+    height: 420px; /* balanced card height for showroom */
+    overflow: hidden;
+    background: var(--taupe);
+}
+
+.showroom-tiles .portfolio-item img {
+    width: 100%;
+    /* let the image flex inside the card so the figcaption has room
+       (height:100% caused the image to fill the card and hide the caption) */
+    height: auto;
+    object-fit: cover;
+    display: block;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.showroom-tiles .portfolio-item figcaption {
+    flex: 0 0 auto;
+    padding: 1rem;
+    text-align: center;
+    background: #fff;
+}
+
+@media (max-width: 900px) {
+    .showroom-tiles {
+        grid-template-columns: 1fr;
+    }
+    .showroom-tiles .portfolio-item { height: auto; }
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    /* smoother, sleeker corners */
+    border-radius: 14px;
+    background: var(--taupe);
+}
+
+.portfolio-item img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+    display: block;
+    /* ensure the image follows the container curvature */
+    border-radius: inherit;
+}
+
+.portfolio-item figcaption {
+    padding: 1.5rem;
+    background: white;
+}
+
+.portfolio-item figcaption h3 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-item figcaption p {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Staging grid: balanced 3-up layout used on Home Staging page */
+.staging-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+/* Default tile size for desktop */
+.staging-grid .portfolio-item {
+    display: flex;
+    flex-direction: column;
+    height: 460px; /* taller tile so image area is larger */
+    background: white;
+    min-height: 0; /* allow children to shrink correctly inside flex container */
+    overflow: hidden; /* ensure images/figcaptions stay clipped to tile */
+}
+
+.staging-grid .portfolio-item img {
+    width: 100%;
+    height: auto; /* image scales, flex will allow it to expand to available space */
+    object-fit: cover;
+    display: block;
+    flex: 1 1 auto; /* let the image take remaining space above the caption */
+    min-height: 0;
+}
+
+.staging-grid .portfolio-item figcaption {
+    padding: 0.9rem;
+    background: white;
+    flex: 0 0 auto; /* keep caption sized to its content */
+    text-align: center;
+    color: #666;
+}
+
+/* Medium screens: slightly smaller tiles */
+@media (max-width: 1199px) and (min-width: 901px) {
+    .staging-grid .portfolio-item { height: 420px; }
+}
+
+/* Large screens: make tiles a bit taller for big hero gallery areas */
+@media (min-width: 1400px) {
+    .staging-grid { gap: 2rem; }
+    .staging-grid .portfolio-item { height: 520px; }
+}
+
+@media (max-width: 900px) {
+    .staging-grid {
+        grid-template-columns: 1fr;
+    }
+    .staging-grid .portfolio-item { height: auto; }
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Split Layout */
+.split-section {
+    display: flex;
+    align-items: center;
+    gap: 6rem;
+    min-height: 80vh;
+}
+
+.split-image {
+    flex: 1;
+    height: 600px;
+    background: var(--taupe);
+    overflow: hidden;
+}
+
+.split-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Page transition variables and classes */
+:root {
+    /* Reduced page transition so entry/exit feel snappier while keeping the effect */
+    --page-transition-duration: 260ms; /* reduced from 760ms to shorten blank screen */
+    --page-transition-easing: cubic-bezier(0.2, 0.12, 0.2, 1);
+}
+
+/* Initial hidden state to allow JS to apply enter animation */
+body.transition-enabled {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+/* When JS adds .transition-ready we animate into place */
+body.transition-ready {
+    opacity: 1;
+    transform: none;
+    transition: opacity var(--page-transition-duration) var(--page-transition-easing),
+                transform var(--page-transition-duration) var(--page-transition-easing);
+}
+
+/* Exit transition before navigating away */
+body.transition-exit {
+    opacity: 0 !important;
+    transform: translateY(-6px) !important;
+    transition: opacity calc(var(--page-transition-duration) * 0.9) var(--page-transition-easing),
+                transform calc(var(--page-transition-duration) * 0.9) var(--page-transition-easing);
+}
+
+/* Respect reduced motion preference — disable transitions */
+@media (prefers-reduced-motion: reduce) {
+    body.transition-ready,
+    body.transition-exit,
+    body.transition-enabled {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
+/* Give split images a smoother rounded corner look */
+.split-image {
+    border-radius: 14px;
+}
+.split-image img {
+    border-radius: inherit;
+    display: block;
+}
+
+.split-text {
+    flex: 1;
+}
+
+/* Showroom split: improve spacing between text and CTA */
+.split-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.split-text p {
+    margin-bottom: 1.25rem; /* create breathing room above CTA */
+    color: rgba(26,26,26,0.85);
+}
+
+.split-text .cta-pill.secondary {
+    margin-top: 0.75rem;
+    padding: 0.6rem 1.1rem;
+    align-self: flex-start; /* keep CTA aligned with the text block start */
+}
+
+/* On larger screens keep CTA aligned with heading baseline; center on very small screens */
+@media (max-width: 480px) {
+    .split-text .cta-pill.secondary {
+        align-self: center;
+        margin-top: 1rem;
+    }
+}
+
+/* Form Styling */
+.contact-wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 1.5rem 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    font-size: 1.1rem;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+input:focus {
+    border-bottom: 1px solid var(--gold);
+}
+
+/* ===================================================
+   Contact page - visual improvements
+   - Adds a warm hero band, a raised white card for content,
+     improved form inputs, and styled map for better visibility
+   =================================================== */
+
+.contact-hero {
+    background: linear-gradient(180deg, rgba(197,160,89,0.06), transparent 60%), var(--taupe);
+    padding: 6rem 0;
+}
+.contact-hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 4rem;
+    text-align: center;
+}
+.contact-hero .lead {
+    color: rgba(26,26,26,0.85);
+    font-size: 1.05rem;
+    margin-top: 0.75rem;
+}
+
+.contact-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    /* give the map slightly more room to avoid large empty whitespace */
+    grid-template-columns: 1fr 1.15fr;
+    gap: 3rem;
+    align-items: start;
+    padding: 2rem 4rem 6rem;
+}
+
+.contact-info {
+    background: var(--alabaster);
+    padding: 2.25rem;
+    /* slightly larger radius for a sleeker, modern feel */
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    border-left: 4px solid var(--gold);
+}
+.contact-info h2 {
+    margin-bottom: 0.6rem;
+}
+.contact-info .reach-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    line-height: 1.05;
+    margin-bottom: 0.35rem;
+    color: var(--charcoal);
+    letter-spacing: 0.2px;
+}
+.contact-info .reach-sub {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    font-size: 0.72rem;
+    margin-bottom: 1rem;
+}
+/* Give more breathing room between the 'Get In Touch' heading and the first form field */
+.contact-info h3 { margin-top: 1.25rem; margin-bottom: 0.9rem; }
+.contact-info h3 + form#contact-form { margin-top: 0.6rem; }
+.contact-info .contact-details p {
+    margin-bottom: 0.85rem;
+    color: rgba(26,26,26,0.9);
+    font-size: 1rem;
+}
+.contact-info .contact-details a {
+    color: var(--charcoal);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+.contact-info p, .contact-info a {
+    color: var(--charcoal);
+}
+
+.contact-info form label {
+    display: block;
+    margin: 0.6rem 0 0.35rem 0;
+    font-size: 0.9rem;
+    color: rgba(26,26,26,0.7);
+}
+.contact-info input,
+.contact-info textarea {
+    /* slightly darker than pure white for more visible inputs while remaining subtle */
+    background: #f5f5f5;
+    border: 1px solid rgba(0,0,0,0.06);
+    padding: 0.9rem 1rem;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: box-shadow 0.25s ease, border-color 0.2s ease;
+}
+.contact-info textarea { min-height: 140px; resize: vertical; }
+.contact-info input:focus, .contact-info textarea:focus {
+    border-color: var(--gold);
+    box-shadow: 0 8px 30px rgba(197,160,89,0.12);
+    outline: none;
+}
+
+.contact-info .cta-pill {
+    margin-top: 0.75rem;
+}
+
+
+.contact-map {
+    /* smoother, larger radius for embeds/maps */
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    /* ensure the map stretches to fill available vertical space next to the form */
+    min-height: 520px;
+    align-self: stretch;
+}
+.contact-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
+    border: 0;
+}
+
+/* Utility classes for consistent rounded embeds and images */
+.rounded-smooth {
+    border-radius: 16px;
+    overflow: hidden;
+    /* make corner antialiasing more consistent across browsers */
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
+}
+
+.embed-rounded {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 48px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.rounded-img img,
+.rounded-img picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+@media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; padding: 1.5rem; }
+    .contact-hero { padding: 3.5rem 0; }
+    .contact-hero-inner { padding: 1rem 1rem; }
+}
+
+/* Modal / Lightbox */
+.modal {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: var(--alabaster);
+    z-index: 2000;
+    display: none;
+    padding: 4rem;
+}
+
+/* Footer */
+footer {
+    background: var(--charcoal);
+    color: var(--alabaster);
+    padding: 6rem 8vw 0;
+}
+
+/* Footer grid — balanced columns and responsive gaps */
+.footer-grid {
+    display: grid;
+    /* make columns more even while keeping the brand column slightly wider */
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    column-gap: clamp(2rem, 4vw, 4rem);
+    row-gap: 2.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    align-items: start;
+}
+
+.footer-logo {
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.75rem;
+    opacity: 0.5;
+}
+
+.footer-grid h4 {
+    color: var(--alabaster);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    /* tighten spacing so label sits close above the nav links */
+    margin: 0 0 0.5rem 0;
+    opacity: 0.8;
+}
+
+/* Give each footer column horizontal breathing room so the grid looks balanced */
+.footer-grid > * {
+    padding-inline: clamp(0.6rem, 1.2vw, 1rem);
+}
+
+/* Make the non-brand columns centered for balanced layout */
+.footer-grid > *:not(:first-child) {
+    text-align: center;
+}
+
+/* Ensure nav and contact columns stack nicely and center their content */
+.footer-grid nav,
+.footer-grid > div:nth-child(3),
+.footer-grid > div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.footer-grid nav ul {
+    align-items: center;
+}
+
+.footer-grid nav a {
+    text-align: center;
+}
+
+.footer-grid nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.footer-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.footer-grid nav ul {
+    margin-top: 0;
+}
+
+.footer-grid nav h4 {
+    margin-bottom: 0.35rem;
+}
+
+/* Center footer section headers & content (except brand/social column) */
+.footer-grid > *:not(:first-child) {
+    text-align: center;
+}
+
+.footer-grid nav,
+.footer-grid > div:nth-child(3),
+.footer-grid > div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-grid nav ul {
+    align-items: center;
+}
+
+.footer-grid nav a {
+    text-align: center;
+}
+
+/* Footer Social Icons */
+footer a:hover svg {
+    color: var(--gold);
+    transform: translateY(-3px);
+}
+
+footer a svg {
+    transition: all 0.3s ease;
+}
+
+footer nav a {
+    color: var(--alabaster);
+    opacity: 0.8;
+    border-bottom: none;
+    padding: 0.15rem 0;
+    transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+footer nav a:hover {
+    opacity: 1;
+    color: var(--gold);
+    border-bottom-color: var(--gold);
+}
+
+/* Reveal Animation Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===================================================
+   RESPONSIVE - MOBILE ONLY (Desktop UI Unchanged)
+   =================================================== */
+
+/* Mobile Menu Toggle (Hidden on Desktop) */
+.mobile-menu-toggle {
+    display: none;
+}
+
+.mobile-nav-overlay {
+    display: none;
+}
+
+/* Mobile: < 768px */
+@media (max-width: 768px) {
+    /* Disable custom cursor on mobile/touch devices */
+    * {
+        cursor: auto !important;
+    }
+
+    /* Hide showroom image on mobile to improve layout and reduce vertical space.
+       Keep the image visible on desktop. Text content will take full width. */
+    .split-section .split-image {
+        display: none !important;
+    }
+
+    .split-section .split-text {
+        flex: 1 1 100% !important;
+        padding: 0 1.2rem !important;
+        text-align: center !important;
+    }
+
+    /* Reduce the height of service cards on tablet/phone to improve visual balance
+       and avoid overly tall blocks on small viewports. Original desktop height is 700px. */
+    .service-card {
+        height: 525px !important; /* ~25% shorter than 700px */
+    }
+    
+    #cursor,
+    #cursor-follower {
+        display: none;
+    }
+    
+    /* ========== Mobile Header - Logo Centered, Hamburger Right ========== */
+    header {
+        padding: 0 !important;
+        display: block !important;
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(10px);
+    }
+    
+    header.scrolled {
+        padding: 0 !important;
+    }
+
+    header .site-header-inner {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        padding: 1.25rem 1.5rem !important;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 60px;
+    }
+    
+    /* Logo - Mathematically Centered */
+    .logo {
+        position: static !important;
+        transform: none !important;
+        font-size: 1rem !important;
+        letter-spacing: 2px;
+        text-align: center !important;
+        margin: 0 auto !important;
+        z-index: 1;
+    }
+    
+    /* Hide desktop nav and CTA on mobile */
+    #main-nav, 
+    header .cta-pill {
+        display: none !important;
+    }
+    
+    /* ========== Hamburger Menu Button - Padded on Far Right Edge ========== */
+    .mobile-menu-toggle {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        z-index: 1001;
+        position: absolute !important;
+        right: 1.25rem !important; /* Padded from edge */
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+    
+    .mobile-menu-toggle span {
+        display: block;
+        width: 26px;
+        height: 2.5px;
+        background: var(--charcoal);
+        margin: 3.5px 0;
+        transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        border-radius: 3px;
+    }
+    
+    .mobile-menu-toggle:active span {
+        background: var(--gold);
+    }
+    
+    /* Animated hamburger to X */
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+        background: white;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+        background: white;
+    }
+    
+    /* Small adjustments: ensure contact layout has comfortable padding on small viewports */
+    .contact-grid {
+        padding: 1rem !important;
+        box-sizing: border-box !important;
+    }
+
+    .contact-info {
+        padding: 1.25rem !important;
+        max-width: 720px !important;
+        margin: 0 auto !important;
+    }
+
+    /* Make sure main content doesn't sit under the fixed header on mobile */
+    main#main-content { padding-top: 68px !important; }
+    
+    /* ========== Mobile Navigation Overlay ========== */
+    .mobile-nav-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100vh;
+        height: 100dvh; /* Dynamic viewport height for better mobile support */
+        background: linear-gradient(135deg, rgba(26, 26, 26, 0.98) 0%, rgba(40, 40, 40, 0.98) 100%);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        z-index: 2000;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                    visibility 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .mobile-nav-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    /* Mobile Nav Header */
+    .mobile-nav-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.2rem 1.5rem;
+        background: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(10px);
+        z-index: 2001;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .mobile-nav-logo {
+        font-family: 'Playfair Display', serif;
+        font-size: 1rem;
+        letter-spacing: 2px;
+        color: white;
+        font-weight: 400;
+    }
+    
+    /* Close Button - X with spans */
+    .mobile-nav-close {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        background: transparent;
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .mobile-nav-close span {
+        display: block;
+        width: 26px;
+        height: 2.5px;
+        background: white;
+        position: absolute;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-close span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+    
+    .mobile-nav-close span:nth-child(2) {
+        transform: rotate(-45deg);
+    }
+    
+    .mobile-nav-close:active span {
+        background: var(--gold);
+    }
+    
+    /* Mobile Nav Content */
+    .mobile-nav-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 7rem 1.5rem 3rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /* Mobile Navigation Links */
+    .mobile-nav {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        text-align: left;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .mobile-nav ul li {
+        margin: 0;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        width: 100%;
+        display: block;
+    }
+    
+    .mobile-nav-overlay.active .mobile-nav ul li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Stagger animation delay */
+    .mobile-nav ul li:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-nav ul li:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-nav ul li:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-nav ul li:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-nav ul li:nth-child(5) { transition-delay: 0.3s; }
+    
+    .mobile-nav a {
+        display: block;
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: white;
+        text-decoration: none;
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+        white-space: normal;
+        word-wrap: break-word;
+        line-height: 1.3;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .mobile-nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    .mobile-nav a:active,
+    .mobile-nav a[aria-current="page"] {
+        color: var(--gold);
+    }
+    
+    /* Mobile CTA in overlay */
+    .mobile-nav-cta {
+        margin-top: 3rem;
+        background: var(--gold);
+        color: var(--charcoal);
+        font-size: 0.9rem;
+        font-weight: 500;
+        padding: 1.1rem 2.8rem;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.35s;
+    }
+    
+    .mobile-nav-overlay.active .mobile-nav-cta {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .mobile-nav-cta:active {
+        background: white;
+        color: var(--charcoal);
+        transform: translateY(0) scale(0.97);
+    }
+
+    /* Social icons underneath mobile CTA */
+    .mobile-nav-social {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.25rem;
+    }
+
+    .mobile-nav-social a {
+        color: white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.06);
+        transition: background 0.2s ease, transform 0.15s ease;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .mobile-nav-social a:hover {
+        background: rgba(255,255,255,0.12);
+        transform: translateY(-2px);
+    }
+
+    .mobile-nav-social svg {
+        width: 18px;
+        height: 18px;
+        stroke: white;
+    }
+    
+    /* ========== Page Content Mobile Optimizations ========== */
+    
+    /* Hero adjustments for mobile */
+    .hero {
+        height: 80vh !important;
+        min-height: 550px !important;
+    }
+    
+    .hero-title {
+        font-size: 12vw !important;
+        line-height: 1.1 !important;
+        margin-bottom: 1.2rem !important;
+    }
+    
+    .hero-content {
+        padding: 2rem 1.5rem !important;
+    }
+    
+    .hero-content p {
+        font-size: 1rem !important;
+        max-width: 90% !important;
+        line-height: 1.6 !important;
+        color: #ffffff !important;
+        opacity: 1 !important;
+    }
+    
+    .hero-content .mono {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    /* Section padding mobile */
+    section {
+        padding: 4rem 1.5rem !important;
+    }
+    
+    /* Typography mobile */
+    h2 {
+        font-size: 2.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .section-label {
+        font-size: 0.75rem !important;
+        letter-spacing: 2px !important;
+        text-align: center !important;
+    }
+    
+    /* Grids stack on mobile */
+    .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    .split-section {
+        flex-direction: column !important;
+        padding: 4rem 1.5rem !important;
+        gap: 3rem !important;
+    }
+    
+    .split-text {
+        padding: 0 !important;
+    }
+    
+    .split-text h2 {
+        font-size: 2.2rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .split-text p {
+        margin-bottom: 2rem;
+        color: #666;
+        font-size: 1.1rem;
+    }
+    
+    .split-image {
+        width: 100% !important;
+        height: 350px !important;
+        min-height: 350px !important;
+    }
+    
+    .split-image img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+    
+    .portfolio-masonry {
+        columns: 1 !important;
+        column-gap: 1rem !important;
+    }
+    
+    .portfolio-item {
+        margin-bottom: 1.5rem !important;
+        break-inside: avoid !important;
+    }
+    
+    /* Contact form mobile */
+    .contact-wrap {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+        padding: 4rem 1.5rem !important;
+    }
+    
+    .contact-wrap h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    input, select, textarea {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+        padding: 1.2rem 0 !important;
+    }
+    
+    textarea {
+        min-height: 140px !important;
+    }
+    
+    button[type="submit"] {
+        width: 100% !important;
+        padding: 1.2rem 2rem !important;
+        font-size: 1rem !important;
+    }
+    
+    /* Footer mobile */
+    footer {
+        padding: 3rem 1.5rem 2rem !important;
+    }
+    
+    footer .footer-grid {
+        grid-template-columns: 1fr !important;
+        padding: 0 !important;
+        gap: 2.5rem !important;
+    }
+    
+    /* Hide navigation tabs in mobile footer */
+    footer .footer-grid nav {
+        display: none !important;
+    }
+    
+    footer .footer-grid > div:first-child {
+        text-align: center;
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    
+    /* Ensure explicit ordering: logo first, icons second */
+    footer .footer-grid > div:first-child .footer-logo {
+        order: 1 !important;
+        font-size: 1.5rem !important;
+        margin: 0 0 0.8rem 0 !important;
+        text-align: center;
+    }
+
+    /* Social icon container sits below the brand */
+    footer .footer-grid > div:first-child > div {
+        order: 2 !important;
+        display: flex !important;
+        gap: 0.8rem !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-top: 0.4rem !important;
+    }
+    
+    footer .footer-grid > div:nth-child(3),
+    footer .footer-grid > div:nth-child(4) {
+        text-align: center;
+    }
+    
+    footer .footer-grid h4 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.8rem !important;
+    }
+    
+    footer .footer-grid p,
+    footer .footer-grid a {
+        font-size: 0.9rem !important;
+        line-height: 1.8 !important;
+    }
+    
+    footer > div:last-child {
+        padding: 1.5rem 1.5rem !important;
+        text-align: center;
+    }
+    
+    footer > div:last-child p {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Service cards mobile: remove outer padding so images can fill edge-to-edge.
+       Move spacing into the overlay (text area) instead so image remains full-bleed. */
+    .service-card {
+        padding: 0 !important;
+    }
+    .service-card .service-overlay {
+        padding: 2.5rem 1.5rem !important;
+    }
+    
+    .service-card h3 {
+        font-size: 1.6rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .service-card p {
+        font-size: 0.95rem !important;
+        line-height: 1.7 !important;
+    }
+    
+    /* Button improvements */
+    .cta-pill {
+        width: auto !important;
+        text-align: center;
+        padding: 1rem 2.5rem !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Showroom specific mobile */
+    .brand-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    
+    .brand-card {
+        padding: 2rem 1rem !important;
+    }
+    
+    .brand-card h3 {
+        font-size: 1.1rem !important;
+    }
+    
+    /* Visit section mobile */
+    .visit-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+    
+    .visit-grid iframe {
+        min-height: 350px !important;
+        width: 100% !important;
+        border-radius: 8px !important;
+    }
+    
+    /* Gallery grid mobile */
+    .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    
+    /* Ticker mobile */
+    .ticker-content {
+        font-size: 2rem !important;
+    }
+    
+    /* Stats grid mobile */
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* Process grid mobile */
+    .process-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+    
+    /* Journal grid mobile */
+    .journal-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+    }
+}
+
+/* Small mobile refinements: < 480px */
+@media (max-width: 480px) {
+    header {
+        padding: 0 !important;
+    }
+    
+    header.scrolled {
+        padding: 0 !important;
+    }
+
+    header .site-header-inner {
+        padding: 1rem 1.2rem !important;
+        min-height: 50px;
+    }
+    
+    .logo {
+        font-size: 0.9rem !important;
+        letter-spacing: 1.5px !important;
+    }
+    
+    .mobile-menu-toggle {
+        width: 40px;
+        height: 40px;
+        position: absolute !important;
+        right: 1.2rem !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+    }
+    
+    .mobile-menu-toggle span {
+        width: 24px;
+        height: 2px;
+        margin: 3px 0;
+    }
+    
+    /* Mobile nav adjustments */
+    .mobile-nav-header {
+        padding: 1rem 1.2rem;
+    }
+    
+    .mobile-nav-logo {
+        font-size: 0.95rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .mobile-nav-close {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .mobile-nav-close span {
+        width: 24px;
+        height: 2px;
+    }
+    
+    .mobile-nav-content {
+        padding: 5rem 1.2rem 2.5rem;
+    }
+    
+    .mobile-nav {
+        padding: 0 0.5rem;
+    }
+    
+    .mobile-nav a {
+        font-size: 1.5rem !important;
+        padding: 0.9rem 0 !important;
+        line-height: 1.3 !important;
+    }
+    
+    .mobile-nav-cta {
+        padding: 1rem 2.2rem !important;
+        font-size: 0.85rem !important;
+        margin-top: 2.5rem !important;
+    }
+    
+    /* Hero small mobile */
+    .hero {
+        min-height: 500px !important;
+    }
+    
+    .hero-title {
+        font-size: 14vw !important;
+    }
+    
+    .hero-content p {
+        font-size: 0.95rem !important;
+    }
+    
+    .hero-content .mono {
+        font-size: 0.65rem !important;
+    }
+    
+    /* Section spacing */
+    section {
+        padding: 3rem 1.2rem !important;
+    }
+    
+    /* Typography refinements */
+    h2 {
+        font-size: 2rem !important;
+    }
+    
+    h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    .section-label {
+        font-size: 0.7rem !important;
+        text-align: center !important;
+    }
+    
+    .split-text h2 {
+        font-size: 1.9rem !important;
+    }
+    
+    .split-text p {
+        font-size: 0.95rem !important;
+    }
+    
+    .contact-wrap h2 {
+        font-size: 2rem !important;
+    }
+    
+    /* Service cards */
+    .service-card {
+        padding: 2rem 1.2rem !important;
+    }
+    
+    .service-card h3 {
+        font-size: 1.4rem !important;
+    }
+    
+    .service-card p {
+        font-size: 0.9rem !important;
+    }
+    
+    /* Split section */
+    .split-section {
+        gap: 2.5rem !important;
+        padding: 3rem 1.2rem !important;
+    }
+
+    /* Further reduce service card height on very small screens */
+    .service-card {
+        height: 420px !important;
+    }
+    
+    .split-image {
+        height: 300px !important;
+        min-height: 300px !important;
+    }
+    
+    /* Form elements */
+    input, select, textarea {
+        font-size: 16px !important;
+        padding: 1.1rem 0 !important;
+    }
+    
+    textarea {
+        min-height: 120px !important;
+    }
+    
+    button[type="submit"] {
+        padding: 1.1rem 1.8rem !important;
+        font-size: 0.95rem !important;
+    }
+    
+    /* Footer */
+    footer {
+        padding: 2.5rem 1.2rem 1.5rem !important;
+    }
+    
+    footer .footer-logo {
+        font-size: 1.3rem !important;
+    }
+    
+    footer .footer-grid {
+        gap: 2rem !important;
+    }
+    
+    footer .footer-grid h4 {
+        font-size: 0.85rem !important;
+    }
+    
+    footer .footer-grid p,
+    footer .footer-grid a {
+        font-size: 0.85rem !important;
+    }
+    
+    footer > div:last-child p {
+        font-size: 0.7rem !important;
+    }
+    
+    /* Showroom mobile refinements */
+    .brand-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.2rem !important;
+    }
+    
+    .brand-card {
+        padding: 1.8rem 1.2rem !important;
+    }
+    
+    .brand-card h3 {
+        font-size: 1rem !important;
+    }
+    
+    .visit-grid iframe {
+        min-height: 300px !important;
+    }
+    
+    /* Ticker */
+    .ticker-content {
+        font-size: 1.6rem !important;
+    }
+    
+    /* Contact wrap */
+    .contact-wrap {
+        padding: 3rem 1.2rem !important;
+        gap: 2rem !important;
+    }
+}
+
+/* Blockquote Styles */
+blockquote {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+blockquote p {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    font-style: italic;
+    color: var(--charcoal);
+}
+
+blockquote footer {
+    background: transparent !important;
+    padding: 0 !important;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Contact Page Styles */
+.contact-hero { padding: 6rem 0 2rem; background: linear-gradient(180deg, var(--alabaster), #faf9f7); text-align:center; }
+.contact-hero-inner { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+.contact-hero h1 { font-size: clamp(1.8rem, 6vw, 3rem); margin-bottom: 0.6rem; }
+.contact-hero .lead { color: #666; max-width: 720px; margin: 0 auto; }
+
+.contact-grid { max-width: 1100px; margin: 2rem auto 6rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; padding: 0 2rem; align-items: start; }
+.contact-info { background: transparent; }
+.contact-info h2 { margin-bottom: 0.5rem; }
+.contact-info p, .contact-info address { margin-bottom: 1rem; color: #444; }
+
+.contact-info form { display: grid; gap: 0.75rem; max-width: 420px; }
+.contact-info input[type="text"],
+.contact-info input[type="email"],
+.contact-info textarea { padding: 0.75rem 1rem; border-radius: 8px; border: 1px solid rgba(0,0,0,0.08); font-size: 0.95rem; }
+.contact-info label { font-size: 0.85rem; margin-bottom: 0.25rem; display:block; color: #222; }
+.contact-info button.cta-pill { width: fit-content; border-radius: 999px; }
+
+.contact-map iframe { width: 100%; height: 100%; min-height: 420px; border-radius: 8px; }
+
+@media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-map iframe { min-height: 300px; }
+}
+/* Input group spacing inside contact card */
+.contact-info .input-group { margin-bottom: 1rem; }
+
+/* Custom Select (modern dropdown) */
+.custom-select {
+    position: relative;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+.custom-select__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.9rem 1rem;
+    background: #f5f5f5;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    font-size: 1rem;
+    text-align: left;
+    cursor: pointer;
+}
+.custom-select__toggle::after {
+    content: '';
+    width: 14px;
+    height: 14px;
+    border-right: 2px solid rgba(0,0,0,0.5);
+    border-bottom: 2px solid rgba(0,0,0,0.5);
+    transform: rotate(45deg);
+    margin-left: 0.75rem;
+    opacity: 0.9;
+}
+.custom-select__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-top: 0.5rem;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    max-height: 260px;
+    overflow: auto;
+    list-style: none;
+    padding: 0.25rem 0;
+    display: none;
+    z-index: 50;
+}
+.custom-select.open .custom-select__list { display: block; }
+.custom-select__list li {
+    padding: 0.65rem 0.9rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.custom-select__list li[aria-selected="true"] { color: rgba(0,0,0,0.6); }
+.custom-select__list li:hover,
+.custom-select__list li:focus { background: rgba(197,160,89,0.06); }
+
+/* Focus styles */
+.custom-select__toggle:focus,
+.custom-select__list li:focus { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+/* Smaller screens: ensure dropdowns remain usable */
+@media (max-width: 600px) {
+    .custom-select__list { max-height: 220px; }
+}
+
+/* ========== Vendors Page Styles ========== */
+.brand-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 2.5rem;
+    padding: 0;
+}
+
+.brand-card {
+    background: white;
+    border: 1px solid rgba(26, 26, 26, 0.08);
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.brand-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(197, 160, 89, 0.15);
+    border-color: var(--gold);
+}
+
+.brand-card-image-wrapper {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 2rem;
+    position: relative;
+}
+
+.brand-card-image-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.brand-card:hover .brand-card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.brand-card-fallback {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--charcoal);
+    text-align: center;
+    padding: 1rem;
+}
+
+.brand-card-categories {
+    padding: 1rem 1.25rem;
+    font-size: 0.75rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+    border-top: 1px solid rgba(26, 26, 26, 0.06);
+    background: rgba(245, 242, 237, 0.4);
+    /* Center the vendor/company name inside the card */
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .brand-showcase-grid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .brand-card-image-wrapper {
+        height: 140px;
+        padding: 1.25rem;
+    }
+    
+    .brand-card-categories {
+        font-size: 0.7rem;
+        padding: 0.8rem 1rem;
+    }
+
+    /* Ensure vendor cards are visible on mobile: enforce background, border and image visibility
+       Some earlier/global rules may leave cards visually subtle on small screens; make them stand out. */
+    .brand-showcase-grid .brand-card {
+        background: white !important;
+        border: 1px solid rgba(26,26,26,0.12) !important;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.06) !important;
+        color: var(--charcoal) !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .brand-showcase-grid .brand-card-image-wrapper {
+        background: white !important;
+    }
+
+    .brand-showcase-grid .brand-card img,
+    .brand-showcase-grid .brand-card-fallback {
+        display: block !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .brand-showcase-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .brand-card-image-wrapper {
+        height: 120px;
+        padding: 1rem;
+    }
+}
+
+/* ========================================
+   Portfolio Section & Modal Viewer
+   ======================================== */
+
+/* Portfolio Section */
+#portfolio {
+    padding: 8rem 8vw;
+    background: var(--alabaster);
+}
+
+.portfolio-intro {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    text-align: center;
+}
+
+.portfolio-intro h2 {
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-intro p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #6b6b6b;
+}
+
+.portfolio-loading {
+    text-align: center;
+    padding: 4rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--gold);
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative; /* For fade overlay positioning */
+}
+
+.portfolio-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--charcoal);
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+                box-shadow 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    outline: none;
+}
+
+.portfolio-card:hover,
+.portfolio-card:focus {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-card-image {
+    position: relative;
+    width: 100%;
+    padding-bottom: 75%; /* 4:3 aspect ratio */
+    overflow: hidden;
+}
+
+.portfolio-card-image img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+                filter 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-card:hover .portfolio-card-image img,
+.portfolio-card:focus .portfolio-card-image img {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.portfolio-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    color: var(--alabaster);
+    transform: translateY(0);
+    transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-card:hover .portfolio-card-overlay,
+.portfolio-card:focus .portfolio-card-overlay {
+    transform: translateY(-5px);
+}
+
+.portfolio-card-overlay h3 {
+    color: var(--alabaster);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-card-overlay .mono {
+    opacity: 0.8;
+}
+
+.portfolio-card-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--taupe) 0%, var(--alabaster) 100%);
+}
+
+/* Portfolio Modal */
+.portfolio-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+                visibility 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.portfolio-modal-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1;
+}
+
+.portfolio-modal-content {
+    position: relative;
+    z-index: 2;
+    width: 90%;
+    max-width: 1400px;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
+.portfolio-modal-close {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--alabaster);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 10;
+}
+
+.portfolio-modal-close:hover,
+.portfolio-modal-close:focus {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: rotate(90deg);
+}
+
+.portfolio-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-right: 5rem; /* space for close button */
+}
+
+.portfolio-modal-title {
+    color: var(--alabaster);
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin: 0;
+}
+
+.portfolio-modal-counter {
+    color: var(--gold);
+    font-size: 0.85rem;
+    opacity: 0.9;
+}
+
+.portfolio-modal-image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.portfolio-modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-modal-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.portfolio-modal-nav button {
+    pointer-events: all;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--alabaster);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-modal-nav button:hover:not(:disabled),
+.portfolio-modal-nav button:focus:not(:disabled) {
+    background: var(--gold);
+    border-color: var(--gold);
+    transform: scale(1.1);
+}
+
+.portfolio-modal-nav button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+/* Touch device optimizations */
+@media (hover: none), (pointer: coarse) {
+    .portfolio-card {
+        cursor: default;
+    }
+    
+    .portfolio-modal-nav button {
+        width: 48px;
+        height: 48px;
+        background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .portfolio-modal-close {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    #portfolio {
+        padding: 4rem 5vw;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .portfolio-intro {
+        margin-bottom: 3rem;
+    }
+    
+    .portfolio-intro p {
+        font-size: 1rem;
+    }
+    
+    .portfolio-modal-content {
+        width: 95%;
+        height: 95vh;
+        padding: 1rem;
+    }
+    
+    .portfolio-modal-close {
+        top: 1rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .portfolio-modal-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding-right: 3rem;
+    }
+    
+    .portfolio-modal-title {
+        font-size: 1.25rem;
+    }
+    
+    .portfolio-modal-nav button {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .portfolio-card-overlay {
+        padding: 1.5rem;
+    }
+    
+    .portfolio-card-overlay h3 {
+        font-size: 1.2rem;
+    }
+    
+    .portfolio-modal-nav {
+        padding: 0 0.5rem;
+    }
+}
+
+/* Center brand and social icons in the footer first column */
+.footer-grid > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem; /* reduced space between logo and icons */
+}
+
+.footer-grid > div:first-child a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

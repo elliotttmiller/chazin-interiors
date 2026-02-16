@@ -1,0 +1,80 @@
+{
+  "title": "Ventana Apartments",
+  "url": "https://www.pearsondesigns.com/portfolio-1/ventana-apartments",
+  "slug": "ventana-apartments",
+  "total_images": 12,
+  "images": [
+    {
+      "filename": "Exterior.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/4a0bc23d-5cf2-46cb-8f33-4f03d7d63916/Exterior.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Exterior.jpg"
+    },
+    {
+      "filename": "Exterior.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/1d077f93-9c39-4e5c-a8e2-4bc9f319473e/Exterior.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Exterior.jpg"
+    },
+    {
+      "filename": "Entry.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/082f3fc4-f8d8-478e-a4c6-00d1015ebe0e/Entry.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Entry.jpg"
+    },
+    {
+      "filename": "Kitchen+zoom.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/f711de11-7f7b-46a9-99e1-2c99cc874b87/Kitchen+zoom.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Kitchen+zoom.jpg"
+    },
+    {
+      "filename": "Living.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/0aaec5ab-184e-46d1-a239-204276e841cb/Living.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Living.jpg"
+    },
+    {
+      "filename": "dining.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/304ca0d6-c8cf-46a8-8c9b-1fe589f88b85/dining.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\dining.jpg"
+    },
+    {
+      "filename": "Bedroom+1B.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/99c26084-38aa-4911-91eb-1cba3c092541/Bedroom+1B.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Bedroom+1B.jpg"
+    },
+    {
+      "filename": "Bedroom+1.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/5546938c-3fac-4f1c-a0bd-a6d283c81abc/Bedroom+1.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Bedroom+1.jpg"
+    },
+    {
+      "filename": "Bedroom+2C.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/3bf3c9c9-357d-4fa5-a940-f46a39154d47/Bedroom+2C.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Bedroom+2C.jpg"
+    },
+    {
+      "filename": "Bedroom+2.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/5e600453-297e-4caa-a308-a44bcf75fa83/Bedroom+2.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Bedroom+2.jpg"
+    },
+    {
+      "filename": "Bedroom+2B.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/0cf00a13-86e1-46b1-98ed-66de387ad418/Bedroom+2B.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Bedroom+2B.jpg"
+    },
+    {
+      "filename": "Office.jpg",
+      "original_url": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/d4020876-3c3e-49e5-bc01-b15da005cef0/Office.jpg",
+      "alt": "",
+      "local_path": "pearson_portfolio\\Ventana Apartments\\Office.jpg"
+    }
+  ]
+}

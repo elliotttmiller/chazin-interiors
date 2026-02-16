@@ -1,0 +1,660 @@
+[
+  {
+    "name": "A&B Home",
+    "website": "https://www.abhomeinc.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/07873b38-d770-4cfb-889e-aa5c73e3ffab/AB+Home.png",
+    "categories": [
+      "Accessories",
+      "Art",
+      "Casegoods",
+      "Lighting"
+    ]
+  },
+  {
+    "name": "A.R.T. Furniture",
+    "website": "https://arthomefurnishings.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/eb4ba6d5-7d28-4faf-aa2c-60c1cd10be49/ART.png",
+    "categories": [
+      "Casegoods",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Alder & Tweed",
+    "website": "https://www.alderandtweedfurniture.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/11d0f282-6b29-4ccb-bad0-13f8a922ca9d/Alder+%26Tweed.png",
+    "categories": [
+      "Casegoods",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Allstate Floral",
+    "website": "https://www.allstatefloral.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/e1c6cc36-f52a-4da4-ac4e-5c7af12b30dc/Allstate+Floral.png",
+    "categories": [
+      "Accessories"
+    ]
+  },
+  {
+    "name": "Ambella Home",
+    "website": "https://www.ambellahome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/42ef3f60-2b53-426e-ae73-5e29207a0bd3/Ambella.png",
+    "categories": [
+      "Art",
+      "Casegoods",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "American Heritage Billiards",
+    "website": "https://www.americanheritagebilliards.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/68bda404-6649-4a8c-a683-a72d919fb174/American+Heritage+Billards.png",
+    "categories": [
+      "Casegoods"
+    ]
+  },
+  {
+    "name": "Amisco",
+    "website": "https://www.amisco.com/en_us/",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/341331ac-7e1a-4400-bcf4-de07a6cdf840/Amisco.png",
+    "categories": [
+      "Casegoods"
+    ]
+  },
+  {
+    "name": "Arteriors Home",
+    "website": "https://www.arteriorshome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/686c9475-275f-468a-b260-5913740f002c/Arteriors.png",
+    "categories": [
+      "Accessories",
+      "Casegoods",
+      "Lighting",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Artistica Home",
+    "website": "https://artisticahome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/44b66f53-7ec6-4167-87b0-2f6b4de44f46/Artistica+Home.png",
+    "categories": [
+      "Casegoods"
+    ]
+  },
+  {
+    "name": "Authentic Models",
+    "website": "https://authenticmodels.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/0959fcee-5a79-4430-ab74-82f89a6d24e2/Authentic+Models.png",
+    "categories": [
+      "Accessories",
+      "Casegoods",
+      "Lighting"
+    ]
+  },
+  {
+    "name": "Bassett Mirror Company",
+    "website": "https://www.bassettmirror.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/579a60db-f426-4f8f-bb7e-71512b794629/Bassett+Mirror.png",
+    "categories": [
+      "Art",
+      "Casegoods",
+      "Lighting"
+    ]
+  },
+  {
+    "name": "Bernhardt Furniture",
+    "website": "https://www.bernhardt.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/99a15fcb-f60f-406d-9ef1-d8bbb496fb01/Bernhardt.png",
+    "categories": [
+      "Casegoods",
+      "Outdoor",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Bradington Young",
+    "website": "https://www.bradington-young.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/90d48704-2fb0-49ed-8934-9fabb9fc4b66/Bradington+Young.png",
+    "categories": [
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Bramble Co.",
+    "website": "https://www.brambleco.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/1352798d-c19c-48f4-a074-fe0689e52084/Bramble.png",
+    "categories": [
+      "Accessories",
+      "Casegoods",
+      "Lighting"
+    ]
+  },
+  {
+    "name": "Braxton Culler",
+    "website": "https://www.braxtonculler.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/5b32e136-0b79-4251-902c-fa6f258811c5/Braxton+Culler.png",
+    "categories": [
+      "Casegoods",
+      "Outdoor",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Brown Jordan",
+    "website": "https://www.brownjordan.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/6baec532-fb7b-48a1-8c80-da0d35dd3e20/Brown+Jordan.png",
+    "categories": [
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Capel Inc.",
+    "website": "https://capelrugs.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/f42c74db-a2e3-4e44-8dcc-7e85f9c84b1f/Capel.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Caracole",
+    "website": "https://caracole.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/fbf8b87d-ca99-4073-92a9-946aa95645ef/caracole.png",
+    "categories": [
+      "Casegoods",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Castelle",
+    "website": "https://www.castellefurniture.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/d8ab9534-3b00-4627-bfec-d492f34010b4/Castelle.png",
+    "categories": [
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Century",
+    "website": "https://www.centuryfurniture.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/5a7cce87-3661-430c-9a3b-ab0d7e76e2ad/Century.png",
+    "categories": [
+      "Casegoods",
+      "Outdoor",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Chandra Rugs",
+    "website": "https://www.shopchandra.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/42fedbcf-2f07-497c-85de-64809afc169c/Chandra.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Chelsea House",
+    "website": "https://www.chelseahouseinc.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/9738c2ed-bca8-4f2f-861a-ffa5cb7d571e/Chelsea+House.png",
+    "categories": [
+      "Accessories",
+      "Art",
+      "Casegoods"
+    ]
+  },
+  {
+    "name": "Classic Home",
+    "website": "https://www.classichome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/874bdc4e-37bd-47e4-961d-11dfe00b1f93/Classic+Home.png",
+    "categories": [
+      "Lighting",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Classic Home",
+    "website": "https://chmediastorage.blob.core.windows.net/iframe/rugs-fallcatalog2022.html",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/9169884c-edbe-489f-9f4c-d07873168e09/Classic+Home.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Coaster Fine Furniture",
+    "website": "https://www.coasterfurniture.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/6aede311-db11-4958-9ed4-40e40a68d6d6/Coaster.png",
+    "categories": [
+      "Lighting",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Creative Co-Op",
+    "website": "https://www.creativecoop.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/7654d158-5e2a-42cf-b4e3-bf7d7789b825/Creative+co-op.png",
+    "categories": [
+      "Accessories",
+      "Lighting",
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Crestview Collection",
+    "website": "https://www.crestviewcollection.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/014f3690-7542-4f6b-9dcf-4d1be282b765/Crestview+Collection.png",
+    "categories": [
+      "Accessories",
+      "Art",
+      "Lighting"
+    ]
+  },
+  {
+    "name": "Crystorama Lighting",
+    "website": "https://www.crystorama.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/6f732443-d354-404b-b117-aab76cb15698/Crystorama.png",
+    "categories": [
+      "Lighting"
+    ]
+  },
+  {
+    "name": "Currey & Company",
+    "website": "https://www.curreyandcompany.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/119ab59a-1074-45b2-849b-ca9e499a8e16/Currey.png",
+    "categories": [
+      "Lighting",
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Cyan Design",
+    "website": "https://cyan.design",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/e48c1cf6-cad3-473d-8f5f-6aa957de7646/Cyan.png",
+    "categories": [
+      "Accessories",
+      "Lighting"
+    ]
+  },
+  {
+    "name": "D.V. Kap Home",
+    "website": "https://dvkap.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/5e3c858b-c9a5-44ad-bf53-e84ca10716ad/D.V.+KAP.png",
+    "categories": [
+      "Fabric"
+    ]
+  },
+  {
+    "name": "DW Silks",
+    "website": "https://www.dwsilks.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/799ddc70-2720-4afd-a9a9-ad177bb27540/DW+Silk.png",
+    "categories": [
+      "Accessories"
+    ]
+  },
+  {
+    "name": "Dash & Albert",
+    "website": "https://annieselke.com/dashandalbert",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/72e71933-1a02-4dc2-8366-e87686e61663/Dash+%26+Albert.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Dessau Home",
+    "website": "https://dessauhome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/73edccac-ce73-4e40-a9b1-ed2217a27583/Dessau+Home.png",
+    "categories": [
+      "Accessories"
+    ]
+  },
+  {
+    "name": "Dovetail",
+    "website": "https://www.dovetailhome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/7630636d-592c-495b-922b-34bcaad9bb26/Dovetail.png",
+    "categories": [
+      "Accessories"
+    ]
+  },
+  {
+    "name": "Eastern Accents",
+    "website": "https://www.easternaccents.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/262b2098-8add-4e9c-b78f-0db2fb51ae55/Eastern+Accents.png",
+    "categories": [
+      "Accessories"
+    ]
+  },
+  {
+    "name": "Elk Home",
+    "website": "https://www.elkhome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/416fef29-0ba6-452a-bbb0-55ed3d9433e9/Elk.png",
+    "categories": [
+      "Accessories",
+      "Art",
+      "Lighting"
+    ]
+  },
+  {
+    "name": "Essentials for Living",
+    "website": "https://www.essentialsforliving.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/63cc2742-9414-4aeb-95e5-ca9685729c11/Essentials+for+Living.png",
+    "categories": [
+      "Outdoor",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Eurostyle",
+    "website": "https://euro.style",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/905924d4-537d-43bb-b35b-13ae4dee0fb2/Eurostyle.png",
+    "categories": [
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Fabricut",
+    "website": "https://fabricut.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/23c8188a-1795-410a-80a1-8cd1c16ea881/Fabricut.png",
+    "categories": [
+      "Fabric"
+    ]
+  },
+  {
+    "name": "Feizy",
+    "website": "https://www.feizy.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/a5bf9754-2786-441b-8a76-d5486ddafc4d/Feizy.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Forty West Designs",
+    "website": "https://www.fortywestdesigns.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/61e96e09-ba61-4d5f-8a27-54a84829f836/Forty+West.png",
+    "categories": [
+      "Lighting"
+    ]
+  },
+  {
+    "name": "Furniture Classics",
+    "website": "https://www.furnitureclassics.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/9e6da540-c0fd-493a-9bc9-24059f64fc2b/Furniture+Classics.png",
+    "categories": [
+      "Lighting",
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Gabby Home",
+    "website": "https://gabbyhome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/d59e4753-3d70-4333-96d1-e2dd039c0efd/Gabby.png",
+    "categories": [
+      "Lighting",
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Global Views",
+    "website": "https://www.globalviews.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/3628cff4-bbeb-46b1-8acc-fa55a805c8ce/Global+Views.png",
+    "categories": [
+      "Accessories"
+    ]
+  },
+  {
+    "name": "Go Home",
+    "website": "https://gohomeltd.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/ab372987-b7e4-498d-be7c-6b7d4d0be73e/Go+Home.png",
+    "categories": [
+      "Accessories"
+    ]
+  },
+  {
+    "name": "Hickory Chair",
+    "website": "http://www.hickorychair.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/56e076e6-f20e-4896-8286-a1c62b119610/Hickory+Chair.png",
+    "categories": [
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Hooker",
+    "website": "https://www.hookerfurniture.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/ffc7d011-2f44-42ea-859b-71d9b78f7f4d/Hooker.png",
+    "categories": [
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "Iconic Pineapple",
+    "website": "https://iconicpineapple.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/a41ddbca-9be8-46f1-bffd-f78e269dcd6e/Iconic+Pineapple.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "Jaipur",
+    "website": "https://www.jaipurrugs.com/us/",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/f2e123e0-83de-4456-8f85-115c317d3dfb/Jaipur.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Jaunty",
+    "website": "https://www.jauntyinc.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/12e2b2ac-f6ac-4ac8-a656-1e322803f542/Jaunty.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "John Michael Designs",
+    "website": "https://jmdfurniture.net",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/4a551b6d-7375-4206-9ed2-15f0ca4f87a2/John+Michael+Designs.png",
+    "categories": [
+      "Upholstery"
+    ]
+  },
+  {
+    "name": "John Richard",
+    "website": "https://www.johnrichard.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/c33d4295-1488-40f7-88e0-8f5a91a2df28/John+Richard.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "KAS",
+    "website": "https://www.kasrugs.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/ef6278d0-f66f-4a77-a178-488f1a48dd55/KAS.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Kaleen",
+    "website": "https://www.kaleen.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/6d60b5e2-d5e2-4037-924d-d9c8a4e99a6e/Kaleen.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Lane Venture",
+    "website": "https://www.laneventure.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/a1e5de0a-0b6b-46b4-930a-194ac3d464fe/Lane+Venture.png",
+    "categories": [
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Lauren Galleries",
+    "website": "http://laurengalleries.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/ada5e1be-f316-4dc8-b204-a90ec2e1bc8f/Lauren+Galleries.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "Leftbank Art",
+    "website": "https://www.leftbankart.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/cdc4a642-34d9-4d67-8542-9393da5dde57/Leftbank+Art.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "Loloi",
+    "website": "https://www.loloirugs.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/1dee0870-9473-4c58-a9f0-b25f3451f7dd/Loloi.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Mercana",
+    "website": "https://www.mercana.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/7cde5bd6-fc13-4aac-b14b-239448e4e5b4/Mercana.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "Momeni",
+    "website": "https://www.momeni.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/daffb1e9-ec3d-4a00-9dba-301b2c0af00f/Momeni.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Nourison",
+    "website": "https://www.nourison.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/a15f4cdf-449b-4975-98b4-e382d2412727/Nourison.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Palecek",
+    "website": "https://www.palecek.com/palecek/",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/252f24e9-61e9-4ddf-a1a1-4a70a0640bf0/Palecek.png",
+    "categories": [
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Paragon",
+    "website": "https://www.paragonpg.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/7fc287a1-b179-40c6-8fee-fa17ddbacc5b/Paragon.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "Picture Source",
+    "website": "https://www.picture-source.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/399a311b-717a-4f49-b947-428835ba5274/Picture+Source.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "Pindler",
+    "website": "https://www.pindler.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/3f036d38-b2a2-4504-b833-6a759ec630ce/Pindler.png",
+    "categories": [
+      "Fabric"
+    ]
+  },
+  {
+    "name": "Ralph Lauren Home",
+    "website": "https://www.ralphlaurenhome.com/products/",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/4bdac8c4-054d-4adb-9979-f828ea1d7eda/Ralph+Lauren+Home.png",
+    "categories": [
+      "Art",
+      "Fabric",
+      "Outdoor",
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Rizzy Home",
+    "website": "https://www.rizzyhome.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/d4125de4-9077-43fa-8a3d-d1777d0507e4/rizzy+home.png",
+    "categories": [
+      "Rugs"
+    ]
+  },
+  {
+    "name": "SIS Cover",
+    "website": "https://www.siscovers.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/08c1faaa-65c3-405c-a093-5408b6c8668e/SIS+Covers.png",
+    "categories": [
+      "Fabric"
+    ]
+  },
+  {
+    "name": "Schumacher",
+    "website": "https://fschumacher.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/00192f96-daf5-49c9-9a51-f136e8b29c3a/Schumacher.png",
+    "categories": [
+      "Fabric"
+    ]
+  },
+  {
+    "name": "Style Craft",
+    "website": "https://www.stylecraftonline.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/4849dd8a-a0fd-4640-b5f5-1deae02eec2b/Style+Craft.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "Summer Classics",
+    "website": "https://summerclassics.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/f6668ad2-b148-4bda-a28f-fcfb00cd2f9f/Summer+Classic.png",
+    "categories": [
+      "Outdoor",
+      "Rugs"
+    ]
+  },
+  {
+    "name": "Sunpan",
+    "website": "https://sunpan.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/8e3acec9-88b9-472d-bb49-92c1ae2299c4/sunpan.png",
+    "categories": [
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Sunset West",
+    "website": "https://sunsetwestusa.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/62875e5d-351d-40b1-9b20-746db779f435/Sunset+West.png",
+    "categories": [
+      "Outdoor"
+    ]
+  },
+  {
+    "name": "Tozai Home",
+    "website": "https://www.tozaihome.com/tozai/",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/cce261a2-8de0-4232-9a89-b42270f9fc84/tozai.png",
+    "categories": [
+      "Art"
+    ]
+  },
+  {
+    "name": "United Fabrics",
+    "website": "https://www.unitedfabrics.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/718c9599-323f-49fa-9ef0-56aff75af0e0/United+Fabrics.png",
+    "categories": [
+      "Fabric"
+    ]
+  },
+  {
+    "name": "Woodbridge",
+    "website": "https://www.woodbridgefurniture.com",
+    "brand_image": "https://images.squarespace-cdn.com/content/v1/61c0e3549a040109a62e4a34/e010ad6e-9ebe-40da-b018-12ce356ca1c9/Woodbridge.png",
+    "categories": [
+      "Outdoor"
+    ]
+  }
+]
